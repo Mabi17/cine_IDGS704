@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Gestión de Proyecciones</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f9f9f9;
+            }
+
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+
+            .filter-container {
+                margin: 20px 0;
+                text-align: center;
+            }
+
+            select {
+                padding: 8px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+            }
+
+            .button-container {
+                text-align: right;
+                margin: 10px 0;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 16px;
+                color: white;
+                background-color: #4CAF50;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+
+            .btn:hover {
+                background-color: #45a049;
+            }
+
+            table {
+                width: 95%;
+                border-collapse: collapse;
+                margin-top: 20px;
+                background-color: #fff;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+                margin-left: 10px;
+            }
+
+            th, td {
+                border: 1px solid #e0e0e0;
+                
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            th {
+                background-color: #f8f9fa;
+                font-weight: bold;
+                color: #495057;
+                text-align: center;
+            }
+
+            td {
+                color: #212529;
+                text-align: center;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f8f9fa;
+            }
+
+            tr:hover {
+                background-color: #e9ecef;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Gestión de Proyecciones</h1>
+
+        <!-- Filtro de fechas -->
+        <div class="filter-container">
+            <label for="filter-date">Días con Funciones:</label>
+            <select id="filter-date" onchange="filtrarPorFecha()">
+                <option value="">Selecciona un día</option>
+                <!-- Iterar sobre la lista de días y formatear las fechas -->
+                <th:block th:each="fecha : ${diasFunciones}">
+                    <option th:value="${fecha}" th:text="${#dates.format(fecha, 'dd MMM yyyy')}"></option>
+                </th:block>
+            </select>
+        </div>
+
+        <!-- Botón para generar PDF -->
+        <div class="button-container">
+            <button id="generatePdfBtn" class="btn">Generar PDF</button>
+        </div>
+
+        <!-- Tabla de Proyecciones -->
+        <table id="proyecciones-table">
+            <thead>
+                <tr>
+                    <th>Película</th>
+                    <th>Salas</th>
+                    <th>Tipo de Rendimiento</th>
+                    <th>Hora Inicio</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <th:block th:each="proyeccion : ${horarioProyeccion}">
+                    <tr th:data-fecha="${proyeccion.fecha}">
+                        <td th:text="${proyeccion.Pelicula.titulo}"></td>
+                        <td th:text="${proyeccion.Sala.nombreSala}"></td>
+                        <td th:text="${proyeccion.Sala.tipoRendimiento}"></td>
+                        <td th:text="${#dates.format(proyeccion.hora, 'HH:mm')}"></td>
+<td th:text="${#dates.format(proyeccion.fecha, 'dd/MM/yyyy')}"></td>
+
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+
+        <script>
+            // Filtrar proyecciones según la fecha seleccionada
+            function filtrarPorFecha() {
+                const fechaSeleccionada = document.getElementById('filter-date').value;
+                const filas = document.querySelectorAll('#proyecciones-table tbody tr');
+
+                filas.forEach(fila => {
+                    const fechaFila = fila.getAttribute('data-fecha');
+                    if (fechaSeleccionada === '' || fechaSeleccionada === fechaFila) {
+                        fila.style.display = '';
+                    } else {
+                        fila.style.display = 'none';
+                    }
+                });
+            }
+
+            // Función para generar PDF
+            document.getElementById('generatePdfBtn').addEventListener('click', function(event) {
+                event.preventDefault();
+                const table = document.getElementById('proyecciones-table');
+                const rows = table.querySelectorAll('tbody tr');
+                
+                const data = { data: [] };
+                rows.forEach(row => {
+                    if (row.style.display !== 'none') {
+                        const cells = row.querySelectorAll('td');
+                        const rowData = {
+                            pelicula: cells[0].textContent,
+                            sala: cells[1].textContent,
+                            tipoRendimiento: cells[2].textContent,
+                            hora: cells[3].textContent,
+                            fecha: cells[4].textContent
+                        };
+                        data.data.push(rowData);
+                    }
+                });
+
+                fetch('/horarioProyeccion/generar-pdf', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                .then(response => response.blob())
+                .then(blob => {
+                    const link = document.createElement('a');
+                    link.href = URL.createObjectURL(blob);
+                    link.download = 'proyecciones.pdf';
+                    link.click();
+                })
+                .catch(error => console.error('Error al generar el PDF:', error));
+            });
+        </script>
+    </body>
+</html>
