@@ -1,92 +1,271 @@
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <title>Gestión de Proyecciones</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {
-                font-family: Arial, sans-serif;
-                margin: 20px;
-                background-color: #f9f9f9;
-            }
+<html lang="en">
 
-            h1 {
-                text-align: center;
-                color: #333;
-            }
+<head>
 
-            .filter-container {
-                margin: 20px 0;
-                text-align: center;
-            }
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-            select {
-                padding: 8px;
-                font-size: 14px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-            }
+    <title>Dashborad - CinemaPremier</title>
 
-            .button-container {
-                text-align: right;
-                margin: 10px 0;
-            }
+    <!-- Fuentes para la plantilla-->
 
-            .btn {
-                padding: 10px 20px;
-                font-size: 16px;
-                color: white;
-                background-color: #4CAF50;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                text-decoration: none;
-            }
 
-            .btn:hover {
-                background-color: #45a049;
-            }
+    <!-- Fuentes para la plantilla-->
+    <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
-            table {
-                width: 95%;
-                border-collapse: collapse;
-                margin-top: 20px;
-                background-color: #fff;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-                margin-left: 10px;
-            }
+    <!-- Estilos personalizados -->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/Dashboard/navbar-styles.css" rel="stylesheet">
+    <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
+    <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
+    <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
 
-            th, td {
-                border: 1px solid #e0e0e0;
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Protector de la pagina -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Logo de la Sidebar-->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../index.html">
+                <div class="sidebar-brand-icon rotate-n-0">
+                    <img src="../../img/logo-cinema.png" alt="Logo" style="width: 60px; height: 60px;">
+                </div>
+            </a>
+
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.html">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span></a>
+            </li>
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider">
+
+            <!-- Encabezado -->
+            <div class="sidebar-heading">
+                Gestiones
+            </div>
+
+            <!-- Nav Item - Contraer menú de Gestion de boletos-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBoletos"
+                    aria-expanded="true" aria-controls="collapseBoletos">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de boletos</span>
+                </a>
+                <div id="collapseBoletos" class="collapse" aria-labelledby="headingBoletos"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeBoletos/ventaBoletos.html">Venta de boletos</a>
+                        <a class="collapse-item" href="../gestionDeBoletos/reservacionBoletos.html">Reservación de
+                            boletos</a>
+                        <a class="collapse-item" href="../gestionDeBoletos/validacionBoletos.html">Validación de
+                            boletos</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de salas-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSalas"
+                    aria-expanded="true" aria-controls="collapseSalas">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de salas</span>
+                </a>
+                 <div id="collapseSalas" class="collapse" aria-labelledby="headingSalas" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="gestionSalas.html">Gestión</a>
+                        <a class="collapse-item" href="configuracionProyeccin.html">Configuración
+                            de <br>proyección</a>
+                        <a class="collapse-item" href="mantenimientoSalas.html">Mantenimiento de
+                            salas</a>
+                        <a class="collapse-item" href="horarioProyeccion">Horario de Salas</a>
+                    </div>
+               
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de Funciones-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFunciones"
+                    aria-expanded="true" aria-controls="collapseFunciones">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de funciones</span>
+                </a>
+                <div id="collapseFunciones" class="collapse" aria-labelledby="headingFunciones"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeFunciones/programacionDeFunciones.html">Programación
+                            de funciones</a>
+                        <a class="collapse-item" href="../gestionDeFunciones/gestionFuncionesEspeciales.html">Gestión
+                            de funciones <br>especiales y estrenos</a>
+                        <a class="collapse-item" href="../gestionDeFunciones/gestionDeFuncionesCanceladas.html">Gestión
+                            de funciones
+                            <br>canceladas</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú Gestion de empleados-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmpleados"
+                    aria-expanded="true" aria-controls="collapseEmpleados">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de empleados</span>
+                </a>
+                <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                            empleados</a>
+                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                            <br>empleados</a>
+                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                            asistencia<br>de empleados</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de clientes-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes"
+                    aria-expanded="true" aria-controls="collapseClientes">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de clientes</span>
+                </a>
+                <div id="collapseClientes" class="collapse" aria-labelledby="headingClientes"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeClientes/gestionClientes.html">Gestión</a>
+                        <a class="collapse-item" href="../gestionDeClientes/registroDeClientes.html">Registro de
+                            clientes</a>
+                        <a class="collapse-item" href="../gestionDeClientes/historialDeComprasDeClientes.html">Historial
+                            de compras<br>de
+                            clientes</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider">
+
+            <!-- Encabezado -->
+            <div class="sidebar-heading">
+                Modulos
+            </div>
+
+            <!-- Nav Item - Contraer menú de Dulcería -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDulceria"
+                    aria-expanded="true" aria-controls="collapseDulceria">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Dulcería</span>
+                </a>
+                <div id="collapseDulceria" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../dulceria/inventariDulceria.html">Inventario de dulcería</a>
+                        <a class="collapse-item" href="../dulceria/preciosDulceria.html">Gestión de precios</br> de
+                            dulcería</a>
+                        <a class="collapse-item" href="../dulceria/ventasDulceria.html">Ventas de dulcería</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Contraer menú de Peliculas -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeliculas"
+                    aria-expanded="true" aria-controls="collapsePeliculas">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Peliculas</span>
+                </a>
+                <div id="collapsePeliculas" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../../index.html">Login</a>
+                        <a class="collapse-item" href="../../index.html">Register</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Contraer menú de Reportes -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes"
+                    aria-expanded="true" aria-controls="collapseReportes">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Reportes</span>
+                </a>
+                <div id="collapseReportes" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de ventas</a>
+                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de algo</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+
+
+
+
+
+
+        </ul>
+        <!-- Fin de la Sidebar -->
+        <!-- Contenido del Dashboard -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Contenido principal -->
+            <div id="content">
+
+                <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Texto dentro de la barra -->
+                    <span class="navbar-title">
+                        Cinema Premier
+                    </span>
+                </nav>
+
+
+
                 
-                padding: 12px 15px;
-                font-size: 14px;
-            }
-
-            th {
-                background-color: #f8f9fa;
-                font-weight: bold;
-                color: #495057;
-                text-align: center;
-            }
-
-            td {
-                color: #212529;
-                text-align: center;
-            }
-
-            tr:nth-child(even) {
-                background-color: #f8f9fa;
-            }
-
-            tr:hover {
-                background-color: #e9ecef;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Gestión de Proyecciones</h1>
+                <!-- Begin Page Content -->
+                 <h1>Gestión de Proyecciones</h1>
 
         <!-- Filtro de fechas -->
         <div class="filter-container">
@@ -130,6 +309,71 @@
             </tbody>
         </table>
 
+
+
+
+            </div>
+            <!-- Fin del contenido principal -->
+
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; CinemaPremier 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- fin del Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../../vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../../js/demo/chart-area-demo.js"></script>
+    <script src="../../js/demo/chart-pie-demo.js"></script>
         <script>
             // Filtrar proyecciones según la fecha seleccionada
             function filtrarPorFecha() {
@@ -182,5 +426,6 @@
                 .catch(error => console.error('Error al generar el PDF:', error));
             });
         </script>
-    </body>
+</body>
+
 </html>
