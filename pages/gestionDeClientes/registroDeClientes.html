@@ -241,200 +241,62 @@
 
 
         <!-- Contenido del Dashboard -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        
 
-            <!-- Contenido principal -->
-            <div id="content">
+          <div class="container">
+            <div class="container-fluid mt-5">
+                <form class="row g-4">
+                    <h3 class="mb-3 text-primary text-center">Gestión de Clientes</h3>
+                </form>
 
-                <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
+                <!-- Primera Fila -->
 
-                    <!-- Texto dentro de la barra -->
-                    <span class="navbar-title">
-                        Cinema Premier
-                    </span>
-                </nav>
-
-                <!-- Contenido dentro del dashboard -->
-                <div class="container-fluid">
-                    <div class="row g-5">
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeBoletos/ventaBoletos.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-ticket-alt fa-3x"></i>
-                                    <h5 class="card-title mt-3">Venta de boletos</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="index.html" class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fa fa-film fa-3x"></i>
-                                    <h5 class="card-title mt-3">Peliculas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeSalas/gestionSalas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-video fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de salas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionEmpleados.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de empleados</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/dulceria/ventasDulceria.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-cash-register fa-3x"></i>
-                                    <h5 class="card-title mt-3">Ventas de dulcería</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/gestionClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeFunciones/programacionDeFunciones.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-clock fa-3x"></i>
-                                    <h5 class="card-title mt-3">Programación de funciones</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionRoles.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-cog fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de roles</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/registroDeClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-plus fa-3x"></i>
-                                    <h5 class="card-title mt-3">Registro de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/reportes/reportesDeVentas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="far fa-file-pdf fa-3x"></i>
-                                    <h5 class="card-title mt-3">Reportes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="employeeName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control shadow-sm" id="employeeName" placeholder="Nombre ">
                     </div>
-                </div>
 
-
-
-                <!-- Contenido dentro del dashboard -->
-
-
-
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; CinemaPremier 2024</span>
+                    <div class="col-md-4">
+                        <label for="employeeName" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control shadow-sm" id="employeeNamelastnameFa"
+                            placeholder="Apellido Paterno">
                     </div>
+
+                    <div class="col-md-4">
+                        <label for="employeeName" class="form-label">Apellido Materno</label>
+                        <input type="text" class="form-control shadow-sm" id="employeelastnameMo"
+                            placeholder="Apellido Materno">
+                    </div>
+
                 </div>
-            </footer>
-            <!-- fin del Footer -->
 
-        </div>
-        <!-- End of Content Wrapper -->
+                <br>
 
-    </div>
-    <!-- End of Page Wrapper -->
+                <!-- Segunda Fila -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+                <div class="row">
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
+                    <div class="col-md-6">
+                        <label for="inputAddress" class="form-label">Calle</label>
+                        <input type="text" class="form-control shadow-sm" id="inputAddress"
+                            placeholder="San pedritro #1083">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAddress2" class="form-label">Colonia</label>
+                        <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Colonia">
+                    </div>
+
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+
+                <br>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm"
+                        id="registrarEmpleado">Registrar cliente</button>
                 </div>
+                </form>
             </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/butterup-main/butterup.min.js"></script>
-
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>
-    <script src="../../js/Controladores/index.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../../vendor/chart.js/Chart.min.js"></script>
-    <!-- Page level custom scripts -->
-    <script src="../../js/demo/chart-area-demo.js"></script>
-    <script src="../../js/demo/chart-pie-demo.js"></script>
+          </div>
 
 </body>
 
