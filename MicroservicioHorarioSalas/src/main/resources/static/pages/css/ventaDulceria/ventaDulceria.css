@@ -1,0 +1,127 @@
+/* Estilos generales de la tabla */
+.table-responsive {
+    margin: 20px 0;
+}
+
+.table {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Cabecera de la tabla */
+thead.bg-info th {
+    background-color: #0A1240 !important; /* Color azul info */
+    color: white !important; /* Texto blanco */
+    font-weight: bold;
+}
+
+/* Celdas de la tabla */
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1; /* Fondo al pasar el cursor */
+}
+
+.table-bordered th, 
+.table-bordered td {
+    border: 1px solid #dee2e6; /* Borde de las celdas */
+}
+
+/* Texto centrado y colores */
+.text-center {
+    text-align: center;
+}
+
+tbody tr {
+    color: #343a40; /* Color del texto */
+    font-size: 14px;
+}
+
+/* Filas vacías */
+tbody tr:first-child th {
+    background-color: #f1f1f1; /* Fondo rojo claro */
+    color: #0A1240; /* Texto rojo */
+}
+
+/* Botones de acciones */
+th[colspan="9"] {
+    font-style: italic;
+}
+
+/* Ajustes de las celdas */
+th, td {
+    padding: 10px;
+    vertical-align: middle;
+}
+
+/* Estilo del botón con fondo personalizado */
+#btn_modal_buscar_codigo {
+    background-color: #0A1240; /* Cambia a tu color preferido */
+    border: none; /* Opcional: elimina bordes */
+}
+
+/* Estilo para el botón cuando el mouse pasa sobre él */
+#btn_modal_buscar_codigo:hover {
+    background-color: #4A6AB0; /* Cambia a un color diferente para hover */
+}
+
+/* Estilo para el botón cuando está activo */
+#btn_modal_buscar_codigo:active {
+    background-color: #4A6AB0; /* Cambia a un color más oscuro para el estado activo */
+}
+
+/* Estilo del botón con fondo personalizado */
+button.btn.btn-primary[onclick="agregar_producto()"] {
+    background-color: #0A1240; /* Cambia a tu color preferido */
+    border: none; /* Opcional: elimina bordes */
+}
+
+/* Estilo para el botón cuando el mouse pasa sobre él */
+button.btn.btn-primary[onclick="agregar_producto()"]:hover {
+    background-color: #4A6AB0; /* Cambia a un color diferente para hover */
+}
+
+/* Estilo para el botón cuando está activo */
+button.btn.btn-primary[onclick="agregar_producto()"]:active {
+    background-color: #4A6AB0; /* Cambia a un color más oscuro para el estado activo */
+}
+
+#btn_modal_cliente{
+    background-color: #0A1240; /* Cambia a tu color preferido */
+    border: none; /* Opcional: elimina bordes */
+}
+
+/* Estilo para el botón cuando el mouse pasa sobre él */
+#btn_modal_buscar_codigo:hover {
+    background-color: #4A6AB0; /* Cambia a un color diferente para hover */
+}
+
+/* Estilo para el botón cuando está activo */
+#btn_modal_buscar_codigo:active {
+    background-color: #4A6AB0; /* Cambia a un color más oscuro para el estado activo */
+}
+
+#btn_modal_descuento{
+    background-color: #0A1240; /* Cambia a tu color preferido */
+    border: none; /* Opcional: elimina bordes */
+}
+
+/* Estilo para el botón cuando el mouse pasa sobre él */
+#btn_modal_buscar_codigo:hover {
+    background-color: #4A6AB0; /* Cambia a un color diferente para hover */
+}
+
+/* Estilo para el botón cuando está activo */
+#btn_modal_buscar_codigo:active {
+    background-color: #4A6AB0; /* Cambia a un color más oscuro para el estado activo */
+}
+
+#modificar_precio{
+    background-color: #EE4946; /* Cambia a tu color preferido */
+    border: none; /* Opcional: elimina bordes */
+}
+
+/* Estilo para el botón cuando el mouse pasa sobre él */
+#modificar_precio:hover {
+    background-color: #F8A488; /* Cambia a un color diferente para hover */
+}
