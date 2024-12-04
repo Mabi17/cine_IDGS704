@@ -274,6 +274,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Reporte Diario</h5>
                             <p class="card-text">Ventas del día actual</p>
+                            <span id="totalVentas"></span><br><br>
                             <button class="btn btn-primary">Ver Reporte</button>
                           </div>
                         </div>
@@ -283,6 +284,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Reporte Semanal</h5>
                             <p class="card-text">Ventas acumuladas esta semana</p>
+                            <span id="totalVentasSemana"></span><br><br>
                             <button class="btn btn-primary">Ver Reporte</button>
                           </div>
                         </div>
@@ -292,6 +294,7 @@
                           <div class="card-body">
                             <h5 class="card-title">Reporte Mensual</h5>
                             <p class="card-text">Rendimiento de este mes</p>
+                            <span id="totalVentasMes"></span><br><br>
                             <button class="btn btn-primary">Ver Reporte</button>
                           </div>
                         </div>
@@ -299,8 +302,9 @@
                       <div class="col-md-3">
                         <div class="card text-center shadow-sm">
                           <div class="card-body">
-                            <h5 class="card-title">Top Vendido</h5>
-                            <p class="card-text">Lo más popular</p>
+                            <h5 class="card-title">Reporte Anual</h5>
+                            <p class="card-text">Rendimiento de este año</p>
+                            <span id="totalVentasAnio"></span><br><br>
                             <button class="btn btn-primary">Ver Reporte</button>
                           </div>
                         </div>
@@ -310,19 +314,25 @@
                     <!-- Gráficas -->
                     <div class="row mt-5">
                       <div class="col-md-6">
-                        <canvas id="dailyChart"></canvas>
+                        <canvas id="ventasDia"></canvas>
                       </div>
                       <div class="col-md-6">
-                        <canvas id="weeklyChart"></canvas>
+                        <canvas id="ventasSemana"></canvas>
                       </div>
                     </div>
                     <div class="row mt-4">
                       <div class="col-md-6">
-                        <canvas id="monthlyChart"></canvas>
+                        <canvas id="ventasMes"></canvas>
                       </div>
                       <div class="col-md-6">
-                        <canvas id="topChart"></canvas>
+                        <canvas id="ventasAnio"></canvas>
                       </div>
+                      
+                    </div>
+                    <div>
+                        <div class="mt-4 text-center" >
+                            <canvas id="ventasTop"></canvas>
+                        </div>
                     </div>
                   
                     <!-- Botón para imprimir -->
