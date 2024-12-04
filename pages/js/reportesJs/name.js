@@ -45,7 +45,7 @@
   // Función para inicializar los gráficos
   async function init() {
     // Obtener datos de la API
-    const ventasDia = await fetchData('http://127.0.0.1:5000/ventas_por_dia');
+    const ventasDia = await fetchData('http://162.214.153.239:5000/ventas_por_dia');
    
 
     /*
@@ -113,7 +113,7 @@
 /**
  * 
  */
-fetch('http://127.0.0.1:5000/suma_total_ventas')
+fetch('http://162.214.153.239:5000/suma_total_ventas')
 .then(response => response.json())
 .then(data => {
     // Obtenemos el total de ventas de la respuesta y lo mostramos en la tarjeta
