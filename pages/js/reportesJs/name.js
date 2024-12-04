@@ -46,19 +46,32 @@
   async function init() {
     // Obtener datos de la API
     const ventasDia = await fetchData('http://127.0.0.1:5000/ventas_por_dia');
-    const ventasSemana = await fetchData('http://127.0.0.1:5000/ventas_por_semana');
+   
+
+    /*
+     const ventasSemana = await fetchData('http://127.0.0.1:5000/ventas_por_semana');
     const ventasMes = await fetchData('http://127.0.0.1:5000/ventas_por_mes');
     const ventasAnio = await fetchData('http://127.0.0.1:5000/ventas_por_anio');
     const productosMasVendidos = await fetchData('http://127.0.0.1:5000/productos_mas_vendidos');
+    */ 
+   
     
-    // Graficar Ventas Diarias
+    const ventaIds = ventasDia.ventas.map(v => `Venta ${v.id}`);
+    // Totales de cada venta
+    const ventaTotales = ventasDia.ventas.map(v => v.total);
+    // Graficar Ventas Diarias (individuales)
+   
+
     createChart(
-      'ventasDia',
-      'line', // Tipo de gráfico: línea
-      ventasDia.map(d => d.fecha), // Etiquetas (fechas)
-      ventasDia.map(d => d.total), // Datos (totales)
-      'Ventas Diarias' // Título
+      'ventasDia',       // ID del canvas
+      'bar',             // Tipo de gráfico: barras
+      ventaIds,          // Etiquetas: IDs de ventas
+      ventaTotales,      // Datos: Totales individuales
+      'Totales de Ventas Diarias' // Título
     );
+   
+
+  
     // Graficar Ventas Semanal
     createChart(
       'ventasSemana',
@@ -100,11 +113,11 @@
 /**
  * 
  */
-fetch('http://localhost:5000/total_ventas')
+fetch('http://127.0.0.1:5000/suma_total_ventas')
 .then(response => response.json())
 .then(data => {
     // Obtenemos el total de ventas de la respuesta y lo mostramos en la tarjeta
-    document.getElementById('totalVentas').innerText = '$' + data.total_ventas;
+    document.getElementById('totalVentas').innerText = '$' + data.suma_total;
 })
 .catch(error => {
     console.error('Error al obtener el total de ventas:', error);
@@ -141,3 +154,27 @@ fetch('http://localhost:5000/total_ventas_anio')
     console.error('Error al obtener el total de ventas:', error);
     document.getElementById('totalVentasAnio').innerText = 'Error al cargar el total.';
 });
+
+
+// imprimir 
+
+function printChart() {
+  const canvas = document.getElementById('ventasDia');
+
+  // Obtener el contenido del canvas como imagen
+  const dataURL = canvas.toDataURL();
+
+  // Crear una nueva ventana para imprimir
+  const printWindow = window.open('_', '_');
+  printWindow.document.write('<h3>Ventas Dulceria</h3>'); // Título opcional
+  printWindow.document.write(`<img src="${dataURL}" style="width: 100%; max-width: 600px;">`); // Insertar la imagen
+  printWindow.document.write('</body></html>');
+
+  // Cerrar el flujo de escritura e imprimir
+  printWindow.document.close();
+  printWindow.focus();
+  setTimeout(() => {
+    printWindow.print();
+    printWindow.close();
+  }, 500); // Esperar un poco para asegurarse de que todo se cargue
+}
