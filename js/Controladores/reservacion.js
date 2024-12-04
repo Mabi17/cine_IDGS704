@@ -24,10 +24,7 @@ function confirmSelection() {
     let element = {};
     element.num_asiento = +seat.id.replace("sit", "");
     element.idFuncion = idFuncion;
-
-    // Convertir la fecha de compra a formato ISO 8601 para guardarla correctamente
     element.fechaCompra = new Date(fechaCompra).toISOString();
-
     element.codigoBoleto = data[idx].codigoBoleto;
     body.push(element);
     idx = idx + 1;
@@ -106,13 +103,13 @@ function createInstance(data) {
 }
 
 async function getFunctionsReservations(id = idFuncion) {
-  return makeRequest("http://127.0.0.1:5000/api/reservas/get_reservas_funciones", "POST", { id_funcion: id });
+  return makeRequest("http://162.214.153.239:5011/api/reservas/get_reservas_funciones", "POST", { id_funcion: id });
 }
 async function getInstanceData() {
   return makeRequest("https://cineventaboletos.uc.r.appspot.com/api/boletos/ultimos");
 }
 async function createReservation() {
-  return makeRequest("http://127.0.0.1:5000/api/reservas/create_reserva", "POST", bodyRequest);
+  return makeRequest("http://162.214.153.239:5011/api/reservas/create_reserva", "POST", bodyRequest);
 }
 async function makeRequest(url, method = 'GET', data = null) {
   const options = {

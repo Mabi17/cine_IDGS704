@@ -253,7 +253,7 @@
                 <div id="notificationBox" class="notification-box" hidden="true">
                     <h1 style="color: black;">NOTIFICACIÓN</h1>
                     <div class="notification-screen">
-                        Estos boletos ya fueron reservados
+                        Sus boletos ya fueron reservados
                     </div>
                 </div>
                 <div class="container">
@@ -346,10 +346,10 @@
 
     for (let i = 1; i <= numberOfSeats; i++) {
         const seatDiv = document.createElement('div');
-        seatDiv.id = `sit${i < 10 ? '0' : ''}${i}`; // Ajuste para que el formato de id sea "sit01", "sit02", etc.
+        seatDiv.id = `sit${i < 10 ? '0' : ''}${i}`;
         seatDiv.className = 'asiento no-seleccionado';
         seatDiv.onclick = function () { toggleSeatSelection(this.id); };
-        seatDiv.textContent = i; // Añadir el número del asiento dentro del elemento
+        seatDiv.textContent = i;
         seatsContainer.appendChild(seatDiv);
     }
 
@@ -392,7 +392,6 @@
         } catch (error) {
             console.error("Error obteniendo los asientos:", error);
         } finally {
-            // Ocultar el loader, independientemente de si hay error o no
             loader.style.display = "none";
         }
     }
