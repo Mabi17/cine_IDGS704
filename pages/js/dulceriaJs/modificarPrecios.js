@@ -134,7 +134,7 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
             icon: 'success',
             title: 'Producto actualizado',
             text: 'El producto ha sido actualizado correctamente.',
-            timer: 500,
+            timer: 1000,
             showConfirmButton: false
         }).then(() => {
             // Recargar la tabla automáticamente después de la alerta
