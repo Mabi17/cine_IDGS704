@@ -22,6 +22,9 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Estilos personalizados -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
@@ -270,137 +273,9 @@
 
                     <div class="container">
                         <h1>Venta de Boletos</h1>
-                        <div class="peliculas">
-                            <div class="pelicula" data-movie="pelicula1">
-                                <img src="../../img/terminator.jpg" alt="Película 1">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">Terminator</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula2">
-                                <img src="../../img/titanic.jpg" alt="Película 2">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">Titanic</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula3">
-                                <img src="../../img/parasite.jpg" alt="Película 3">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">Parasite</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula3">
-                                <img src="../../img/taxi.jpg" alt="Película 3">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">Taxi Driver</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula3">
-                                <img src="../../img/joker.jpg" alt="Película 3">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">The Joker</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula3">
-
-                                <img src="../../img/it.jpg" alt="Película 3">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">It</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula3">
-                                <img src="../../img/matrix.jpg" alt="Película 3">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">Matrix</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula3">
-                                <img src="../../img/halloweem.jpg" alt="Película 3">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">Halloween</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pelicula" data-movie="pelicula3">
-                                <img src="../../img/scarface.jpg" alt="Película 3">
-                                <div class="pelicula-info">
-                                    <div class="pelicula-title">Scarface</div>
-                                    <div class="horarios">
-                                        <div class="horario">13:00</div>
-                                        <div class="horario">16:00</div>
-                                        <div class="horario">19:00</div>
-                                        <div class="horario">22:00</div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
+                        <div id="peliculas-container" class="row mt-4"></div>
                         <form>
-                            <div class="form-group">
-                                <label for="cantidad">Cantidad de Boletos</label>
-                                <input type="number" id="cantidad" name="cantidad" min="1" max="10"
-                                    placeholder="Ingrese la cantidad">
-                            </div>
-                            <div class="form-group">
-                                <label>Tipo de Boleto</label>
-                                <div>
-                                    <input type="radio" id="adulto" name="tipo-boleto" value="adulto" checked>
-                                    <label for="adulto">Adulto $80.00</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="niño" name="tipo-boleto" value="niño">
-                                    <label for="niño">Niño $40.00</label>
-                                </div>
-                            </div>
-                            <a href="reservacionBoletos.html" class="submit-btn">Comprar Boletos</a>
+                            <a href="reservacionBoletos.html" class="submit-btn">Reservar Asientos</a>
                         </form>
 
                     </div>
@@ -450,6 +325,13 @@
         <!-- Page level custom scripts -->
         <script src="../../js/demo/chart-area-demo.js"></script>
         <script src="../../js/demo/chart-pie-demo.js"></script>
+        
+        <!-- script de venta de boletos -->
+        <script src="../js/gestionBoletosJs/funcionesVentaBoletos.js"></script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 
 </body>
 

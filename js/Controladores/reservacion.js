@@ -22,6 +22,10 @@ function confirmSelection() {
   const selectedSeats = getSelectedSeats();
   selectedSeats.forEach(seat => {
     let element = {};
+    element.pelicula = data[idx].funcion.pelicula.titulo;
+    element.descripcion = data[idx].funcion.pelicula.descripcion;
+    element.horario = data[idx].funcion.horarioInicio;
+    element.duracion = data[idx].funcion.pelicula.duracion;
     element.num_asiento = +seat.id.replace("sit", "");
     element.idFuncion = idFuncion;
     element.fechaCompra = new Date(fechaCompra).toISOString();
