@@ -142,6 +142,8 @@
                             <br>empleados</a>
                         <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
                             asistencia<br>de empleados</a>
+                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistenciaLlegada.html">Control de
+                            asistencia<br>de empleados</a>
                     </div>
                 </div>
             </li>
@@ -254,60 +256,30 @@
 
 
 
-                <!-- Gestión de Empleados -->
-                <!-- Begin Page Content -->
                 <div class="container-fluid mt-5">
-                    <form class="row g-4">
-                        <h3 class="mb-3 text-primary text-center">Control de Turnos de Empleados</h3>
-                    </form>
+    <form class="row g-4">
+        <h3 class="mb-3 text-primary text-center">Control de Asistencia de Empleados</h3>
+    </form>
+    <div class="container mt-4">
+        <h3 class="text-primary text-center mb-4"><i class="bi bi-person-vcard"></i> Registro de Asistencia <i class="bi bi-person-vcard"></i></h3>
+        <form id="formAsistenciaLlegada">
+            <div class="form-group">
+                <label for="idEmpleado"><i class="bi bi-person-vcard"></i> ID de Empleado:</label>
+                <input type="text" id="idEmpleado" class="form-control" placeholder="Ingrese el ID de empleado" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha"><i class="bi bi-calendar-date"></i> Fecha:</label>
+                <input type="date" id="fecha" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="horaEntrada"><i class="bi bi-clock"></i> Hora de Llegada:</label>
+                <input type="time" id="horaEntrada" class="form-control" required>
+            </div>
 
-                    <!-- Primera Fila -->
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <form
-                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                                <div class="input-group">
-                                    <input type="text" class="form-control bg-light border-0 small"
-                                        placeholder="Serach for..." aria-label="Search" aria-describedby="basic-addon2">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fas fa-search fa-sm">
-
-                                            </i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-
-                    <br>
-                    <!-- Fin del contenedor -->
-                    <!-- Roles en existencia ejmeplo -->
-
-                    <div class="card shadow mb-4">
-    <h3 class="text-primary text-center mb-3">Control de Turnos de Empleados</h3>
-    <table class="table table-bordered">
-        <thead class="thead-light">
-            <tr>
-                <th>IdEmpleado</th>
-                <th>Fecha</th>
-                <th>Turno</th>
-                <th>Hora Entrada</th>
-                <th>Hora Salida</th>
-                <th>Estatus Asistencia</th>
-                <th>Horas totales</th>
-            </tr>
-        </thead>
-        <tbody id="turnos-table-body">
-         
-        </tbody>
-    </table>
+            <button type="submit" class="btn btn-primary btn-block">Registrar Asistencia</button>
+        </form>
+    </div>
 </div>
-
-                <!-- Fin del contenido principal -->
 
 
                 <!-- Footer -->
@@ -367,7 +339,8 @@
         <!-- Page level custom scripts -->
         <script src="../../js/demo/chart-area-demo.js"></script>
         <script src="../../js/demo/chart-pie-demo.js"></script>
-<script src="../../js/tablaControlAsistencia.js"></script>
+        <script src="../../js/controlAsistenciaEmpleado.js"></script>
+
 </body>
 
 </html>
