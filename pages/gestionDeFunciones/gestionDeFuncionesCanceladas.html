@@ -6,33 +6,54 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description: Front de Funciones Canceladas" content="">
+    <meta name="author: Charly" content="">
 
-    <title>Dashborad - CinemaPremier</title>
+    <title>Funciones Canceladas-CP</title>
+
+    <!-- Fuentes para la plantilla-->
+
 
     <!-- Fuentes para la plantilla-->
     <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <!-- Estilos personalizados -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../../pages/css/Dashboard/navbar-styles.css" rel="stylesheet">
-    <link href="../../pages/css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
-    <link href="../../pages/css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
-    <link href="../../pages/css/Dashboard/reservaAsientos.css" rel="stylesheet">
+    <link href="../css/Dashboard/navbar-styles.css" rel="stylesheet">
+    <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
+    <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
+    <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
 
+    <style>
+        .btn {
+            border: none;
+            color: white;
+            padding: 10px 28px;
+            cursor: pointer;
+            border-radius: 5px;
+            display: inline-flex;
+        }
 
+        .btn i {
+            margin-right: 5px;
+        }
+
+        .success {
+            background-color: #04AA6D;
+        }
+    </style>
 
 </head>
 
-<body id="page-top">
+<body id="page-top" onload="">
 
     <!-- Protector de la pagina -->
     <div id="wrapper">
@@ -115,8 +136,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="../gestionDeFunciones/programacionDeFunciones.html">Programación
                             de funciones</a>
-                        <a class="collapse-item" href="../gestionDeFunciones/gestionFuncionesEspeciales.html">Gestión
-                            de funciones <br>especiales y estrenos</a>
                         <a class="collapse-item" href="../gestionDeFunciones/gestionDeFuncionesCanceladas.html">Gestión
                             de funciones
                             <br>canceladas</a>
@@ -227,18 +246,8 @@
                 </div>
             </li>
 
-
-
-
-
-
-
-
-
-
         </ul>
         <!-- Fin de la Sidebar -->
-
 
         <!-- Contenido del Dashboard -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -259,183 +268,334 @@
                 </nav>
 
                 <!-- Contenido dentro del dashboard -->
-                <div class="container-fluid">
-                    <div class="row g-5">
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeBoletos/ventaBoletos.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-ticket-alt fa-3x"></i>
-                                    <h5 class="card-title mt-3">Venta de boletos</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="index.html" class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fa fa-film fa-3x"></i>
-                                    <h5 class="card-title mt-3">Peliculas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                <div id="content-wrapper" class="d-flex flex-column">
+
+                    <!-- Contenido principal -->
+                    <div id="content">
+
+
+
+                        <!-- Contenedor dentro de la página -->
+                        <!-- DataTales Example -->
+                        <link rel="stylesheet" href="">
+
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3 text-center">
+                                <h2 class="m-0 font-weight-bold text-title">Gestión de Funciones Canceladas</h2>
+                            </div>
+
+                            <div class="d-flex justify-content-between p-3">
+                                <button class="btn btn-primary custom-btn" data-bs-toggle="modal"
+                                    data-bs-target="#modalCancelacion"">Cancelar Función</button>
+                            </div>
+
+                            <section>
+                                <div class=" card-body">
+                                    <h5 class="card-title">Películas Canceladas</h5>
+
+                                    <div class="form-row mb-3">
+                                        <label for="buscar">Buscar Película:</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="campoBusqueda"
+                                                placeholder="Ingrese un término de búsqueda">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="button"
+                                                    onclick="buscarPeliculas()">
+                                                    <i class="fas fa-search"></i> Buscar
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="list-group" id="funcionesCanceladasContainer">
+
+                                        <!-- Repite este bloque para más películas -->
+                                    </ul>
+
+                                    <!-- Modal para Cancelación -->
+                                    <div class="modal fade" id="modalCancelacion" tabindex="-1"
+                                        aria-labelledby="modalCancelacionLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalCancelacionLabel">Cancelación de la
+                                                        Función</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Cerrar"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <h2 class="mt-3">Información de la Cancelación de la Función
+                                                        </h2>
+                                                        <div class="row">
+                                                            <div class="col-md-12 mb-3">
+                                                                <label for="selectPeliculas"
+                                                                    class="form-label">Seleccione Función de Película a
+                                                                    Cancelar</label>
+                                                                <select class="form-control" id="selectPeliculas"
+                                                                    name="peliculas">
+                                                                    <option value="" disabled>Seleccione una pelicula:
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="salaFuncion"
+                                                                    class="form-label">Salas</label>
+                                                                <input type="text" class="form-control" id="salaFuncion"
+                                                                    disabled>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4">
+                                                                <label for="asientosOcupados"
+                                                                    class="form-label">Asientos Ocupados</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="asientosOcupados" disabled>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4">
+                                                                <label for="tipoPelicula" class="form-label">Tipo de
+                                                                    Película</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="tipoPelicula" disabled>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4">
+                                                                <label for="idiomaPelicula"
+                                                                    class="form-label">Idioma</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="idiomaPelicula" disabled>
+                                                            </div>
+                                                            <div class="col-md-12 mb-4">
+                                                                <label for="nombreEmpleado">Responsable a cancelar
+                                                                    función:</label>
+                                                                <select class="form-control" id="selectEmpleado"
+                                                                    name="peliculas">
+                                                                    <option value="" disabled>Seleccione un empleado:
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-4">
+                                                                <label for="motivosCancelacion">Motivo de
+                                                                    Cancelacion:</label>
+                                                                <select class="form-control" id="motivosCancelacion">
+                                                                    <option value="" disabled>Seleccione un motivo:
+                                                                    </option>
+                                                                    <option value="Fallas técnicas">Fallas técnicas
+                                                                    </option>
+                                                                    <option value="Condiciones climáticas no aptas">
+                                                                        Condiciones climáticas no aptas</option>
+                                                                    <option value="Accidentes en el recinto">Accidentes
+                                                                        en el recinto</option>
+                                                                    <option value="Restrasos en los estrenos">Restrasos
+                                                                        en los estrenos</option>
+                                                                    <option value="Eventos no imprevistos">Eventos no
+                                                                        imprevistos</option>
+                                                                    <option value="Errores en la programación">Errores
+                                                                        en la programación</option>
+                                                                    <option value="Disturbios cercanos">Disturbios
+                                                                        cercanos</option>
+                                                                    <option value="Problemas con el personal">Problemas
+                                                                        con el personal</option>
+                                                                    <option value="Indicación directa de dirección">
+                                                                        Indicación directa de dirección</option>
+
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="fechaPresentacionModal"
+                                                                    class="form-label">Fecha de Función Anterior</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="fechaPresentacionModal" disabled>
+                                                            </div>
+                                                            <div class="col-md-12 mb-3">
+                                                                <label for="detalleCancelacion"
+                                                                    class="form-label">Detalles de Cancelación</label>
+                                                                <textarea class="form-control" id="detalleCancelacion"
+                                                                    rows="3" required></textarea>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button onclick="limpiar();" type="reset" class="btn btn-primary"">Limpiar Campos</button>
+                                                    <button type=" button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="button" id="btnInsertarCancelacion"
+                                                        class="btn btn-success">
+                                                        <i class="fas fa-check-circle"></i> Guardar cambios
+                                                    </button>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Modal para detalles -->
+                                    <div class="modal fade" id="modalDetalles" tabindex="-1"
+                                        aria-labelledby="modalDetallesLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="modalDetallesLabel">Detalles de la
+                                                        Función Cancelada</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Cerrar"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <h2 class="mt-3">Información de la Función</h2>
+                                                        <div class="row">
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="detalleTituloPelicula"
+                                                                    class="form-label">Título de película</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="detalleTituloPelicula" disabled>
+                                                            </div>
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="datalleIdioma"
+                                                                    class="form-label">Idioma</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="datalleIdioma" disabled>
+                                                            </div>
+
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="detalleTipo"
+                                                                    class="form-label">Tipo de Pelicula</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="detalleTipo" disabled>
+                                                            </div>
+
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="detalleSala" class="form-label">Sala</label>
+                                                                <input type="text" class="form-control" id="detalleSala"
+                                                                    disabled>
+                                                            </div>
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="detalleAsientosOcupados"
+                                                                    class="form-label">Asientos Ocupados</label>
+                                                                <input type="number" id="detalleAsientosOcupados"
+                                                                    class="form-control" disabled>
+                                                            </div>
+                                                            
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="empleadoCancelado"
+                                                                    class="form-label">Empleado que canceló la función</label>
+                                                                <input type="text" class="form-control" id="empleadoCancelado"
+                                                                    disabled></label>
+                                                            </div>
+
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="detalleMotivoPelicula"
+                                                                    class="form-label">Motivo de Cancelación</label>
+                                                                <input type="text" class="form-control" id="detalleMotivoPelicula"
+                                                                    disabled></label>
+                                                            </div>
+
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="imagenFoto"
+                                                                    class="form-label">Foto de pelicula</label>
+                                                                <img id="fotoPelicula" src="" alt="fotoPelicula" style="width: 80px; height: 120px; object-fit: cover; margin-right: 15px;">
+                                                            </div>
+
+                                                            <div class="col-md-12 mb-4">
+                                                                <label for="detCancelacion"
+                                                                    class="form-label">Detalle de Función Cancelada</label>
+                                                                <input type="text" class="form-control" id="detCancelacion"
+                                                                    disabled></label>
+                                                            </div>
+
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="detalleFechaPresentacion"
+                                                                    class="form-label">Fecha de Presentación
+                                                                    Anterior</label>
+                                                                <input type="date" class="form-control"
+                                                                    id="detalleFechaPresentacion" disabled>
+                                                            </div>
+                                                            <div class="col-md-4 mb-3">
+                                                                <label for="detalleFechaCancelacion"
+                                                                    class="form-label">Fecha de Cancelación</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="detalleFechaCancelacion" disabled>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-bs-dismiss="modal">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
+                            </section>
                         </div>
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeSalas/gestionSalas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-video fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de salas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
+                    </div>
+                    <!-- End of Main Content -->
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionEmpleados.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de empleados</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; CinemaPremier 2024</span>
+                            </div>
                         </div>
+                    </footer>
+                    <!-- fin del Footer -->
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/dulceria/ventasDulceria.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-cash-register fa-3x"></i>
-                                    <h5 class="card-title mt-3">Ventas de dulcería</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                </div>
+                <!-- End of Content Wrapper -->
+
+            </div>
+            <!-- End of Page Wrapper -->
+
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
                         </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/gestionClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.
                         </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeFunciones/programacionDeFunciones.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-clock fa-3x"></i>
-                                    <h5 class="card-title mt-3">Programación de funciones</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionRoles.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-cog fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de roles</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/registroDeClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-plus fa-3x"></i>
-                                    <h5 class="card-title mt-3">Registro de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/reportes/reportesDeVentas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="far fa-file-pdf fa-3x"></i>
-                                    <h5 class="card-title mt-3">Reportes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="../../index.html">Logout</a>
                         </div>
                     </div>
                 </div>
-
-
-
-                <!-- Contenido dentro del dashboard -->
-
-
-
-
             </div>
-            <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; CinemaPremier 2024</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- fin del Footer -->
+            <!-- Bootstrap core JavaScript-->
+            <script src="../../vendor/jquery/jquery.min.js"></script>
+            <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        </div>
-        <!-- End of Content Wrapper -->
+            <!-- Core plugin JavaScript-->
+            <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    </div>
-    <!-- End of Page Wrapper -->
+            <!-- Custom scripts for all pages-->
+            <script src="../../js/sb-admin-2.min.js"></script>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+            <!-- Page level plugins -->
+            <script src="../../vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/butterup-main/butterup.min.js"></script>
-
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>
-    <script src="../../js/Controladores/index.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../../vendor/chart.js/Chart.min.js"></script>
-    <!-- Page level custom scripts -->
-    <script src="../../js/demo/chart-area-demo.js"></script>
-    <script src="../../js/demo/chart-pie-demo.js"></script>
-
+            <!-- Page level custom scripts -->
+            <script src="../../js/demo/chart-area-demo.js"></script>
+            <script src="../../js/demo/chart-pie-demo.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <!-- Bootstrap JS y dependencias (incluyendo Popper.js) -->
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"></script>
+            <script src="../../pages/js/gestionFuncionesJs/FuncionesCanceladas.js"></script>
 </body>
 
 </html>
