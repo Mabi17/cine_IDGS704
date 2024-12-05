@@ -261,19 +261,19 @@
 
                     <div class="row">
                         <div class="col-md-4">
-                            <label for="employeeName" class="form-label">Título</label>
-                            <input type="text" class="form-control shadow-sm" id="employeeName" placeholder="Título">
+                            <label for="nombre" class="form-label">Título</label>
+                            <input type="text" class="form-control shadow-sm" id="nombre" placeholder="Título">
                         </div>
 
                         <div class="col-md-4">
-                            <label for="employeeName" class="form-label">Duración</label>
-                            <input type="text" class="form-control shadow-sm" id="employeeNamelastnameFa"
+                            <label for="duracionMin" class="form-label">Duración</label>
+                            <input type="text" class="form-control shadow-sm" id="duracionMin"
                                 placeholder="Duracion">
                         </div>
 
                         <div class="col-md-4">
-                            <label for="employeeName" class="form-label">Clasificación</label>
-                            <input type="text" class="form-control shadow-sm" id="employeelastnameMo"
+                            <label for="categoria" class="form-label">Clasificación</label>
+                            <input type="text" class="form-control shadow-sm" id="categoria"
                                 placeholder="Clasificación">
                         </div>
 
@@ -286,17 +286,18 @@
                     <div class="row">
 
                         <div class="col-md-4">
-                            <label for="inputAddress" class="form-label">Género</label>
-                            <input type="text" class="form-control shadow-sm" id="inputAddress"
+                            <label for="genero" class="form-label">Género</label>
+                            <input type="text" class="form-control shadow-sm" id="genero"
                                 placeholder="Género">
                         </div>
                         <div class="col-md-4">
-                            <label for="inputAddress2" class="form-label">Sinopsis</label>
-                            <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Sinopsis">
+                            <label for="sinopsis" class="form-label">Sinopsis</label>
+                            <input type="text" class="form-control shadow-sm" id="sinopsis" placeholder="Sinopsis">
                         </div>
                         <div class="col-md-4">
-                            <label for="inputAddress2" class="form-label">Fecha de estreno</label>
-                            <input type="date" class="form-control shadow-sm" id="inputAddress2" placeholder="Fecha de estreno">
+                            <label for="fechaEstreno" class="form-label">Fecha de estreno</label>
+                            <input type="date" class="form-control shadow-sm" id="fechaEstreno" placeholder="Fecha de estreno">
+                            <input type="text" id="idPelicula" hidden>
                         </div>
 
                     </div>
@@ -304,7 +305,7 @@
                   
                     <div class="col-12 text-center mt-3">
                         <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm"
-                            id="registrarEmpleado">Registrar</button>
+                            id="registrarPelicula" onclick="agregar()">Registrar</button>
                     </div>
                     </form>
                 </div>
