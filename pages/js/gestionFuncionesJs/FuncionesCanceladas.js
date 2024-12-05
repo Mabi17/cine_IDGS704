@@ -2,7 +2,7 @@ let funcionesCanceladas = [];
 let pelis = [];
 
 function cargarDatosFuncionesCanceladas() {
-  const url = "http://192.168.1.7:8080/cine_IDGS704/api/funciones/funcionesCanceladas";
+  const url = "http://localhost:8080/cine_IDGS704/api/funciones/funcionesCanceladas";
 
   fetch(url)
     .then(response => response.json())
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let programacionFuncionesData = [];
 
 function cargarPelisSelect() {
-  fetch("http://192.168.1.7:8080/cine_IDGS704/api/funciones/obtener")
+  fetch("http://localhost:8080/cine_IDGS704/api/funciones/obtener")
     .then(response => {
       if (!response.ok) {
         throw new Error("Error al obtener los datos");
@@ -200,7 +200,7 @@ function limpiar() {
 }
 
 function cargarEmpleadosSelect() {
-  fetch("http://192.168.1.7:8080/cine_IDGS704/api/funciones/empleados")
+  fetch("http://localhost:8080/cine_IDGS704/api/funciones/empleados")
     .then(response => {
       if (!response.ok) {
         throw new Error("Error al obtener los empleados");
@@ -267,7 +267,7 @@ function insertarFuncionCancelada() {
     detalleCancelacion: datos.detalleCancelacion
   });
 
-  const ruta = "http://192.168.1.7:8080/cine_IDGS704/api/funciones/agregarFuncionCancelada";
+  const ruta = "http://localhost:8080/cine_IDGS704/api/funciones/agregarFuncionCancelada";
   fetch(ruta,
     {
       method: "POST",
