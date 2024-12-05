@@ -1,10 +1,10 @@
 .seleccionado {
   background-color: #ababab;  /* Color de fondo cuando una fila está seleccionada */
 }
+/*
 
-/* Estilo para el modal */
 .modal {
-  display: none; /* Ocultamos el modal por defecto */
+  display: none; 
   position: fixed;
   z-index: 1;
   left: 0;
@@ -38,7 +38,7 @@
   text-decoration: none;
   cursor: pointer;
 }
-
+*/
 .table-responsive {
   max-height: 500px; /* Altura máxima del contenedor */
   overflow-y: auto; /* Scroll vertical */
