@@ -69,12 +69,10 @@ function agregar(){
             .then(result => {
                 console.log('Success:', result);
                 alert('Película actualizada con éxito');
-                form.reset(); // Limpia el formulario después de enviar
                 location.reload();
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Error al registrar la película');
             });
         } else{        
             const data = {
