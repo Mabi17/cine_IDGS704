@@ -196,18 +196,10 @@
 
             <!-- Nav Item - Contraer menú de Peliculas -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeliculas"
-                    aria-expanded="true" aria-controls="collapsePeliculas">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Peliculas</span>
                 </a>
-                <div id="collapsePeliculas" class="collapse" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../../index.html">Login</a>
-                        <a class="collapse-item" href="../../index.html">Register</a>
-                    </div>
-                </div>
             </li>
 
 
@@ -259,135 +251,116 @@
                 </nav>
 
                 <!-- Contenido dentro del dashboard -->
-                <div class="container-fluid">
-                    <div class="row g-5">
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeBoletos/ventaBoletos.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-ticket-alt fa-3x"></i>
-                                    <h5 class="card-title mt-3">Venta de boletos</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="index.html" class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fa fa-film fa-3x"></i>
-                                    <h5 class="card-title mt-3">Peliculas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+
+                <div class="container-fluid mt-5">
+                    <form class="row g-4">
+                        <h3 class="mb-3 text-primary text-center">Gestión de Películas</h3>
+                    </form>
+
+                    <!-- Primera Fila -->
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="employeeName" class="form-label">Título</label>
+                            <input type="text" class="form-control shadow-sm" id="employeeName" placeholder="Título">
                         </div>
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeSalas/gestionSalas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-video fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de salas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                        <div class="col-md-4">
+                            <label for="employeeName" class="form-label">Duración</label>
+                            <input type="text" class="form-control shadow-sm" id="employeeNamelastnameFa"
+                                placeholder="Duracion">
                         </div>
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionEmpleados.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de empleados</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                        <div class="col-md-4">
+                            <label for="employeeName" class="form-label">Clasificación</label>
+                            <input type="text" class="form-control shadow-sm" id="employeelastnameMo"
+                                placeholder="Clasificación">
                         </div>
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/dulceria/ventasDulceria.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-cash-register fa-3x"></i>
-                                    <h5 class="card-title mt-3">Ventas de dulcería</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                    </div>
+
+                    <br>
+
+                    <!-- Segunda Fila -->
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="inputAddress" class="form-label">Género</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress"
+                                placeholder="Género">
                         </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/gestionClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                        <div class="col-md-4">
+                            <label for="inputAddress2" class="form-label">Sinopsis</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Sinopsis">
                         </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeFunciones/programacionDeFunciones.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-clock fa-3x"></i>
-                                    <h5 class="card-title mt-3">Programación de funciones</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                        <div class="col-md-4">
+                            <label for="inputAddress2" class="form-label">Fecha de estreno</label>
+                            <input type="date" class="form-control shadow-sm" id="inputAddress2" placeholder="Fecha de estreno">
                         </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionRoles.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-cog fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de roles</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/registroDeClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-plus fa-3x"></i>
-                                    <h5 class="card-title mt-3">Registro de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/reportes/reportesDeVentas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="far fa-file-pdf fa-3x"></i>
-                                    <h5 class="card-title mt-3">Reportes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+
+                    </div>
+
+                  
+                    <div class="col-12 text-center mt-3">
+                        <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm"
+                            id="registrarEmpleado">Registrar</button>
+                    </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                </div>
+
+                <!-- Fin del contenedor -->
+                <br>
+                <!-- Gestión de Empleados -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Gestión de Películas</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="tablePeliculas" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Título</th>
+                                        <th>Duración</th>
+                                        <th>Clasificación</th>
+                                        <th>Género</th>
+                                        <th>Sinopsis</th>
+                                        <th>Fecha de estreno</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                         
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-
-
-
-                <!-- Contenido dentro del dashboard -->
-
-
 
 
             </div>
-            <!-- End of Main Content -->
+            <!-- Fin del contenido principal -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; CinemaPremier 2024</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- fin del Footer -->
+
+            <!-- Contenido dentro del dashboard -->
+
+
+
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+      
+        <!-- fin del Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
@@ -435,6 +408,7 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
+    <script src="../../js/Controladores/peliculas.js"></script>
 
 </body>
 
