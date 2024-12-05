@@ -125,3 +125,26 @@ button.btn.btn-primary[onclick="agregar_producto()"]:active {
 #modificar_precio:hover {
     background-color: #F8A488; /* Cambia a un color diferente para hover */
 }
+
+
+.btn-success {
+    background-color: #0A1240; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+    border: 1px solid #4A6AB0; /* Borde verde */
+}
+
+.btn-success:hover {
+    background-color: #0A1240; /* Color de fondo cuando el mouse pasa sobre el botón */
+    border-color: #4A6AB0; /* Borde cuando el mouse pasa sobre el botón */
+}
+
+.btn-primary {
+    background-color: #0A1240; /* Color de fondo azul */
+    color: white; /* Color del texto blanco */
+    border: 1px solid #4A6AB0; /* Borde azul */
+}
+
+.btn-primary:hover {
+    background-color: #0A1240; /* Color de fondo cuando el mouse pasa sobre el botón */
+    border-color: #4A6AB0; /* Borde cuando el mouse pasa sobre el botón */
+}
