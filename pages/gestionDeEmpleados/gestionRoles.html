@@ -260,7 +260,8 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid mt-5">
                     <form class="row g-4">
-                        <h3 class="mb-3 text-primary text-center">Gestion de Roles</h3>
+                        <h1 class="mb-3 text-primary text-center">Gestion de Roles</h1>
+                        <br>
                     </form>
 
                     <!-- Primera Fila -->
@@ -285,29 +286,66 @@
 
                     <!-- Segunda Fila -->
 
-                    <div class="col-md-12">
-                        <label for="rolePermissions" class="form-label">Permisos</label>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-sm" type="checkbox" id="permissionCreate">
-                            <label class="form-check-label" for="permissionCreate">Crear</label>
+                    <div class="row">
+                        <!-- Columna 2: Módulos -->
+                        <div class="col-md-6">
+                            <label for="roleModules" class="form-label">Módulos</label>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="moduleTickets">
+                                <label class="form-check-label" for="moduleTickets">Gestión de Boletos</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="moduleRooms">
+                                <label class="form-check-label" for="moduleRooms">Gestión de Salas</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="moduleFunctions">
+                                <label class="form-check-label" for="moduleFunctions">Gestión de Funciones</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="moduleEmployees">
+                                <label class="form-check-label" for="moduleEmployees">Gestión de Empleados</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="moduleCandyShop">
+                                <label class="form-check-label" for="moduleCandyShop">Dulcería</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="moduleReports">
+                                <label class="form-check-label" for="moduleReports">Reportes y Análisis</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-sm" type="checkbox" id="permissionEdit">
-                            <label class="form-check-label" for="permissionEdit">Editar</label>
+
+                        <!-- Columna 1: Acciones -->
+                        <div class="col-md-6">
+                            <label for="roleActions" class="form-label">Acciones</label>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="permissionCreate">
+                                <label class="form-check-label" for="permissionCreate">Crear</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="permissionEdit">
+                                <label class="form-check-label" for="permissionEdit">Editar</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="permissionDelete">
+                                <label class="form-check-label" for="permissionDelete">Eliminar</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input shadow-sm" type="checkbox" id="permissionView">
+                                <label class="form-check-label" for="permissionView">Visualizar</label>
+                            </div>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-sm" type="checkbox" id="permissionDelete">
-                            <label class="form-check-label" for="permissionDelete">Eliminar</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input shadow-sm" type="checkbox" id="permissionView">
-                            <label class="form-check-label" for="permissionView">Visualizar</label>
-                        </div>
+
                     </div>
+
+
                     <br>
+
                     <div class="d-grid gap-2 col-12 mx-auto">
-                        <button class="btn btn-primary btn-lg" id="guardar" type="button">Guardar</button>
+                        <button class="btn btn-primary btn-lg" id="btnguardar" type="button" onclick="">Guardar</button>
                     </div>
+
 
 
 
@@ -329,33 +367,18 @@
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Descripción</th>
-                                <th>Permisos</th>
+                                <th>Módulos</th>
                                 <th>Acciones</th>
+                                <th>Estado</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Administrador</td>
-                                <td>Acceso completo al sistema</td>
-                                <td>Crear, Editar, Eliminar, Ver</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" id="editar">Editar</button>
-                                    <button class="btn btn-sm btn-danger" id="eliminar">Eliminar</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Empleado</td>
-                                <td>Acceso limitado al inventario</td>
-                                <td>Ver</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary" id="editar">Editar</button>
-                                    <button class="btn btn-sm btn-danger" id="eliminar">Eliminar</button>
-                                </td>
-                            </tr>
+                        <tbody id="rolesTable">
+                            <!-- Las filas se generarán dinámicamente -->
                         </tbody>
                     </table>
+
+
                 </div>
             </div>
             <!-- Footer -->
@@ -399,9 +422,93 @@
         </div>
     </div>
 
+
+
+    <!-- Modal para editar rol -->
+    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarModalLabel">Editar Rol</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editarForm">
+                        <input type="hidden" id="editarId">
+                        <div class="mb-3">
+                            <label for="editarNombre" class="form-label">Nombre del Rol</label>
+                            <input type="text" class="form-control" id="editarNombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editarDescripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="editarDescripcion" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Acciones</label>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarCrear">
+                                <label class="form-check-label" for="editarCrear">Crear</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarEditar">
+                                <label class="form-check-label" for="editarEditar">Editar</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarEliminar">
+                                <label class="form-check-label" for="editarEliminar">Eliminar</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarVer">
+                                <label class="form-check-label" for="editarVer">Ver</label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label>Módulos</label>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarBoletos">
+                                <label class="form-check-label" for="editarBoletos">Boletos</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarSalas">
+                                <label class="form-check-label" for="editarSalas">Salas</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarFunciones">
+                                <label class="form-check-label" for="editarFunciones">Funciones</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarEmpleados">
+                                <label class="form-check-label" for="editarEmpleados">Empleados</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarDulceria">
+                                <label class="form-check-label" for="editarDulceria">Dulcería</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="editarReportes">
+                                <label class="form-check-label" for="editarReportes">Reportes</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="guardarCambios">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="../js/gestionEmpleadosJs/rolControllerJs.js"></script>
+
+
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendor/butterup-main/butterup.min.js"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -415,6 +522,8 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
+
+    <!--Script para las apis-->
 
 </body>
 
