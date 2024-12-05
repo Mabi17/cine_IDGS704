@@ -7,7 +7,7 @@ function obtenerPreciosDulceria() {
     fetch(apiUrlGetAll)
         .then(response => response.json())
         .then(data => {
-            llenarTablaPrecios(data); // Llenar la tabla con los datos obtenidos
+            llenarTablaPrecios(data);
         })
         .catch(error => {
             console.error("Error al obtener los datos:", error);
@@ -17,7 +17,7 @@ function obtenerPreciosDulceria() {
 // Función para llenar la tabla con los productos
 function llenarTablaPrecios(productos) {
     const tableBody = document.getElementById("table-body");
-    tableBody.innerHTML = ""; // Limpiar tabla antes de agregar nuevos datos
+    tableBody.innerHTML = ""; 
 
     productos.forEach(producto => {
         const tr = document.createElement("tr");
@@ -34,12 +34,12 @@ function llenarTablaPrecios(productos) {
     });
 }
 
-// Llamamos a la función cuando se carga la página
+
 document.addEventListener("DOMContentLoaded", obtenerPreciosDulceria);
 
 // Función para editar el producto
 function editarProducto(id) {
-    // Obtener el producto por su ID desde la API
+    
     fetch(apiUrlGetAll)
         .then(response => response.json())
         .then(data => {
@@ -78,7 +78,7 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
     if (!id || isNaN(id)) {
         console.error("ID no válido o no encontrado:", id);
         alert("El ID del producto es inválido.");
-        return; // Detener si el ID es inválido
+        return;
     }
 
     const nombre = document.getElementById("productoNombre").value;
@@ -88,8 +88,8 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
     // Crear el objeto con los datos a actualizar
     const productoActualizado = {
         nombre,
-        precioVenta: parseFloat(precio), // Convertir el precio a número
-        stockActual: parseInt(stock)    // Convertir el stock a entero
+        precioVenta: parseFloat(precio),
+        stockActual: parseInt(stock)
     };
 
     // Verificar la URL antes de hacer la solicitud
@@ -122,8 +122,8 @@ document.getElementById("guardarCambios").addEventListener("click", function() {
             showConfirmButton: false
         }).then(() => {
             // Recargar la tabla automáticamente después de la alerta
-            obtenerPreciosDulceria(); // Actualizar la tabla
-            $('#exampleModal').modal('hide'); // Ocultar el modal
+            obtenerPreciosDulceria(); 
+            $('#exampleModal').modal('hide');
         });
     })
     .catch(error => {
