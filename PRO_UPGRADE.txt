@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 * * * * * * * * * * * * * * * *
 * * UPGRADE TO SB ADMIN PRO * *
 * * * * * * * * * * * * * * * *
@@ -31,4 +32,39 @@ Visit https://startbootstrap.com/shop to see any of
 our other pro products, and save $10 on ANY PRODUCT
 using the following coupon code:
 
+=======
+* * * * * * * * * * * * * * * *
+* * UPGRADE TO SB ADMIN PRO * *
+* * * * * * * * * * * * * * * *
+
+Save $10 and upgrade to SB Admin Pro.
+Use the coupon code:
+
+SAVE10
+
+when making your purchase at
+https://startbootstrap.com/theme/sb-admin-pro.
+
+* * * * * * * * * * * * * * *
+* * SB ADMIN PRO INCLUDES * *
+* * * * * * * * * * * * * * *
+
+- Full Documentation
+- Expanded Components & Utilities
+- Page Examples for Common Web App Views
+- Email Support
+- Fixed and Static Sidenav Options
+- Multiple Page Layout Options
+
+...and more!
+
+* * * * * * * * * * * * * * * * * *
+* * SAVE $10 ON ANY PRO PRODUCT * * 
+* * * * * * * * * * * * * * * * * *
+
+Visit https://startbootstrap.com/shop to see any of
+our other pro products, and save $10 on ANY PRODUCT
+using the following coupon code:
+
+>>>>>>> 749617fec03bebd47ab9d20494bd041f6740f96d
 Coupon Code: SAVE10
