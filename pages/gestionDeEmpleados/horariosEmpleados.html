@@ -265,12 +265,12 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid mt-5">
                     <!-- campo para el id del encabezado -->
-                    <input type="number" id="id_horario_encb" />
+                    <input hidden ="number" id="id_horario_encb" />
                     
                     <!-- Vista para listar horarios -->
                     <div id="vista_horarios">
                         <form class="row g-4">
-                            <h3 class="mb-3 text-primary text-center">Listado de horarios</h3>
+                            <h3 class="mb-3 text-primary text-center">Listado de horarios de empleados</h3>
                         </form>
 
                         <br>
@@ -278,7 +278,7 @@
                         <!-- Tabla de listado de horarios -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Listado de horarios</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">Listado de horarios de empleados</h6>
                             </div>
                             <div class="card-body">
                                 <!-- Botón agregar nuevos horarios -->
@@ -325,7 +325,7 @@
 
                                         <div class="col-lg-4 col-md-6">
                                             <label for="fecha_fin" class="form-label">Fecha de fin</label>
-                                            <input type="date" class="form-control shadow-sm" id="fecha_fin"
+                                            <input type="date" disabled class="form-control shadow-sm" id="fecha_fin"
                                                 placeholder="Fecha de fin">
                                         </div>
 
@@ -387,7 +387,7 @@
 
                                         <div class=" col-lg-4 col-md-6">
                                             <label for="fecha_fin_actualizar" class="form-label">Fecha de fin</label>
-                                            <input type="date" class="form-control shadow-sm" id="fecha_fin_actualizar"
+                                            <input type="date" disabled class="form-control shadow-sm" id="fecha_fin_actualizar"
                                                 placeholder="Fecha de fin">
                                         </div>
 

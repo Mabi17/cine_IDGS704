@@ -3,10 +3,16 @@
 window.onload = function () {
     obtenerHorarios();
 };
+document.addEventListener('DOMContentLoaded', inicializarValidaciones);
+
+// URL
+URL_HORARIOS = 'https://cinema-flask.azurewebsites.net/api';
+URL_EMPLEADOS = 'https://crud-empleado-cine.azurewebsites.net/api/empleados';
 
 // Función para listar los horarios
 async function obtenerHorarios() {
-    const endpoint = 'http://127.0.0.1:5000/api/horarios/obtener_horarios_enc';
+    // const endpoint = 'http://127.0.0.1:5000/api/horarios/obtener_horarios_enc';
+    const endpoint = URL_HORARIOS + '/horarios/obtener_horarios_enc';
 
     try {
         const response = await fetch(endpoint);
@@ -69,7 +75,9 @@ function confirmarEliminar(idHorario) {
 
 async function eliminarHorario(idHorario) {
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/horarios/eliminar_horarios', {
+        // const response = await fetch(URL_HORARIOS + '/horarios/eliminar_horarios'
+        // const response = await fetch('http://127.0.0.1:5000/api/horarios/eliminar_horarios' 
+        const response = await fetch(URL_HORARIOS + '/horarios/eliminar_horarios', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -108,7 +116,10 @@ async function eliminarHorario(idHorario) {
 // Para agregar nuevos horarios
 // Función para cargar la tabla de horarios
 async function cargarTablaNuevoHorario() {
-    const url = 'http://127.0.0.1:5000/api/empleados/obtener_empleados'; // Cambiar por tu endpoint
+    // Agregar la nueva URL_EMPLEADOS para poder consumir los empleados
+    // const url = 'http://127.0.0.1:5000/api/empleados/obtener_empleados';
+    const url = URL_EMPLEADOS;
+
     const tablaBody = document.querySelector('#tabla_horarios_agregar tbody');
     tablaBody.innerHTML = ''; // Limpiar tabla
 
@@ -185,7 +196,7 @@ async function agregarHorario() {
         return;  // Detener la ejecución si las fechas no son válidas
     }
 
-    // Convertir las fechas al formato yyyy-mm-dd (si es necesario)
+    // Convertir las fechas al formato yyyy-mm-dd
     const fechaInicioFormato = new Date(fechaInicio).toISOString().split('T')[0];  // Formato yyyy-mm-dd
     const fechaFinFormato = new Date(fechaFin).toISOString().split('T')[0];  // Formato yyyy-mm-dd
 
@@ -204,13 +215,13 @@ async function agregarHorario() {
         const rolEmpleado = cells[0].textContent.trim();  // Obtener el rol del empleado
 
         const turnos = {
-            viernes: cells[7].querySelector('select').value,
-            sabado: cells[8].querySelector('select').value,
-            domingo: cells[2].querySelector('select').value,
-            lunes: cells[3].querySelector('select').value,
-            martes: cells[4].querySelector('select').value,
-            miercoles: cells[5].querySelector('select').value,
-            jueves: cells[6].querySelector('select').value
+            viernes: cells[2].querySelector('select').value,
+            sabado: cells[3].querySelector('select').value,
+            domingo: cells[4].querySelector('select').value,
+            lunes: cells[5].querySelector('select').value,
+            martes: cells[6].querySelector('select').value,
+            miercoles: cells[7].querySelector('select').value,
+            jueves: cells[8].querySelector('select').value
         };
 
         // Crear el objeto para este empleado
@@ -236,7 +247,9 @@ async function agregarHorario() {
 
     // Enviar el JSON al backend
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/horarios/guardar_horario', {
+        // const response = await fetch('http://127.0.0.1:5000/api/horarios/guardar_horario'
+        // const response = await fetch(URL_HORARIOS + '/horarios/guardar_horario'
+        const response = await fetch(URL_HORARIOS + '/horarios/guardar_horario', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -280,7 +293,8 @@ async function cargarTablaHorarioModificar(idHorarioEncb) {
     document.getElementById('id_horario_encb').value = idHorarioEncb;
     try {
         // Realizar la petición al backend
-        const response = await fetch('http://127.0.0.1:5000/api/horarios/obtener_horarios_por_id', {
+        // http://127.0.0.1:5000/api/horarios/obtener_horarios_por_id
+        const response = await fetch(URL_HORARIOS + '/horarios/obtener_horarios_por_id', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -414,7 +428,8 @@ async function actualizarHorario() {
         };
 
         // Realizar la petición POST
-        const response = await fetch('http://127.0.0.1:5000/api/horarios/guardar_horario', {
+        // 'http://127.0.0.1:5000/api/horarios/guardar_horario'
+        const response = await fetch(URL_HORARIOS + '/horarios/guardar_horario', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -448,6 +463,54 @@ async function actualizarHorario() {
     }
 }
 
+// Validaciones de fechas
+function inicializarValidaciones() {
+    const hoy = new Date();
+    const yyyy = hoy.getFullYear();
+    const mm = String(hoy.getMonth() + 1).padStart(2, '0'); // Mes en formato MM
+    const dd = String(hoy.getDate()).padStart(2, '0'); // Día en formato DD
+    const fechaMinima = `${yyyy}-${mm}-${dd}`;
+
+    // Configurar validaciones para cada par de inputs
+    configurarValidaciones('fecha_inicio', 'fecha_fin', fechaMinima);
+    configurarValidaciones('fecha_inicio_actualizar', 'fecha_fin_actualizar', fechaMinima);
+}
+
+function configurarValidaciones(fechaInicioId, fechaFinId, fechaMinima) {
+    const fechaInicioInput = document.getElementById(fechaInicioId);
+    const fechaFinInput = document.getElementById(fechaFinId);
+
+    // Bloquear días pasados para la fecha de inicio
+    fechaInicioInput.setAttribute('min', fechaMinima);
+
+    // Validar que la fecha de inicio sea viernes y calcular fecha de fin
+    fechaInicioInput.addEventListener('change', () => {
+        const fechaInicioValor = fechaInicioInput.value;
+        if (!fechaInicioValor) return; // Si no hay valor, no hacer nada
+
+        const fechaInicio = new Date(fechaInicioValor + 'T00:00');
+
+        // Verificar si el día seleccionado es viernes
+        if (fechaInicio.getUTCDay() !== 5) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'La fecha seleccionada no es viernes',
+                text: 'Selecciona una fecha de inicio que sea viernes.'
+            });
+            fechaInicioInput.value = '';
+            fechaFinInput.value = '';
+            return;
+        }
+
+        // Calcular la fecha de fin (el siguiente jueves)
+        const fechaFin = new Date(fechaInicio);
+        fechaFin.setDate(fechaInicio.getDate() + 6);
+        const yyyy = fechaFin.getFullYear();
+        const mm = String(fechaFin.getMonth() + 1).padStart(2, '0');
+        const dd = String(fechaFin.getDate()).padStart(2, '0');
+        fechaFinInput.value = `${yyyy}-${mm}-${dd}`;
+    });
+}
 
 // Funciones para ocultar contenido
 document.getElementById('btnAgregarHorario').addEventListener('click', function () {
