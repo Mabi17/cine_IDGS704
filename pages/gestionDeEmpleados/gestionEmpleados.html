@@ -305,52 +305,47 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <label for="inputAddress" class="form-label">Calle</label>
-                            <input type="text" class="form-control shadow-sm" id="inputAddress"
-                                placeholder="San pedritro #1083">
+                            <label for="inputAddress" class="form-label">Correo</label>
+                            <input type="text" class="form-control shadow-sm" id="inputcorreo"
+                                placeholder="example@gmail.com">
                         </div>
                         <div class="col-md-6">
-                            <label for="inputAddress2" class="form-label">Colonia</label>
-                            <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Colonia">
+                            <label for="inputAddress2" class="form-label">Teléfono</label>
+                            <input type="text" class="form-control shadow-sm" id="inputtelefono" maxlength="10"
+                                placeholder="4771234546">
+                            <br>
                         </div>
-
-                    </div>
-
-                    <br>
-                    <!-- Tercera Fila -->
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="inputCity" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control shadow-sm" id="inputCity" placeholder="Ciudad">
-                        </div>
-                        <div class="col-md-2">
-                            <label for="inputZip" class="form-label">Código Postal</label>
-                            <input type="text" class="form-control shadow-sm" id="inputZip" placeholder="12345">
-                        </div>
-
                         <div class="col-md-6">
-                            <label for="inputCity" class="form-label">Departamento</label>
-                            <input type="text" class="form-control shadow-sm" id="inputCity" placeholder="Ciudad">
+                            <label for="inputAddress2" class="form-label">RFC</label>
+                            <input type="text" class="form-control shadow-sm" id="inputrfc" maxlength="12" placeholder="ZARC031218IM5">
                         </div>
 
                     </div>
                     <br>
-                    <div class="dropdown ">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Roles Empleados
-                        </button>
-                        <div class="dropdown-menu animated--fade-in" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Limpieza</a>
-                            <a class="dropdown-item" href="#">Dulceria</a>
-                            <a class="dropdown-item" href="#">Caja</a>
-                        </div>
+                    <!-- Dropdown de roles -->
+                    <!-- Dropdown actualizado para roles -->
+                    <div class="form-group">
+                        <label for="rolesDropdown" class="form-label">Rol</label>
+                        <select class="form-control shadow-sm" id="rolesDropdown">
+                            <option value="">Seleccionar Rol</option>
+                        </select>
+                    </div>
+
+
+
+                    <br>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-warning px-4 py-2 shadow-sm" id="editarEmpleado"
+                            style="display: none;">Guardar Cambios</button>
                     </div>
                     <br>
                     <div class="col-12 text-center">
                         <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm"
                             id="registrarEmpleado">Registrar Empleado</button>
                     </div>
+
+
+
                     </form>
                 </div>
                 <div class="col-md-4">
@@ -371,7 +366,7 @@
                                         <th>ID</th>
                                         <th>Nombre</th>
                                         <th>Rol</th>
-                                        <th>Departamento</th>
+                                        <th>RFC</th>
                                         <th>Estado</th>
                                         <th>Fecha de Inicio</th>
                                         <th>Acciones</th>
@@ -379,42 +374,6 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Juan Pérez</td>
-                                        <td>Gerente</td>
-                                        <td>Ventas</td>
-                                        <td>Activo</td>
-                                        <td>2022/01/15</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-info" id="editar">Editar</button>
-                                            <button class="btn btn-sm btn-danger" id="eliminar">Eliminar</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>María López</td>
-                                        <td>Asistente</td>
-                                        <td>Recursos Humanos</td>
-                                        <td>Inactivo</td>
-                                        <td>2021/07/30</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-info" id="editar">Editar</button>
-                                            <button class="btn btn-sm btn-danger" id="eliminar">Eliminar</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Carlos Gómez</td>
-                                        <td>Analista</td>
-                                        <td>TI</td>
-                                        <td>Activo</td>
-                                        <td>2023/04/10</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-info" id="editar">Editar</button>
-                                            <button class="btn btn-sm btn-danger" id="eliminar">Eliminar</button>
-                                        </td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -467,6 +426,239 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const BASE_URL = 'https://crud-empleado-cine.azurewebsites.net/api';
+
+        const EmployeeService = {
+            async getRoles() {
+                try {
+                    const response = await fetch(`${BASE_URL}/roles`);
+                    if (!response.ok) throw new Error('Error al obtener roles del servidor.');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error al obtener roles:', error);
+                    alert('No se pudieron cargar los roles. Verifica tu conexión.');
+                    throw error;
+                }
+            },
+            async getAllEmployees() {
+                try {
+                    const response = await fetch(`${BASE_URL}/empleados/completo`);
+                    if (!response.ok) throw new Error('Error al obtener empleados.');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error al obtener empleados:', error);
+                    throw error;
+                }
+            },
+            async getEmployeeById(employeeId) {
+                try {
+                    const response = await fetch(`${BASE_URL}/empleados/${employeeId}`);
+                    if (!response.ok) throw new Error('Error al obtener detalles del empleado.');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error al obtener detalles del empleado:', error);
+                    throw error;
+                }
+            },
+            async createEmployee(employeeData) {
+                try {
+                    const response = await fetch(`${BASE_URL}/empleados`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(employeeData),
+                    });
+                    if (!response.ok) throw new Error('Error al registrar empleado.');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error al registrar empleado:', error);
+                    throw error;
+                }
+            },
+            async updateEmployee(employeeId, employeeData) {
+                try {
+                    const response = await fetch(`${BASE_URL}/empleados/${employeeId}`, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(employeeData),
+                    });
+                    if (!response.ok) throw new Error('Error al actualizar empleado.');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error al actualizar empleado:', error);
+                    throw error;
+                }
+            },
+            async deleteEmployee(employeeId) {
+                try {
+                    const response = await fetch(`${BASE_URL}/empleados/${employeeId}`, {
+                        method: 'DELETE',
+                    });
+                    if (!response.ok) throw new Error('Error al eliminar empleado.');
+                    return await response.json();
+                } catch (error) {
+                    console.error('Error al eliminar empleado:', error);
+                    throw error;
+                }
+            },
+        };
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const rolesDropdown = document.getElementById('rolesDropdown');
+            const tableBody = document.querySelector('#dataTable tbody');
+            const registerEmployeeBtn = document.getElementById('registrarEmpleado');
+            const editEmployeeBtn = document.getElementById('editarEmpleado');
+            let selectedEmployeeId = null;
+
+            const showLoading = () => console.log('Cargando...');
+            const hideLoading = () => console.log('Carga finalizada.');
+
+            try {
+                showLoading();
+                const roles = await EmployeeService.getRoles();
+                rolesDropdown.innerHTML = '<option value="">Seleccionar Rol</option>';
+                roles.forEach((role) => {
+                    const option = document.createElement('option');
+                    option.value = role.id;
+                    option.textContent = role.nombreRol;
+                    rolesDropdown.appendChild(option);
+                });
+                hideLoading();
+            } catch (error) {
+                console.error('Error al cargar roles:', error);
+                alert('No se pudieron cargar los roles.');
+                hideLoading();
+            }
+
+            try {
+                showLoading();
+                const employees = await EmployeeService.getAllEmployees();
+                tableBody.innerHTML = '';
+                employees.forEach((emp) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${emp.idEmpleado}</td>
+                        <td>${emp.nombre} ${emp.apellido}</td>
+                        <td>${emp.rol.nombreRol}</td>
+                        <td>${emp.rfc}</td>
+                        <td>${emp.activo ? 'Activo' : 'Inactivo'}</td>
+                        <td>${emp.fechaInicio}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info edit-btn" data-id="${emp.idEmpleado}">Editar</button>
+                            <button class="btn btn-sm btn-danger delete-btn" data-id="${emp.idEmpleado}">Eliminar</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+
+                    row.querySelector('.edit-btn').addEventListener('click', async () => {
+                        const employee = await EmployeeService.getEmployeeById(emp.idEmpleado);
+                        selectedEmployeeId = emp.idEmpleado;
+
+                        const [apellidoPaterno, ...resto] = (employee.apellido || '').split(' ');
+                        const apellidoMaterno = resto.join(' ');
+
+                        document.getElementById('employeeName').value = employee.nombre || '';
+                        document.getElementById('employeeNamelastnameFa').value = apellidoPaterno || '';
+                        document.getElementById('employeelastnameMo').value = apellidoMaterno || '';
+                        document.getElementById('inputcorreo').value = employee.correo || '';
+                        document.getElementById('inputtelefono').value = employee.telefono || '';
+                        document.getElementById('inputrfc').value = employee.rfc || '';
+                        rolesDropdown.value = employee.rol?.id || '';
+
+                        editEmployeeBtn.style.display = 'inline-block';
+                    });
+
+                    row.querySelector('.delete-btn').addEventListener('click', async () => {
+                        if (confirm('¿Estás seguro de eliminar este empleado?')) {
+                            await EmployeeService.deleteEmployee(emp.idEmpleado);
+                            row.remove();
+                        }
+                    });
+                });
+                hideLoading();
+            } catch (error) {
+                console.error('Error al cargar empleados:', error);
+                hideLoading();
+            }
+
+            registerEmployeeBtn.addEventListener('click', async (e) => {
+                e.preventDefault();
+                const nombre = document.getElementById('employeeName').value;
+                const apellidoPaterno = document.getElementById('employeeNamelastnameFa').value;
+                const apellidoMaterno = document.getElementById('employeelastnameMo').value;
+                const correo = document.getElementById('inputcorreo').value;
+                const telefono = document.getElementById('inputtelefono').value;
+                const rfc = document.getElementById('inputrfc').value;
+                const rolId = rolesDropdown.value;
+
+                if (!nombre || !apellidoPaterno || !correo || !telefono || !rolId || !rfc) {
+                    alert('Por favor, completa todos los campos.');
+                    return;
+                }
+
+                const newEmployee = {
+                    nombre,
+                    apellido: apellidoPaterno,
+                    correo,
+                    telefono,
+                    rfc,
+                    rol: { id: parseInt(rolId) },
+                };
+
+                try {
+                    const response = await EmployeeService.createEmployee(newEmployee);
+                    console.log('Respuesta de la API:', response);
+
+                    if (response && response.error) {
+                        alert(`Error al registrar empleado: ${response.error}`);
+                    } else {
+                        alert('Empleado registrado exitosamente.');
+                        location.reload();
+                    }
+                } catch (error) {
+                    console.error('Error al registrar empleado:', error);
+                    alert('Ocurrió un error al registrar el empleado. Por favor, inténtalo nuevamente.');
+                }
+            });
+
+            editEmployeeBtn.addEventListener('click', async () => {
+                if (!selectedEmployeeId) return;
+
+                const nombre = document.getElementById('employeeName').value;
+                const apellidoPaterno = document.getElementById('employeeNamelastnameFa').value;
+                const apellidoMaterno = document.getElementById('employeelastnameMo').value;
+                const correo = document.getElementById('inputcorreo').value;
+                const telefono = document.getElementById('inputtelefono').value;
+                const rfc = document.getElementById('inputrfc').value;
+                const rolId = rolesDropdown.value;
+
+                if (!nombre || !apellidoPaterno || !correo || !telefono || !rolId || !rfc) {
+                    alert('Por favor, completa todos los campos.');
+                    return;
+                }
+
+                try {
+                    const updatedEmployee = {
+                        nombre,
+                        apellido: `${apellidoPaterno} ${apellidoMaterno}`,
+                        correo,
+                        telefono,
+                        rfc,
+                        rol: { id: parseInt(rolId) },
+                    };
+
+                    await EmployeeService.updateEmployee(selectedEmployeeId, updatedEmployee);
+                    alert('Empleado actualizado exitosamente.');
+                    location.reload();
+                } catch (error) {
+                    console.error('Error al actualizar empleado:', error);
+                    alert('Ocurrió un error al actualizar el empleado.');
+                }
+            });
+        });
+    </script>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
