@@ -238,159 +238,114 @@
         <!-- Fin de la Sidebar -->
 
         <!-- Contenido del Dashboard -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Contenido principal -->
-            <div id="content">
-
-                <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Texto dentro de la barra -->
-                    <span class="navbar-title">
-                        Cinema Premier
-                    </span>
-                </nav>
-
-                <!-- Contenido dentro del dashboard -->
-                <div id="content-wrapper" class="d-flex flex-column">
-
-                    <!-- Contenido principal -->
-                    <div id="content">
-
-
-
-                        <!-- Contenedor dentro de la página -->
-                        <!-- DataTales Example -->
-                        <link rel="stylesheet" href="">
-
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3 text-center">
-                                <h2 class="m-0 font-weight-bold text-title">Funciones Especiales y Estrenos</h2>
-                            </div>
-
-                            <div class="d-flex justify-content-between p-3">
-                                <button class="btn btn-primary custom-btn" type="button">Programar Función
-                                    Especial/Estreno</button>
-                            </div>
-                        </div>
-
-
-
-                        <div class="card-body">
-
-                            <div class="peliculas">
-                                <div class="pelicula" data-movie="pelicula1">
-                                    <img src="../../img/terminator.jpg" alt="Película 1">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">Terminator</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pelicula" data-movie="pelicula2">
-                                    <img src="../../img/titanic.jpg" alt="Película 2">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">Titanic</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pelicula" data-movie="pelicula3">
-                                    <img src="../../img/parasite.jpg" alt="Película 3">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">Parasite</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="pelicula" data-movie="pelicula3">
-                                    <img src="../../img/taxi.jpg" alt="Película 3">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">Taxi Driver</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pelicula" data-movie="pelicula3">
-                                    <img src="../../img/joker.jpg" alt="Película 3">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">The Joker</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pelicula" data-movie="pelicula3">
-
-                                    <img src="../../img/it.jpg" alt="Película 3">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">It</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pelicula" data-movie="pelicula3">
-                                    <img src="../../img/matrix.jpg" alt="Película 3">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">Matrix</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pelicula" data-movie="pelicula3">
-                                    <img src="../../img/halloweem.jpg" alt="Película 3">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">Halloween</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="pelicula" data-movie="pelicula3">
-                                    <img src="../../img/scarface.jpg" alt="Película 3">
-                                    <div class="pelicula-info">
-                                        <div class="pelicula-title">Scarface</div>
-                                        <div class="horarios">
-                                            <p>Faltan 25 Dias para el estreno</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- /.container-fluid -->
-
+        <div class="container-fluid mt-5" style="max-width:1900px; width: 100%;">
+            <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
+    
+                <!-- Texto dentro de la barra -->
+                <span class="navbar-title">
+                    Cinema Premier
+                </span>
+            </nav>
+                <h3 class="mb-3 text-primary text-center">Programacion de funciones</h3>
+    
+                <!-- Primera Fila -->
+                <!-- <div class="row">
+                    <div class="col-md-4">
+                        <label for="clientName" class="form-label">Pelicula</label>
+                        <input type="text" class="form-control shadow-sm" id="txtIdMovie" placeholder="Pelicula">
                     </div>
-
-                    <!-- Contenido dentro del dashboard -->
-
+    
+                    <div class="col-md-4">
+                        <label for="clientNamelastnameFa" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control shadow-sm" id="clientNamelastnameFa" placeholder="Apellido Paterno">
+                    </div>
+    
+                    <div class="col-md-4">
+                        <label for="clientelastnameMo" class="form-label">Apellido Materno</label>
+                        <input type="text" class="form-control shadow-sm" id="clientelastnameMo" placeholder="Apellido Materno">
+                    </div>
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; CinemaPremier 2024</span>
-                        </div>
+    
+                <br> -->
+    
+                <!-- Segunda Fila -->
+                <!-- <div class="row">
+                    <div class="col-md-6">
+                        <label for="exampleInputEmail1" class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required title="Por favor, ingrese un correo válido con '@'."
+                            placeholder="example@example.com">
+                        <span id="emailError" class="text-danger" style="display: none;">Por favor, ingrese un correo válido que contenga '@'.</span>
                     </div>
-                </footer>
-                <!-- fin del Footer -->
+                    <div class="col-md-6">
+                        <label for="inputPassword" class="form-label">Contraseña</label>
+                        <input type="password" class="form-control shadow-sm" id="inputPassword" placeholder="Contraseña">
+                    </div>
+                </div>
+    
+                <br> -->
+    
+                <!-- <div class="row">
+                    <div class="col-md-6">
+                        <label for="inputAddress" class="form-label">Calle</label>
+                        <input type="text" class="form-control shadow-sm" id="inputAddress" placeholder="San pedritro #1083">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAddress2" class="form-label">Colonia</label>
+                        <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Colonia">
+                    </div>
+                </div> -->
+    
+                <br>
+                <div class="col-12 text-center">
+                    <!-- <button type="button" class="btn btn-primary px-4 py-2 shadow-sm" id="registrarCliente">Registrar Cliente</button> -->
+                </div>
+                <div style="background-color: transparent;" id="messageContainer" class=" mt-3"></div>
 
-            </div>
-            <!-- End of Content Wrapper -->
-
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Funciones sin asignar</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTableClient" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Pelicula</th>
+                              <th>Hora de inicio</th>
+                              <th>Hora fin</th>
+                              <th>Sala</th>
+                              <th>Acciones</th>
+                            </tr>
+                          </thead>
+                          <tbody id="tableData"></tbody> </table>
+                      </div>
+                    </div>
+                  </div>
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                      <h6 class="m-0 font-weight-bold text-primary">Funciones asignadas</h6>
+                    </div>
+                    <div class="card-body">
+                      <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTableClient" width="100%" cellspacing="0">
+                          <thead>
+                            <tr>
+                              <th>Pelicula</th>
+                              <th>Hora de inicio</th>
+                              <th>Hora fin</th>
+                              <th>Sala</th>
+                              <th>Acciones</th>
+                            </tr>
+                          </thead>
+                          <tbody id="tableDataAsignadas"></tbody> </table>
+                      </div>
+                    </div>
+                  </div>
         </div>
         <!-- End of Page Wrapper -->
 
@@ -435,6 +390,206 @@
         <!-- Page level custom scripts -->
         <script src="../../js/demo/chart-area-demo.js"></script>
         <script src="../../js/demo/chart-pie-demo.js"></script>
+        <script>
+            const funciones = [
+                {
+                    idFuncion: 1,
+                    horaInicio: "10:50",
+                    horaFin: "11:59",
+                    dia: "2024-12-05",
+                    pelicula: {
+                        nombrePelicula: "Moana"
+                    },
+                    tipoFuncion: "Estreno",
+                    status: 1
+                },
+                {
+                    idFuncion: 2,
+                    horaInicio: "12:30",
+                    horaFin: "14:00",
+                    dia: "2024-12-05",
+                    pelicula: {
+                        nombrePelicula: "Frozen"
+                    },
+                    tipoFuncion: "Regular",
+                    status: 1
+                },
+                {
+                    idFuncion: 3,
+                    horaInicio: "15:00",
+                    horaFin: "16:45",
+                    dia: "2024-12-05",
+                    pelicula: {
+                        nombrePelicula: "Toy Story"
+                    },
+                    tipoFuncion: "Especial",
+                    status: 1
+                },
+                {
+                    idFuncion: 4,
+                    horaInicio: "17:00",
+                    horaFin: "18:50",
+                    dia: "2024-12-05",
+                    pelicula: {
+                        nombrePelicula: "The Lion King"
+                    },
+                    tipoFuncion: "Estreno",
+                    status: 1
+                },
+                {
+                    idFuncion: 5,
+                    horaInicio: "19:00",
+                    horaFin: "20:30",
+                    dia: "2024-12-05",
+                    pelicula: {
+                        nombrePelicula: "Encanto"
+                    },
+                    tipoFuncion: "Regular",
+                    status: 1
+                }
+            ];
+
+            let salas = [];
+
+            fetch('https://cinepremier-spring-app-cinepremier.azuremicroservices.io/api/v1/cinemarooms')
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Error en la solicitud: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    salas = data;
+                    console.log('Datos obtenidos:', data);
+                    generarTabla(); // Generar la tabla después de obtener los datos
+                })
+                .catch((error) => {
+                    console.error('Hubo un problema con la solicitud:', error);
+                });
+
+            const getSelectSalas = function (funcionId) {
+                let options = '';
+                salas.forEach((sala) => {
+                    options += `<option value=${sala.id}>${sala.name}</option>`;
+                });
+                const select = `<select class="form-select" name="sala_${funcionId}" id="sala_${funcionId}">
+                                    <option selected>Seleccione una sala</option>
+                                    ${options}
+                                </select>`;
+                return select;
+            };
+            const setearFuncion = function(idFuncion){
+                const idSala = document.getElementById(`sala_${idFuncion}`).value;
+
+                const funcionInfo = { idFuncion, idSala, idFuncionProgramada: 0 };
+
+                fetch('http://52.15.223.21:13050/api/funciones/saveFunction', {
+                    method: 'POST', 
+                    headers: {
+                        'Content-Type': 'application/json', 
+                    },
+                    body: JSON.stringify(funcionInfo), 
+                })
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Error en la solicitud: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log('Datos obtenidos:', data);
+                })
+                .catch((error) => {
+                    console.error('Hubo un problema con la solicitud:', error);
+                });
+            }
+
+            const generarTabla = function () {
+                let html = '';
+                const funcionesFiltradas = funciones.filter(funcion => funcion.status === 1);
+                funcionesFiltradas.forEach((funcion) => {
+                    html += `<tr>
+                                <td>${funcion.pelicula.nombrePelicula}</td>
+                                <td>${funcion.horaInicio}</td>
+                                <td>${funcion.horaFin}</td>
+                                <td>${getSelectSalas(funcion.idFuncion)}</td>
+                                <td><button type="button" class="btn btn-primary" onclick="setearFuncion(${(funcion.idFuncion)})">Configurar Funcion</button></td>
+                            </tr>`;
+                });
+
+                document.getElementById('tableData').innerHTML = html;
+            };
+
+            const generarTablaConfiguradas = function (data) {
+
+                
+
+                const funcionesFiltradas = funciones.filter(funcion => 
+                    funcion.status === 1 // Filtrar solo las funciones con status 1
+                );
+                console.log("si llega aqui");
+
+                let html = ''; // Inicializar la variable 'html'
+
+                funcionesFiltradas.forEach((funcion) => {
+                    // Encontrar la función programada correspondiente                    
+                    
+                    console.log(funcion);
+                    
+                
+
+                    const funcionProgramada = data.body.find(funcionProgramada => funcionProgramada.idFuncion === funcion.idFuncion);
+
+
+                    if (!funcionProgramada) {
+                        console.error(`No se encontró función programada para idFuncion ${funcion.id}`);
+                        return; // Continuar con la siguiente función si no hay coincidencia
+                    }
+
+                    // Buscar la sala correspondiente
+                    const sala = salas.find(sala => sala.id === funcionProgramada.idSala);
+                    if (!sala) {
+                        console.error(`No se encontró sala para idSala ${funcionProgramada.idSala}`);
+                        return; // Continuar con la siguiente función si no hay coincidencia
+                    }
+
+                    // Construir el HTML
+                    html += `<tr>
+                                <td>${funcion.pelicula.nombrePelicula}</td>
+                                <td>${funcion.horaInicio}</td>
+                                <td>${funcion.horaFin}</td>
+                                <td>${sala.name}</td> <!-- Mostrar el nombre de la sala -->
+                                <td><button type="button" class="btn btn-primary" onclick="setearFuncion(${funcion.id})">Configurar Funcion</button></td>
+                            </tr>`;
+                });
+
+                document.getElementById('tableDataAsignadas').innerHTML = html;
+            };
+
+
+
+
+            const getFuncionesConfiguradas = function(){
+                fetch("http://52.15.223.21:13050/api/funciones/",{
+                    method: 'GET'
+                    }
+                ).then((response) => {
+                    if (!response.ok) {
+                        throw new Error('Error en la solicitud: ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then((data) => {
+                    generarTablaConfiguradas(data)
+                    console.log('Datos obtenidos de las funciones:', data);
+
+                })
+                .catch((error) => {
+                    console.error('Hubo un problema con la solicitud:', error);
+                });
+            }
+            getFuncionesConfiguradas()
+        </script>
 
 </body>
 
