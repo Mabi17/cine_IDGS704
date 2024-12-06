@@ -30,9 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.querySelector('#message').innerHTML = `
                     <strong>Boleto válido:</strong><br>
                     Película: ${boleto.pelicula}<br>
-                    Sala: ${boleto.sala}<br>
-                    Fecha: ${boleto.fechaProyeccion}<br>
-                    Hora: ${boleto.horarioInicio}
+                    Funcion: ${boleto.idFuncion}<br>
+                    Asiento: ${boleto.num_asiento}<br>
+                    Hora: ${boleto.horario}
                 `;
             } else {
                 document.querySelector('#message').innerText = data.message;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .catch(error => {
             console.error('Fetch error:', error);
-            document.querySelector('#message').innerText = 'Boleto invalido.';
+            document.querySelector('#message').innerText = 'Boleto no encontrado.';
         });
         
     });

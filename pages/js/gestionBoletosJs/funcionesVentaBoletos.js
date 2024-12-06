@@ -248,6 +248,7 @@ function mostrarResumenCompra(data, boletos) {
                         <p><strong>Horario:</strong> ${data.horarioInicio}</p>
                         ${boletosInfo}
                     </div>
+                    <a href="reservacionBoletos.html" class="submit-btn">Reservar Asientos</a>
                 </div>
             </div>
         </div>
