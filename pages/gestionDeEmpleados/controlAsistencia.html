@@ -136,12 +136,20 @@
                 <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionEmpleados.html">Gestión de
                             empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionRoles.html">Gestión de roles de
                             <br>empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistencia.html">Control de
                             asistencia<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistenciaLlegada.html">Control
+                            de
+                            asistencia Llegada<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistenciaSalida.html">Control de
+                            asistencia Salida<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/horariosEmpleados.html">Horarios<br>de
+                            empleados</a>
+
                     </div>
                 </div>
             </li>
@@ -265,7 +273,7 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <form
+                            <form id="formAsistenciaLlegada"
                                 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
                                     <input type="text" class="form-control bg-light border-0 small"
@@ -288,86 +296,87 @@
                     <!-- Roles en existencia ejmeplo -->
 
                     <div class="card shadow mb-4">
-    <h3 class="text-primary text-center mb-3">Control de Turnos de Empleados</h3>
-    <table class="table table-bordered">
-        <thead class="thead-light">
-            <tr>
-                <th>IdEmpleado</th>
-                <th>Fecha</th>
-                <th>Turno</th>
-                <th>Hora Entrada</th>
-                <th>Hora Salida</th>
-                <th>Estatus Asistencia</th>
-                <th>Horas totales</th>
-            </tr>
-        </thead>
-        <tbody id="turnos-table-body">
-         
-        </tbody>
-    </table>
-</div>
+                        <h3 class="text-primary text-center mb-3">Control de Turnos de Empleados</h3>
+                        <table class="table table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>IdEmpleado</th>
+                                    <th>Fecha</th>
+                                    <th>Turno</th>
+                                    <th>Hora Entrada</th>
+                                    <th>Hora Salida</th>
+                                    <th>Estatus Asistencia</th>
+                                    <th>Horas totales</th>
+                                </tr>
+                            </thead>
+                            <tbody id="turnos-table-body">
 
-                <!-- Fin del contenido principal -->
-
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; CinemaPremier 2024</span>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
-                </footer>
-                <!-- fin del Footer -->
+
+                    <!-- Fin del contenido principal -->
+
+
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; CinemaPremier 2024</span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- fin del Footer -->
+
+                </div>
+                <!-- End of Content Wrapper -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Page Wrapper -->
 
-        </div>
-        <!-- End of Page Wrapper -->
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="../../index.html">Logout</a>
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="../../index.html">Logout</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="../../vendor/jquery/jquery.min.js"></script>
-        <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="../../vendor/jquery/jquery.min.js"></script>
+            <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="../../js/sb-admin-2.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="../../js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="../../vendor/chart.js/Chart.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="../../vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="../../js/demo/chart-area-demo.js"></script>
-        <script src="../../js/demo/chart-pie-demo.js"></script>
-<script src="../../js/tablaControlAsistencia.js"></script>
+            <!-- Page level custom scripts -->
+            <script src="../../js/demo/chart-area-demo.js"></script>
+            <script src="../../js/demo/chart-pie-demo.js"></script>
+            <script src="../../js/tablaControlAsistencia.js"></script>
 </body>
 
 </html>
