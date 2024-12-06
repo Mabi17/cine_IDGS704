@@ -79,10 +79,10 @@
   // Función para inicializar los gráficos
   async function init() {
     // Obtener datos de la API
-    const ventasDia = await fetchData('http://127.0.0.1:5000/ventas_por_dia');
-    const ventasProductos = await fetchData('http://127.0.0.1:5000/ventas_por_dia');
-    const producto_top = await fetchData('http://localhost:5000/producto_vendido');
-    const ventasSemana = await fetchData('http://localhost:5000/suma_total_ventas');
+    const ventasDia = await fetchData('http://162.214.153.239:5000/ventas_por_dia');
+    const ventasProductos = await fetchData('http://162.214.153.239:5000/ventas_por_dia');
+    const producto_top = await fetchData('http://162.214.153.239:5000/producto_vendido');
+    const ventasSemana = await fetchData('http://162.214.153.239:5000/suma_total_ventas');
 
     
 
