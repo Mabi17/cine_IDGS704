@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashborad - CinemaPremier</title>
+    <title>Registro Clientes - CinemaPremier</title>
 
     <!-- Fuentes para la plantilla-->
     <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
@@ -36,7 +36,7 @@
 
     <!-- Protector de la pagina -->
     <div id="wrapper">
-
+        
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -241,63 +241,245 @@
 
 
         <!-- Contenido del Dashboard -->
+      
         
-
-          <div class="container">
-            <div class="container-fluid mt-5">
-                <form class="row g-4">
+            <div class="container-fluid mt-5" style="max-width:1900px; width: 100%;">
+                <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+        
+                    <!-- Texto dentro de la barra -->
+                    <span class="navbar-title">
+                        Cinema Premier
+                    </span>
+                </nav>
                     <h3 class="mb-3 text-primary text-center">Gestión de Clientes</h3>
-                </form>
-
-                <!-- Primera Fila -->
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <label for="employeeName" class="form-label">Nombre</label>
-                        <input type="text" class="form-control shadow-sm" id="employeeName" placeholder="Nombre ">
+        
+                    <!-- Primera Fila -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="clientName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control shadow-sm" id="clientName" placeholder="Nombre">
+                        </div>
+        
+                        <div class="col-md-4">
+                            <label for="clientNamelastnameFa" class="form-label">Apellido Paterno</label>
+                            <input type="text" class="form-control shadow-sm" id="clientNamelastnameFa" placeholder="Apellido Paterno">
+                        </div>
+        
+                        <div class="col-md-4">
+                            <label for="clientelastnameMo" class="form-label">Apellido Materno</label>
+                            <input type="text" class="form-control shadow-sm" id="clientelastnameMo" placeholder="Apellido Materno">
+                        </div>
                     </div>
-
-                    <div class="col-md-4">
-                        <label for="employeeName" class="form-label">Apellido Paterno</label>
-                        <input type="text" class="form-control shadow-sm" id="employeeNamelastnameFa"
-                            placeholder="Apellido Paterno">
+        
+                    <br>
+        
+                    <!-- Segunda Fila -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="exampleInputEmail1" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required title="Por favor, ingrese un correo válido con '@'."
+                                placeholder="example@example.com">
+                            <span id="emailError" class="text-danger" style="display: none;">Por favor, ingrese un correo válido que contenga '@'.</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control shadow-sm" id="inputPassword" placeholder="Contraseña">
+                        </div>
                     </div>
-
-                    <div class="col-md-4">
-                        <label for="employeeName" class="form-label">Apellido Materno</label>
-                        <input type="text" class="form-control shadow-sm" id="employeelastnameMo"
-                            placeholder="Apellido Materno">
+        
+                    <br>
+        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Calle</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress" placeholder="San pedritro #1083">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputAddress2" class="form-label">Colonia</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Colonia">
+                        </div>
                     </div>
-
-                </div>
-
-                <br>
-
-                <!-- Segunda Fila -->
-
-                <div class="row">
-
-                    <div class="col-md-6">
-                        <label for="inputAddress" class="form-label">Calle</label>
-                        <input type="text" class="form-control shadow-sm" id="inputAddress"
-                            placeholder="San pedritro #1083">
+        
+                    <br>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-primary px-4 py-2 shadow-sm" id="registrarCliente">Registrar Cliente</button>
                     </div>
-                    <div class="col-md-6">
-                        <label for="inputAddress2" class="form-label">Colonia</label>
-                        <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Colonia">
-                    </div>
+                    <div style="background-color: transparent;" id="messageContainer" class=" mt-3"></div>
 
-                </div>
-
-                <br>
-                <div class="col-12 text-center">
-                    <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm"
-                        id="registrarEmpleado">Registrar cliente</button>
-                </div>
-                </form>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Gestión de cliente</h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTableClient" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>Nombre</th>
+                                  <th>Correo</th>
+                                  <th>Calle</th>
+                                  <th>Colonia</th>
+                                </tr>
+                              </thead>
+                              <tbody id="tableData"></tbody> </table>
+                          </div>
+                        </div>
+                      </div>
             </div>
-          </div>
+            
+           
+        
 
 </body>
 
 </html>
+<script>
+document.querySelector("#exampleInputEmail1").addEventListener("input", function () {
+    const emailInput = document.querySelector("#exampleInputEmail1");
+    const emailError = document.querySelector("#emailError");
+
+    // Verificar si el correo es válido
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailInput.value === "" || !emailPattern.test(emailInput.value)) {
+        emailError.style.display = "block"; // Mostrar el mensaje de error
+    } else {
+        emailError.style.display = "none"; // Ocultar el mensaje de error
+    }
+});
+
+document.getElementById("registrarCliente").addEventListener("click", function(event) {
+    event.preventDefault(); 
+
+        // Obtener los valores de los campos
+        const nombre = document.getElementById('clientName').value;
+        const apPaterno = document.getElementById('clientNamelastnameFa').value;
+        const apMaterno = document.getElementById('clientelastnameMo').value;
+        const correo = document.getElementById('exampleInputEmail1').value;
+        const contrasena = document.getElementById('inputPassword').value;
+        const calle = document.getElementById('inputAddress').value;
+        const colonia = document.getElementById('inputAddress2').value;
+
+        
+        // Crear el objeto con los datos
+        const clienteData = {
+            nombre,
+            ap_paterno: apPaterno,
+            ap_materno: apMaterno,
+            correo,
+            contrasena,
+            calle,
+            colonia
+        };
+
+        // Validación de campos vacíos
+        let errorMessage = "";
+
+    // Revisamos si algún campo está vacío y asignamos el mensaje de error correspondiente
+    for (let key in clienteData) {
+        if (clienteData[key] === "") {
+            errorMessage = "Todos los campos son obligatorios.";
+            break; // Si se encuentra un campo vacío, salimos del ciclo
+        }
+    }
+
+// Si hay un error, mostramos el mensaje de error
+if (errorMessage !== "") {
+    const messageContainer = document.getElementById("messageContainer");
+    messageContainer.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ${errorMessage}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    return; // Si hay un error, detenemos la ejecución y no enviamos el formulario
+}
+
+        // Hacer la solicitud a la API registro
+        fetch('http://162.214.153.239:5010/api/clientes/save_clients', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(clienteData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const messageContainer = document.getElementById("messageContainer");
+        
+            if (data.message) {
+                // Mostrar mensaje de éxito
+                messageContainer.innerHTML = `
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Cliente registrado exitosamente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+                setTimeout(function() {
+                    location.reload(); // Recarga la página
+                }, 3000);
+            }
+        })
+        .catch(error => {
+            const messageContainer = document.getElementById("messageContainer");
+        
+                // Mostrar mensaje de error
+                messageContainer.innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Ocurrió un error al registrar el cliente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+            console.error('Error al registrar cliente:', error);
+        });
+    });
+
+    async function cargarDatos() {
+        try {
+            const response = await fetch('http://162.214.153.239:5010/api/clientes/get_clients');
+            const data = await response.json();
+
+            // Obtener una referencia a la tabla (asegúrate de que el ID sea correcto)
+            const tabla = document.getElementById('dataTableClient');
+            const tbody = tabla.querySelector('tbody');
+
+            // Limpiar la tabla si tiene datos anteriores
+            tbody.innerHTML = '';
+
+            // Crear filas y celdas
+            data.forEach(cliente => {
+            const fila = document.createElement('tr');
+            const celdaNombre = document.createElement('td');
+            const celdaCorreo = document.createElement('td');
+            const celdaCalle = document.createElement('td');
+            const celdaColonia = document.createElement('td');
+            
+
+            celdaNombre.textContent = cliente.nombre;
+            celdaCorreo.textContent = cliente.correo;
+            celdaCalle.textContent = cliente.calle;
+            celdaColonia.textContent = cliente.colonia;
+            // ...
+
+            fila.appendChild(celdaNombre);
+            fila.appendChild(celdaCorreo);
+            fila.appendChild(celdaCalle);
+            fila.appendChild(celdaColonia);
+            // ...
+
+            tbody.appendChild(fila);
+            });
+        } catch (error) {
+            console.log('Error al cargar los datos:', error);
+        }
+    }
+
+    // Llamar a la función cuando la página se haya cargado completamente
+    window.onload = cargarDatos;
+   
+    
+</script>
