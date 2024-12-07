@@ -483,7 +483,7 @@
 
                 const funcionInfo = { idFuncion, idSala, idFuncionProgramada: 0 };
 
-                fetch('http://52.15.223.21:13050/api/funciones/saveFunction', {
+                fetch('http://74.208.86.20:13050/api/funciones/saveFunction', {
                     method: 'POST', 
                     headers: {
                         'Content-Type': 'application/json', 
@@ -570,7 +570,7 @@
 
 
             const getFuncionesConfiguradas = function(){
-                fetch("http://52.15.223.21:13050/api/funciones/",{
+                fetch("http://74.208.86.20:13050/api/funciones/",{
                     method: 'GET'
                     }
                 ).then((response) => {
