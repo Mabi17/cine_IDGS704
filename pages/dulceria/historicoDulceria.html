@@ -12,8 +12,6 @@
     <title>Dashborad - CinemaPremier</title>
 
     <!-- Fuentes para la plantilla-->
-
-    <!-- Fuentes para la plantilla-->
     <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,8 +27,6 @@
     <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
     <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
     <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/dulceriaCss/modificarPreciosDulceria.css">
-
 
 
 
@@ -49,7 +45,7 @@
                 <div class="sidebar-brand-icon rotate-n-0">
                     <img src="../../img/logo-cinema.png" alt="Logo" style="width: 60px; height: 60px;">
                 </div>
-            </a>
+            </a>index.html
 
 
             <!-- Divisor -->
@@ -232,95 +228,200 @@
                     </div>
                 </div>
             </li>
-
-
-
-
-
-
-
-
-
-
         </ul>
         <!-- Fin de la Sidebar -->
 
-        <!-- Contenido del Dashboard -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Contenido principal -->
-            <div id="content">
-
-                <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-                        <i class="fa fa-bars"></i>
-                    </button>
-
-                    <!-- Texto dentro de la barra -->
-                    <span class="navbar-title">
-                        Cinema Premier
-                    </span>
-                </nav>
 
 
 
 
-                <!-- Contenedor dentro de la página -->
-                <!-- DataTales Example -->
-                <link rel="stylesheet" href="css/InventarioDulceria/InventarioDulceria.css">
 
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 text-center">
-                        <h2 class="m-0 font-weight-bold text-title">Precios dulcería</h2>
-                    </div>
+<!-- Contenido del Dashboard -->
+<div id="content-wrapper" class="d-flex flex-column">
 
+    <!-- Contenido principal -->
+    <div id="content">
 
+        <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
+            <!-- Sidebar Toggle (Topbar) -->
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <!-- Texto dentro de la barra -->
+            <span class="navbar-title">
+                Cinema Premier
+            </span>
+        </nav>
+
+        <!-- Contenedor dentro de la página -->
+        <link rel="stylesheet" href="css/InventarioDulceria/InventarioDulceria.css">
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 text-center">
+                <h2 class="m-0 font-weight-bold text-title">Historico dulcería</h2>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>ID de venta</th>
+                            <th>Cliente</th>
+                            <th>Producto</th>
+                            <th>Total de venta</th>
+                            <th>Acciones</th> <!-- Columna para el botón -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function () {
+                                // Hacer la solicitud a la API usando Fetch API
+                                fetch('https://cinemapremier-venta-fxfrcegeb3b6gdb5.mexicocentral-01.azurewebsites.net/ventas', {
+                                    method: 'GET',
+                                    headers: {
+                                        'Content-Type': 'application/json'  // Asegúrate de enviar el encabezado correcto si es necesario
+                                    }
+                                })
+                                .then(response => {
+                                    // Verificar si la respuesta es exitosa
+                                    if (!response.ok) {
+                                        throw new Error('Error en la respuesta de la API: ' + response.statusText);
+                                    }
+                                    // Convertir la respuesta a JSON
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    const tableBody = document.querySelector('#dataTable tbody');
+                                    // Verificar si los datos son válidos
+                                    if (Array.isArray(data)) {
+                                        data.forEach(item => {
+                                            const row = document.createElement('tr');
+                                            
+                                            // Extraer los nombres de los productos y unirlos en una cadena
+                                            const nombresProductos = item.nombre.join(', '); // Unir los productos en una cadena de texto
+
+                                            row.innerHTML = `
+                                                <td>${item.id}</td>
+                                                <td>${item.cliente}</td>
+                                                <td>${nombresProductos}</td>
+                                                <td>${item.total}</td>
+                                                <td>
+                                                    <button class="btn btn-info btn-sm" onclick="verDetalles(${item.id}, '${item.cliente}', '${nombresProductos}', ${item.total})">Ver detalles</button>
+                                                </td>
+                                            `;
+                                            tableBody.appendChild(row);
+                                        });
+                                    } else {
+                                        throw new Error('La respuesta de la API no es un arreglo de datos');
+                                    }
+                                })
+                                .catch(error => {
+                                    console.error('Error al obtener los datos:', error);
+                                    alert('Hubo un problema al obtener los datos de la API. Verifique la consola para más detalles.');
+                                });
+                            });
+
+                            // Función para ver los detalles y mostrar el modal
+                            function verDetalles(id, cliente, productos, total) {
+                                // Rellenar el contenido del modal con los detalles de la venta
+                                document.getElementById('modal-id').textContent = id;
+                                document.getElementById('modal-cliente').textContent = cliente;
+                                document.getElementById('modal-productos').textContent = productos;
+                                document.getElementById('modal-total').textContent = total;
+
+                                // Mostrar el modal
+                                const modal = new bootstrap.Modal(document.getElementById('ventaModal'));
+                                modal.show();
+                            }
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para detalles de la venta -->
+    <div class="modal fade" id="ventaModal" tabindex="-1" aria-labelledby="ventaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ventaModalLabel">Detalles de la Venta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
-
-
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table " id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Stock Actual</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table-body">
-                        </table>
-                    </div>
+                <div class="modal-body">
+                    <p><strong>ID de venta:</strong> <span id="modal-id"></span></p>
+                    <p><strong>Cliente:</strong> <span id="modal-cliente"></span></p>
+                    <p><strong>Productos:</strong> <span id="modal-productos"></span></p>
+                    <p><strong>Total de venta:</strong> <span id="modal-total"></span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </div>
-
-            <!-- /.container-fluid -->
-
         </div>
-        <!-- End of Main Content -->
-
-
     </div>
-    <!-- End of Content Wrapper -->
-    <!-- Fin del contenedor -->
+
+</div>
 
 
 
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- End of Main Content -->
+</div>
+<!-- End of Content Wrapper -->
+<!-- Fin del contenedor -->
+</div>
+
     <!-- Fin del contenido principal -->
 
     <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; CinemaPremier 2024</span>
-            </div>
-        </div>
-    </footer>
+    
     <!-- Fin del Footer -->
 
     </div>
@@ -331,38 +432,6 @@
 
 
 
-    <!-- Modal de edición -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modificar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formModificarProducto">
-                        <input type="hidden" id="productoId">
-                        <div class="mb-3">
-                            <label for="productoNombre" class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="productoNombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoPrecio" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="productoPrecio" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoStock" class="form-label">Stock</label>
-                            <input type="number" class="form-control" id="productoStock" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="guardarCambios">Guardar Cambios</button>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
     <!-- Bootstrap core JavaScript-->
@@ -381,11 +450,13 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/dulceriaJs/modificarPreciosDulceria.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+
+    <!-- Enlazar Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Enlazar Bootstrap JS (con Popper) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
 
 </body>

@@ -12,25 +12,22 @@
     <title>Dashborad - CinemaPremier</title>
 
     <!-- Fuentes para la plantilla-->
-
-    <!-- Fuentes para la plantilla-->
     <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
-    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="../css/reportesCss/name.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
+
     <!-- Estilos personalizados -->
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="../css/Dashboard/navbar-styles.css" rel="stylesheet">
-    <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
-    <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
-    <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/dulceriaCss/modificarPreciosDulceria.css">
-
+    <link href="../../pages/css/Dashboard/navbar-styles.css" rel="stylesheet">
+    <link href="../../pages/css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
+    <link href="../../pages/css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
+    <link href="../../pages/css/Dashboard/reservaAsientos.css" rel="stylesheet">
 
 
 
@@ -193,8 +190,6 @@
                         <a class="collapse-item" href="../dulceria/preciosDulceria.html">Gestión de precios</br> de
                             dulcería</a>
                         <a class="collapse-item" href="../dulceria/ventasDulceria.html">Ventas de dulcería</a>
-                        <a class="collapse-item" href="../dulceria/historicoDulceria.html">Historico de dulcería</a>
-
                     </div>
                 </div>
             </li>
@@ -227,8 +222,8 @@
                 <div id="collapseReportes" class="collapse" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de ventas</a>
-                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de algo</a>
+                        <a class="collapse-item" href="../reportes/reportesVentasDulceria.html">Reportes venta dulceria</a>
+                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes venta de boletos</a>
                     </div>
                 </div>
             </li>
@@ -244,6 +239,7 @@
 
         </ul>
         <!-- Fin de la Sidebar -->
+
 
         <!-- Contenido del Dashboard -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -263,110 +259,144 @@
                     </span>
                 </nav>
 
-
-
-
-                <!-- Contenedor dentro de la página -->
-                <!-- DataTales Example -->
-                <link rel="stylesheet" href="css/InventarioDulceria/InventarioDulceria.css">
-
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 text-center">
-                        <h2 class="m-0 font-weight-bold text-title">Precios dulcería</h2>
+                <!-- Contenido dentro del dashboard -->
+                
+                <div class="container-fluid p-4">
+                    <div class="tittle">
+                    <h2 class="text-center mb-4">Reporte ventas dulceria</h2>    
                     </div>
-
-
-                </div>
-
-
-
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table " id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Stock Actual</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table-body">
-                        </table>
+                    
+                  
+                    <!-- Cards en la parte superior -->
+                    <div class="row">
+                      <div class="col-md-3">
+                        <div class="card text-center shadow-sm">
+                          <div class="card-body">
+                            <h5 class="card-title">Reporte Diario</h5>
+                            <p class="card-text">Ventas del día actual</p>
+                            <span id="totalVentas"></span><br><br>
+                            <button class="btn btn-primary">Ver Reporte</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card text-center shadow-sm">
+                          <div class="card-body">
+                            <h5 class="card-title">Reporte Semanal</h5>
+                            <p class="card-text">Ventas de la semana</p>
+                            <span id="totalVentasSemana"></span><br><br>
+                            <button class="btn btn-primary">Ver Reporte</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card text-center shadow-sm cards-sales" >
+                          <div class="card-body">
+                            <h5 class="card-title">Reporte Mensual</h5>
+                            <p class="card-text">Rendimiento de este mes</p>
+                            <span id="totalVentasMes"></span><br><br>
+                            <button class="btn btn-primary">Ver Reporte</button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="card text-center shadow-sm">
+                          <div class="card-body">
+                            <h5 class="card-title">Reporte Anual</h5>
+                            <p class="card-text">Rendimiento de este año</p>
+                            <span id="totalVentasAnio"></span><br><br>
+                            <button class="btn btn-primary">Ver Reporte</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                </div>
+                  
+                    <!-- Gráficas -->
+                    
+                      <div class="mt-4">
+                        <canvas id="ventasDia"></canvas>
+                      </div>
+                      <div class="col-md-6">
+                        <canvas id="totalVentas"></canvas>
+                      </div>
+                    
+                    <div class="row mt-4">
+                      <div class="col-md-6">
+                        <canvas id="ventasMes"></canvas>
+                      </div>
+                      <div class="col-md-6">
+                        <canvas id="ventasAnio"></canvas>
+                      </div>
+                      
+                    </div>
+                    <div>
+                        <div class="mt-4 text-center" >
+                            <canvas id="ventasTop"></canvas>
+                        </div>
+                    </div>
+                  
+                    <!-- Botón para imprimir -->
+                    <div class="text-center mt-4">
+                      <button class="btn btn-danger" onclick="printChart()">Imprimir Reporte</button>
+                    </div>
+                  </div>
+                  
+                  
+
+
+                <!-- Contenido dentro del dashboard -->
+
+
+
+
             </div>
+            <!-- End of Main Content -->
 
-            <!-- /.container-fluid -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; CinemaPremier 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- fin del Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-
-    </div>
-    <!-- End of Content Wrapper -->
-    <!-- Fin del contenedor -->
-
-
-
-    </div>
-    <!-- Fin del contenido principal -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; CinemaPremier 2024</span>
-            </div>
-        </div>
-    </footer>
-    <!-- Fin del Footer -->
-
-    </div>
-    <!-- Fin del contenido -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-
-    <!-- Modal de edición -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modificar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-                <div class="modal-body">
-                    <form id="formModificarProducto">
-                        <input type="hidden" id="productoId">
-                        <div class="mb-3">
-                            <label for="productoNombre" class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="productoNombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoPrecio" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="productoPrecio" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoStock" class="form-label">Stock</label>
-                            <input type="number" class="form-control" id="productoStock" required>
-                        </div>
-                    </form>
-                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="guardarCambios">Guardar Cambios</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/butterup-main/butterup.min.js"></script>
+
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -374,18 +404,15 @@
 
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin-2.min.js"></script>
+    <script src="../../js/Controladores/index.js"></script>
 
     <!-- Page level plugins -->
     <script src="../../vendor/chart.js/Chart.min.js"></script>
-
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/dulceriaJs/modificarPreciosDulceria.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/reportesJs/name.js"></script>
 
 
 </body>

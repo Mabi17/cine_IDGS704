@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashborad - CinemaPremier</title>
+    <title>Registro Clientes - CinemaPremier</title>
 
     <!-- Fuentes para la plantilla-->
     <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
@@ -36,7 +36,7 @@
 
     <!-- Protector de la pagina -->
     <div id="wrapper">
-
+        
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -241,201 +241,405 @@
 
 
         <!-- Contenido del Dashboard -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Contenido principal -->
-            <div id="content">
-
+      
+        
+            <div class="container-fluid mt-5" style="max-width:1900px; width: 100%;">
                 <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
+        
                     <!-- Texto dentro de la barra -->
                     <span class="navbar-title">
                         Cinema Premier
                     </span>
                 </nav>
-
-                <!-- Contenido dentro del dashboard -->
-                <div class="container-fluid">
-                    <div class="row g-5">
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeBoletos/ventaBoletos.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-ticket-alt fa-3x"></i>
-                                    <h5 class="card-title mt-3">Venta de boletos</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                    <h3 class="mb-3 text-primary text-center">Gestión de Clientes</h3>
+        
+                    <!-- Primera Fila -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="clientName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control shadow-sm" id="clientName" placeholder="Nombre">
                         </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="index.html" class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fa fa-film fa-3x"></i>
-                                    <h5 class="card-title mt-3">Peliculas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+        
+                        <div class="col-md-4">
+                            <label for="clientNamelastnameFa" class="form-label">Apellido Paterno</label>
+                            <input type="text" class="form-control shadow-sm" id="clientNamelastnameFa" placeholder="Apellido Paterno">
                         </div>
-
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeSalas/gestionSalas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-video fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de salas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionEmpleados.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de empleados</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/dulceria/ventasDulceria.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-cash-register fa-3x"></i>
-                                    <h5 class="card-title mt-3">Ventas de dulcería</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/gestionClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeFunciones/programacionDeFunciones.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-clock fa-3x"></i>
-                                    <h5 class="card-title mt-3">Programación de funciones</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionRoles.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-cog fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de roles</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/registroDeClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-plus fa-3x"></i>
-                                    <h5 class="card-title mt-3">Registro de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/reportes/reportesDeVentas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="far fa-file-pdf fa-3x"></i>
-                                    <h5 class="card-title mt-3">Reportes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+        
+                        <div class="col-md-4">
+                            <label for="clientelastnameMo" class="form-label">Apellido Materno</label>
+                            <input type="text" class="form-control shadow-sm" id="clientelastnameMo" placeholder="Apellido Materno">
                         </div>
                     </div>
-                </div>
-
-
-
-                <!-- Contenido dentro del dashboard -->
-
-
-
-
-            </div>
-            <!-- End of Main Content -->
-
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; CinemaPremier 2024</span>
+        
+                    <br>
+        
+                    <!-- Segunda Fila -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="exampleInputEmail1" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required title="Por favor, ingrese un correo válido con '@'."
+                                placeholder="example@example.com">
+                            <span id="emailError" class="text-danger" style="display: none;">Por favor, ingrese un correo válido que contenga '@'.</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control shadow-sm" id="inputPassword" placeholder="Contraseña">
+                        </div>
                     </div>
+        
+                    <br>
+        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Calle</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress" placeholder="San pedritro #1083">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputAddress2" class="form-label">Colonia</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Colonia">
+                        </div>
+                    </div>
+        
+                    <br>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-primary px-4 py-2 shadow-sm" id="registrarCliente">Registrar Cliente</button>
+                    </div>
+                    <div style="background-color: transparent;" id="messageContainer" class=" mt-3"></div>
+                    
+
+                    
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Gestión de cliente</h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTableClient" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>Nombre</th>
+                                  <th>Correo</th>
+                                  <th>Calle</th>
+                                  <th>Colonia</th>
+                                  <th>Accion</th>
+                                </tr>
+                              </thead>
+                              <tbody id="tableData"></tbody> </table>
+                              <div id="alertCard" class="card" style="display:none; margin-bottom: 20px;">
+                                <div class="card-body">
+                                    <div id="alertContainer"></div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+            
+            <div id="updateCard" class="card" style="display:none; position: fixed; top: 20%; left: 50%; transform: translateX(-50%); z-index: 1000; width: 400px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <div class="card-header" style="background-color: #f8f9fc; border-bottom: 1px solid #e3e6f0;">
+                    <h5 class="m-0 font-weight-bold text-primary">Actualizar Cliente</h5>
                 </div>
-            </footer>
-            <!-- fin del Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                <div class="card-body">
+                    <form id="updateForm" onsubmit="event.preventDefault(); actualizarCliente();">
+                        <!-- Campo oculto para el ID del cliente -->
+                        <input type="hidden" id="clienteIdHidden"> 
+                        
+                        <div class="form-group">
+                            <label for="updateCorreo">Correo</label>
+                            <input type="email" id="updateCorreo" class="form-control" placeholder="Ingrese el correo del cliente">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateCalle">Calle</label>
+                            <input type="text" id="updateCalle" class="form-control" placeholder="Ingrese la calle del cliente">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateColonia">Colonia</label>
+                            <input type="text" id="updateColonia" class="form-control" placeholder="Ingrese la colonia del cliente">
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <button type="submit" class="btn btn-primary">Actualizar</button>
+                            <button type="button" class="btn btn-secondary" onclick="cancelUpdate()">Cancelar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/butterup-main/butterup.min.js"></script>
-
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>
-    <script src="../../js/Controladores/index.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="../../vendor/chart.js/Chart.min.js"></script>
-    <!-- Page level custom scripts -->
-    <script src="../../js/demo/chart-area-demo.js"></script>
-    <script src="../../js/demo/chart-pie-demo.js"></script>
+            
+        
 
 </body>
 
 </html>
+<script>
+document.querySelector("#exampleInputEmail1").addEventListener("input", function () {
+    const emailInput = document.querySelector("#exampleInputEmail1");
+    const emailError = document.querySelector("#emailError");
+
+    // Verificar si el correo es válido
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailInput.value === "" || !emailPattern.test(emailInput.value)) {
+        emailError.style.display = "block"; // Mostrar el mensaje de error
+    } else {
+        emailError.style.display = "none"; // Ocultar el mensaje de error
+    }
+});
+
+document.getElementById("registrarCliente").addEventListener("click", function(event) {
+    event.preventDefault(); 
+
+        // Obtener los valores de los campos
+        const nombre = document.getElementById('clientName').value;
+        const apPaterno = document.getElementById('clientNamelastnameFa').value;
+        const apMaterno = document.getElementById('clientelastnameMo').value;
+        const correo = document.getElementById('exampleInputEmail1').value;
+        const contrasena = document.getElementById('inputPassword').value;
+        const calle = document.getElementById('inputAddress').value;
+        const colonia = document.getElementById('inputAddress2').value;
+
+        
+        // Crear el objeto con los datos
+        const clienteData = {
+            nombre,
+            ap_paterno: apPaterno,
+            ap_materno: apMaterno,
+            correo,
+            contrasena,
+            calle,
+            colonia
+        };
+
+        // Validación de campos vacíos
+        let errorMessage = "";
+
+    // Revisamos si algún campo está vacío y asignamos el mensaje de error correspondiente
+    for (let key in clienteData) {
+        if (clienteData[key] === "") {
+            errorMessage = "Todos los campos son obligatorios.";
+            break; // Si se encuentra un campo vacío, salimos del ciclo
+        }
+    }
+
+// Si hay un error, mostramos el mensaje de error
+if (errorMessage !== "") {
+    const messageContainer = document.getElementById("messageContainer");
+    messageContainer.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ${errorMessage}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    return; // Si hay un error, detenemos la ejecución y no enviamos el formulario
+}
+
+        // Hacer la solicitud a la API registro
+        fetch('http://162.214.153.239:5010/api/clientes/save_clients', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(clienteData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const messageContainer = document.getElementById("messageContainer");
+        
+            if (data.message) {
+                // Mostrar mensaje de éxito
+                messageContainer.innerHTML = `
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Cliente registrado exitosamente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+                setTimeout(function() {
+                    location.reload(); // Recarga la página
+                }, 3000);
+            }
+        })
+        .catch(error => {
+            const messageContainer = document.getElementById("messageContainer");
+        
+                // Mostrar mensaje de error
+                messageContainer.innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Ocurrió un error al registrar el cliente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+            console.error('Error al registrar cliente:', error);
+        });
+    });
+
+    let clientesData = []; // Variable global para almacenar los datos de los clientes
+
+async function cargarDatos() {
+    try {
+        const response = await fetch('http://162.214.153.239:5010/api/clientes/get_clients');
+        const data = await response.json();
+
+        // Almacenar los datos de los clientes para su uso posterior
+        clientesData = data;
+
+        // Obtener una referencia a la tabla (asegúrate de que el ID sea correcto)
+        const tabla = document.getElementById('dataTableClient');
+        const tbody = tabla.querySelector('tbody');
+
+        // Limpiar la tabla si tiene datos anteriores
+        tbody.innerHTML = '';
+
+        // Crear filas y celdas
+        data.forEach(cliente => {
+            const fila = document.createElement('tr');
+
+            // Crear celdas para cada dato del cliente
+            const celdaNombre = document.createElement('td');
+            const celdaCorreo = document.createElement('td');
+            const celdaCalle = document.createElement('td');
+            const celdaColonia = document.createElement('td');
+            const celdaAcciones = document.createElement('td'); // Celda para el botón de acciones
+
+            // Asignar valores a las celdas
+            celdaNombre.textContent = cliente.nombre;
+            celdaCorreo.textContent = cliente.correo;
+            celdaCalle.textContent = cliente.calle;
+            celdaColonia.textContent = cliente.colonia;
+
+            // Crear el botón de "Actualizar" y asignarle la acción
+            const botonActualizar = document.createElement('button');
+            botonActualizar.classList.add('btn', 'btn-info');
+            botonActualizar.textContent = 'Actualizar';
+            botonActualizar.onclick = function () {
+                abrirActualizar(cliente.id_cliente); // Usar id_cliente en lugar de id
+            };
+
+            // Añadir el botón a la celda de acciones
+            celdaAcciones.appendChild(botonActualizar);
+
+            // Añadir las celdas a la fila
+            fila.appendChild(celdaNombre);
+            fila.appendChild(celdaCorreo);
+            fila.appendChild(celdaCalle);
+            fila.appendChild(celdaColonia);
+            fila.appendChild(celdaAcciones); // Añadir la celda de acciones con el botón
+
+            // Añadir la fila a la tabla
+            tbody.appendChild(fila);
+        });
+    } catch (error) {
+        console.log('Error al cargar los datos:', error);
+    }
+}
+function abrirActualizar(clienteId) {
+    // Buscar el cliente en los datos cargados
+    const cliente = clientesData.find(c => c.id_cliente === clienteId); // Usar id_cliente
+
+    // Llenar los campos del formulario con los datos del cliente
+    document.getElementById('updateCorreo').value = cliente.correo;
+    document.getElementById('updateCalle').value = cliente.calle;
+    document.getElementById('updateColonia').value = cliente.colonia;
+
+    // Establecer el ID del cliente en un campo oculto para usarlo al enviar la actualización
+    document.getElementById('clienteIdHidden').value = cliente.id_cliente; // Usar id_cliente
+
+    // Mostrar la card de actualización
+    document.getElementById('updateCard').style.display = 'block';
+
+    // Desactivar el scroll del cuerpo mientras la card esté abierta
+    document.body.style.overflow = 'hidden';
+}
+
+
+// Función para cancelar la actualización
+function cancelUpdate() {
+    // Ocultar la tarjeta de actualización
+    document.getElementById('updateCard').style.display = 'none';
+    
+    // Habilitar nuevamente el scroll del cuerpo
+    document.body.style.overflow = '';
+}
+
+// Función para actualizar los datos del cliente
+async function actualizarCliente() {
+    const clienteId = document.getElementById('clienteIdHidden').value; // Obtener el ID desde el campo oculto
+    const correo = document.getElementById('updateCorreo').value;
+    const calle = document.getElementById('updateCalle').value;
+    const colonia = document.getElementById('updateColonia').value;
+
+    try {
+        const response = await fetch('http://162.214.153.239:5010/api/clientes/update_clients', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                client_id: clienteId, // Enviar el id_cliente
+                update_data: {
+                    correo: correo,
+                    calle: calle,
+                    colonia: colonia
+                }
+            })
+        });
+
+        if (response.ok) {
+            // Crear y mostrar alerta de éxito
+            const successAlert = document.createElement('div');
+            successAlert.classList.add('alert', 'alert-success');
+            successAlert.textContent = 'Cliente actualizado correctamente';
+            alertContainer.appendChild(successAlert);
+
+            // Mostrar la card con la alerta
+            alertCard.style.display = 'block';
+            
+            // Ocultar la alerta después de 3 segundos
+            setTimeout(() => {
+                successAlert.style.display = 'none';
+                alertCard.style.display = 'none'; // Ocultar la card después de mostrar la alerta
+            }, 3000);
+
+            cargarDatos(); // Volver a cargar los datos
+            cancelUpdate(); // Ocultar la tarjeta de actualización
+        } else {
+            const errorAlert = document.createElement('div');
+            errorAlert.classList.add('alert', 'alert-danger');
+            errorAlert.textContent = 'Error al actualizar el cliente';
+            alertContainer.appendChild(errorAlert);
+
+            // Mostrar la card con la alerta
+            alertCard.style.display = 'block';
+            
+            // Ocultar la alerta después de 3 segundos
+            setTimeout(() => {
+                errorAlert.style.display = 'none';
+                alertCard.style.display = 'none'; // Ocultar la card después de mostrar la alerta
+            }, 3000);
+        }
+    } catch (error) {
+        console.log('Error al actualizar el cliente:', error);
+        const errorAlert = document.createElement('div');
+        errorAlert.classList.add('alert', 'alert-danger');
+        errorAlert.textContent = 'Error al conectar con el servidor';
+        alertContainer.appendChild(errorAlert);
+
+        // Mostrar la card con la alerta
+        alertCard.style.display = 'block';
+
+        // Ocultar la alerta después de 3 segundos
+        setTimeout(() => {
+            errorAlert.style.display = 'none';
+            alertCard.style.display = 'none'; // Ocultar la card después de mostrar la alerta
+        }, 3000);
+    }
+}
+
+
+    // Llamar a la función cuando la página se haya cargado completamente
+    window.onload = cargarDatos;
+   
+    
+</script>
