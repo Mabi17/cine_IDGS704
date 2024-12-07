@@ -666,7 +666,7 @@ h4 {
                 async function cargarBoletos() {
                     try {
                         // Realizar una solicitud GET a la API
-                        const response = await fetch('http://127.0.0.1:8004/historial');
+                        const response = await fetch('https://cinehistorialms-ejc4gegcd3dxaja6.mexicocentral-01.azurewebsites.net/historial');
                         if (!response.ok) {
                             throw new Error('HTTP error! Status: ${response.status}');
                         }

@@ -29,6 +29,8 @@
     <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
     <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
     <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/dulceriaCss/modificarPreciosDulceria.css">
+
 
 
 
@@ -191,6 +193,8 @@
                         <a class="collapse-item" href="../dulceria/preciosDulceria.html">Gestión de precios</br> de
                             dulcería</a>
                         <a class="collapse-item" href="../dulceria/ventasDulceria.html">Ventas de dulcería</a>
+                        <a class="collapse-item" href="../dulceria/historicoDulceria.html">Historico de dulcería</a>
+
                     </div>
                 </div>
             </li>
@@ -271,64 +275,24 @@
                         <h2 class="m-0 font-weight-bold text-title">Precios dulcería</h2>
                     </div>
 
-                    <div class="d-flex justify-content-between p-3">
-                        <button class="btn btn-primary custom-btn" id="modificar_precio" type="button">Modificar
-                            precios</button>
-                    </div>
+
                 </div>
 
 
 
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table " id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Producto</th>
-                                    <th>Marca</th>
-                                    <th>Ultima modifcacion</th>
                                     <th>Precio</th>
+                                    <th>Stock Actual</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>M&M Chocolate 150gr</td>
-                                    <td>Mars</td>
-                                    <td>18/11/2024</td>
-                                    <td>$48.20</td>
-                                </tr>
-                                <tr>
-                                    <td>Snicker Mediano</td>
-                                    <td>Mars</td>
-                                    <td>18/11/2024</td>
-                                    <td>$45.20</td>
-                                </tr>
-                                <tr>
-                                    <td>KitKat 4 Fingers</td>
-                                    <td>Nestlé</td>
-                                    <td>18/11/2024</td>
-                                    <td>$85.32</td>
-                                </tr>
-                                <tr>
-                                    <td>Twix Caramel 58gr</td>
-                                    <td>Mars</td>
-                                    <td>18/11/2024</td>
-                                    <td>$89.25</td>
-                                </tr>
-                                <tr>
-                                    <td>Oreo Mini 200gr</td>
-                                    <td>Mondelez</td>
-                                    <td>18/11/2024</td>
-                                    <td>$60.52</td>
-                                </tr>
-                                <tr>
-                                    <td>Ferrero Rocher 100gr</td>
-                                    <td>Ferrero</td>
-                                    <td>18/11/2024</td>
-                                    <td>$12.10</td>
-                                </tr>
-
-                            </tbody>
+                            <tbody id="table-body">
                         </table>
                     </div>
                 </div>
@@ -367,6 +331,38 @@
 
 
 
+    <!-- Modal de edición -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modificar Producto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formModificarProducto">
+                        <input type="hidden" id="productoId">
+                        <div class="mb-3">
+                            <label for="productoNombre" class="form-label">Nombre del Producto</label>
+                            <input type="text" class="form-control" id="productoNombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoPrecio" class="form-label">Precio</label>
+                            <input type="number" class="form-control" id="productoPrecio" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoStock" class="form-label">Stock</label>
+                            <input type="number" class="form-control" id="productoStock" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="guardarCambios">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Bootstrap core JavaScript-->
@@ -385,6 +381,12 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/dulceriaJs/modificarPreciosDulceria.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
+
 
 </body>
 
