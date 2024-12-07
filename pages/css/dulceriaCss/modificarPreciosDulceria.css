@@ -1,25 +1,25 @@
 .table-responsive {
-    max-height: 500px; /* Altura máxima del contenedor */
-    overflow-y: auto; /* Scroll vertical */
-    overflow-x: auto; /* Scroll horizontal en caso de ser necesario */
-    border: 1px solid #ddd; /* Opcional: agregar un borde al contenedor */
-    margin: 10px 0; /* Espaciado opcional */
+    max-height: 500px; 
+    overflow-y: auto; 
+    overflow-x: auto; 
+    border: 1px solid #ddd;
+    margin: 10px 0; 
   }
   
   table {
-    width: 100%; /* Asegura que la tabla use todo el ancho del contenedor */
-    border-collapse: collapse; /* Para un estilo de tabla más limpio */
+    width: 100%; 
+    border-collapse: collapse; 
   }
   
   th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd; /* Línea divisoria entre filas */
+    border-bottom: 1px solid #ddd;
   }
   
   th {
-    position: sticky; /* Fija el encabezado al hacer scroll */
+    position: sticky; 
     top: 0;
-    background-color: #f8f9fa; /* Color de fondo del encabezado */
-    z-index: 2; /* Asegura que el encabezado esté sobre las celdas */
+    background-color: #f8f9fa;
+    z-index: 2; 
   }
