@@ -13,6 +13,7 @@
 
     <!-- Fuentes para la plantilla-->
 
+
     <!-- Fuentes para la plantilla-->
     <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
     <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -29,8 +30,6 @@
     <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
     <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
     <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/dulceriaCss/modificarPreciosDulceria.css">
-
 
 
 
@@ -138,12 +137,24 @@
                 <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionEmpleados.html">Gestión de
                             empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionRoles.html">Gestión de
+                            roles de
                             <br>empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistencia.html">Control de
                             asistencia<br>de empleados</a>
+                        <a class="collapse-item"
+                            href="../../pages/gestionDeEmpleados/controlAsistenciaLlegada.html">Control
+                            de
+                            asistencia Llegada<br>de empleados</a>
+                        <a class="collapse-item"
+                            href="../../pages/gestionDeEmpleados/controlAsistenciaSalida.html">Control de
+                            asistencia Salida<br>de empleados</a>
+                        <a class="collapse-item"
+                            href="../../pages/gestionDeEmpleados/horariosEmpleados.html">Horarios<br>de
+                            empleados</a>
+
                     </div>
                 </div>
             </li>
@@ -193,8 +204,6 @@
                         <a class="collapse-item" href="../dulceria/preciosDulceria.html">Gestión de precios</br> de
                             dulcería</a>
                         <a class="collapse-item" href="../dulceria/ventasDulceria.html">Ventas de dulcería</a>
-                        <a class="collapse-item" href="../dulceria/historicoDulceria.html">Historico de dulcería</a>
-
                     </div>
                 </div>
             </li>
@@ -244,7 +253,6 @@
 
         </ul>
         <!-- Fin de la Sidebar -->
-
         <!-- Contenido del Dashboard -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -263,117 +271,237 @@
                     </span>
                 </nav>
 
+                <!-- Horarios de Empleados -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid mt-5">
+                    <!-- campo para el id del encabezado -->
+                    <input hidden="number" id="id_horario_encb" />
 
+                    <!-- Vista para listar horarios -->
+                    <div id="vista_horarios">
+                        <form class="row g-4">
+                            <h3 class="mb-3 text-primary text-center">Listado de horarios de empleados</h3>
+                        </form>
 
+                        <br>
 
-                <!-- Contenedor dentro de la página -->
-                <!-- DataTales Example -->
-                <link rel="stylesheet" href="css/InventarioDulceria/InventarioDulceria.css">
+                        <!-- Tabla de listado de horarios -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Listado de horarios de empleados</h6>
+                            </div>
+                            <div class="card-body">
+                                <!-- Botón agregar nuevos horarios -->
+                                <div class="col-12">
+                                    <button id="btnAgregarHorario" class="btn btn-primary px-4 py-2 shadow-sm">Registrar
+                                        horario</button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tabla_horarios" width="100%"
+                                        cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Clave horario</th>
+                                                <th>Fecha de inicio</th>
+                                                <th>Fecha de fin</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
 
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 text-center">
-                        <h2 class="m-0 font-weight-bold text-title">Precios dulcería</h2>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Vista para crear nuevo horarios -->
+                    <div id="vista_nuevo_horario" style="display: none;">
 
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Nuevo horario</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="fecha_inicio" class="form-label">Fecha de inicio</label>
+                                            <input type="date" class="form-control shadow-sm" id="fecha_inicio"
+                                                placeholder="Fecha de inicio">
+                                        </div>
+
+                                        <div class="col-lg-4 col-md-6">
+                                            <label for="fecha_fin" class="form-label">Fecha de fin</label>
+                                            <input type="date" disabled class="form-control shadow-sm" id="fecha_fin"
+                                                placeholder="Fecha de fin">
+                                        </div>
+
+                                        <!-- Botón agregar nuevos horarios -->
+                                        <div class="col-lg-2">
+                                            <button onclick="agregarHorario()" class="btn btn-success mt-4"
+                                                id="btn_agregar_nuevo_horario">Guardar</button>
+                                        </div>
+
+                                        <!-- Botón cancelar -->
+                                        <div class="col-lg-2">
+                                            <button id="btnCancelarAgregarHorario"
+                                                class="btn mt-4 btn-secondary">Cancelar</button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="tabla_horarios_agregar" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Rol</th>
+                                                    <th>Empleado</th>
+                                                    <th>Turno viernes</th>
+                                                    <th>Turno sábado</th>
+                                                    <th>Turno domingo</th>
+                                                    <th>Turno lunes</th>
+                                                    <th>Turno martes</th>
+                                                    <th>Turno miércoles</th>
+                                                    <th>Turno jueves</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vista para modificar horarios -->
+                    <div id="vista_modificar_horario" style="display: none;">
+                        <!-- Tabla para modificar/eliminar horarios -->
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Modificar horario</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <label for="fecha_inicio_actualizar" class="form-label">Fecha de
+                                                inicio</label>
+                                            <input type="date" class="form-control shadow-sm"
+                                                id="fecha_inicio_actualizar" placeholder="Fecha de inicio">
+                                        </div>
+
+                                        <div class=" col-lg-4 col-md-6">
+                                            <label for="fecha_fin_actualizar" class="form-label">Fecha de fin</label>
+                                            <input type="date" disabled class="form-control shadow-sm"
+                                                id="fecha_fin_actualizar" placeholder="Fecha de fin">
+                                        </div>
+
+                                        <!-- Botón agregar nuevos horarios -->
+                                        <div class="col-lg-2">
+                                            <button onclick="actualizarHorario()" class="btn btn-success mt-4"
+                                                id="btn_actualizar_horario">Guardar</button>
+                                        </div>
+
+                                        <!-- Botón cancelar -->
+                                        <div class="col-lg-2">
+                                            <button id="btnCancelarActualizarHorario"
+                                                class="btn mt-4 btn-secondary">Cancelar</button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="tabla_horarios_actualizar" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Rol</th>
+                                                    <th>Empleado</th>
+                                                    <th>Turno viernes</th>
+                                                    <th>Turno sábado</th>
+                                                    <th>Turno domingo</th>
+                                                    <th>Turno lunes</th>
+                                                    <th>Turno martes</th>
+                                                    <th>Turno miércoles</th>
+                                                    <th>Turno jueves</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
                 </div>
 
 
+                <!-- Fin del contenedor -->
+                <br>
+            </div>
+            <!-- Fin del contenido principal -->
 
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table " id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Stock Actual</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table-body">
-                        </table>
+
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; CinemaPremier 2024</span>
                     </div>
                 </div>
-            </div>
-
-            <!-- /.container-fluid -->
+            </footer>
+            <!-- fin del Footer -->
 
         </div>
-        <!-- End of Main Content -->
-
-
-    </div>
-    <!-- End of Content Wrapper -->
-    <!-- Fin del contenedor -->
-
-
-
-    </div>
-    <!-- Fin del contenido principal -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; CinemaPremier 2024</span>
-            </div>
-        </div>
-    </footer>
-    <!-- Fin del Footer -->
-
-    </div>
-    <!-- Fin del contenido -->
+        <!-- End of Content Wrapper -->
 
     </div>
     <!-- End of Page Wrapper -->
 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-
-    <!-- Modal de edición -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modificar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
                 </div>
-                <div class="modal-body">
-                    <form id="formModificarProducto">
-                        <input type="hidden" id="productoId">
-                        <div class="mb-3">
-                            <label for="productoNombre" class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="productoNombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoPrecio" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="productoPrecio" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoStock" class="form-label">Stock</label>
-                            <input type="number" class="form-control" id="productoStock" required>
-                        </div>
-                    </form>
-                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="guardarCambios">Guardar Cambios</button>
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
     </div>
 
-
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin-2.min.js"></script>
+    <script src="../js/gestionEmpleadosJs/horariosEmpleados.js"></script>
 
     <!-- Page level plugins -->
     <script src="../../vendor/chart.js/Chart.min.js"></script>
@@ -381,12 +509,6 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/dulceriaJs/modificarPreciosDulceria.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
-
 
 </body>
 

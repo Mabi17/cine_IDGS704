@@ -259,118 +259,102 @@
                 </nav>
 
                 <!-- Contenido dentro del dashboard -->
-                <div class="container-fluid">
-                    <div class="row g-5">
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeBoletos/ventaBoletos.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-ticket-alt fa-3x"></i>
-                                    <h5 class="card-title mt-3">Venta de boletos</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="index.html" class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fa fa-film fa-3x"></i>
-                                    <h5 class="card-title mt-3">Peliculas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                <div class="container-fluid mt-5">
+                    <form class="row g-4">
+                        <h3 class="mb-3 text-primary text-center">Mantenimiento de Salas</h3>
+                    </form>
+
+                    <!-- Primera Fila -->
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="idSala" class="form-label">IdSala</label>
+                            <input type="text" class="form-control shadow-sm" id="idSala" placeholder="IdSala " disabled>
                         </div>
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeSalas/gestionSalas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-video fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de salas</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                        <div class="col-md-4">
+                            <label for="nombreSala" class="form-label">Nombre de la Sala</label>
+                            <input type="text" class="form-control shadow-sm" id="nombreSala" placeholder="Nombre de la sala" disabled>
+                        </div>
+                        <!-- <div class="col-md-4">
+                            <label for="" class="form-label">Capacidad</label>
+                            <input type="text" class="form-control shadow-sm" id="" placeholder="Nombre de la sala">
+                        </div> -->
+                        <div class="col-md-4">
+                            <label for="estatus" class="form-label">Estatus</label>
+                            <!-- <input type="text" class="form-control shadow-sm" id="" placeholder="Estatus De la sala">-->
+                            <form>
+                                <select name="lenguajes" id="estatus" style="padding-right: 200px; ">
+                                    <option value=0>Inactiva</option>
+                                    <option value=1>Activa</option>
+                                </select>
+
+                            </form>
                         </div>
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionEmpleados.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de empleados</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                    </div>
+
+                    <br>
+
+                    <!-- Segunda Fila -->
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <label for="descripcion" class="form-label" >Descripcion </label>
+                            <input type="text" class="form-control shadow-sm" id="descripcion"
+                                placeholder="Descripcion " disabled>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="tipoSala" class="form-label">Tipo de Sala</label>
+                            <input type="text" class="form-control shadow-sm" id="tipoSala" placeholder="Tipo de Sala" disabled>
                         </div>
 
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/dulceria/ventasDulceria.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-cash-register fa-3x"></i>
-                                    <h5 class="card-title mt-3">Ventas de dulcería</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/gestionClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-users fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeFunciones/programacionDeFunciones.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-clock fa-3x"></i>
-                                    <h5 class="card-title mt-3">Programación de funciones</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeEmpleados/gestionRoles.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-cog fa-3x"></i>
-                                    <h5 class="card-title mt-3">Gestión de roles</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/gestionDeClientes/registroDeClientes.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="fas fa-user-plus fa-3x"></i>
-                                    <h5 class="card-title mt-3">Registro de clientes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-lg-3">
-                            <a href="pages/reportes/reportesDeVentas.html"
-                                class="card text-center text-decoration-none shadow mb-4">
-                                <div class="card-body">
-                                    <i class="far fa-file-pdf fa-3x"></i>
-                                    <h5 class="card-title mt-3">Reportes</h5>
-                                    <p class="card-text">&nbsp;</p>
-                                </div>
-                            </a>
+                    </div>
+
+                    <br>
+                    <!-- Tercera Fila -->
+                    <div class="row">
+
+                    </div>
+                    <br>
+
+                    <br>
+
+                    <div class="col-12 text-center">
+                        <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm"
+                             onclick="cambiarStatus()">Resgistrar</button>
+                    </div>
+                    </form>
+                </div>
+                <div class="col-md-4">
+                </div>
+
+                <!-- Fin del contenedor -->
+                <br>
+                <!-- Gestión de Empleados -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Gestión de Empleados</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr id="encabezadoTabla">
+                                        <th>ID</th>
+                                        <th>Nombre de Sala</th>
+                                        <th>Estatus</th>
+                                        <th>Descripcion</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cuerpoTabla">
+                                    <!-- Las filas serán generadas dinámicamente con JS -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
-
-
-
-                <!-- Contenido dentro del dashboard -->
-
-
 
 
             </div>
@@ -435,7 +419,7 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
-
+    <script src="../js/gestionSalasJs/mantenimientoSalas.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,26 @@
+.btn-VerDetallates {
+    background-color: #0a1240 !important;
+    color: white  !important;
+    border: none  !important;
+    transition: background-color 0.3s, color 0.3s  !important;
+}
+
+.btn-VerDetallates:hover {
+    background-color: #4a6ab0  !important;
+    color: white  !important;
+}
+
+.centrarColumna{
+    text-align: center; /* Centra la tercera columna */
+
+}
+
+#dataTableSalas th, #dataTableSalas td {
+    text-align: center; /* Centra el contenido de todas las celdas (th y td) */
+}
+
+
+/* Reducir tamaño ultima columna */
+#dataTableSalas th:nth-child(6), #dataTableSalas td:nth-child(6) {
+    width: 20%;   
+}
