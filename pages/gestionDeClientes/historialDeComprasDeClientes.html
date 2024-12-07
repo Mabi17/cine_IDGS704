@@ -29,138 +29,138 @@
 
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<style>
+.btn-Registar_Cliente {
+    width: 350px;
+    height: 50px;
+    background-color: #0a1240;
+    color: white;
+    font-size: 25px;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 20px;
+}
 
-    <style>
-        .btn-Registar_Cliente {
-            width: 350px;
-            height: 50px;
-            background-color: #0a1240;
-            color: white;
-            font-size: 25px;
-            border: none;
-            border-radius: 20px;
-            transition: background-color 0.3s, color 0.3s;
-            margin: 20px;
-        }
+.btn-Registar_Cliente:hover {
+    background-color: #4a6ab0;
+    color: white;
+}
 
-        .btn-Registar_Cliente:hover {
-            background-color: #4a6ab0;
-            color: white;
-        }
+.btn-close {
+    border: none;
+    /* Quitar borde */
+    background: none;
+    /* Quitar fondo */
+    color: white;
+    /* Mantener texto blanco */
+    font-size: 1.5rem;
+    /* Aumentar tamaño del ícono */
+}
 
-        .btn-close {
-            border: none;
-            /* Quitar borde */
-            background: none;
-            /* Quitar fondo */
-            color: white;
-            /* Mantener texto blanco */
-            font-size: 1.5rem;
-            /* Aumentar tamaño del ícono */
-        }
+.btn-VerDetallates {
+    width: 250px;
+    height: 30px;
+    background-color: #0a1240;
+    color: white;
+    font-size: 15px;
+    border: none;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    margin: 20px;
+}
 
-        .btn-VerDetallates {
-            width: 250px;
-            height: 30px;
-            background-color: #0a1240;
-            color: white;
-            font-size: 15px;
-            border: none;
-            border-radius: 20px;
-            transition: background-color 0.3s, color 0.3s;
-            margin: 20px;
-        }
+.btn-VerDetallates:hover {
+    background-color: #4a6ab0;
+    color: white;
+}
 
-        .btn-VerDetallates:hover {
-            background-color: #4a6ab0;
-            color: white;
-        }
+/* Estilo adicional para evitar el desbordamiento del contenido */
 
-        /* Estilo adicional para evitar el desbordamiento del contenido */
+.modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+    /* Hacer que el contenido se desplace si es necesario */
+}
 
-        .modal-body {
-            max-height: 60vh;
-            overflow-y: auto;
-            /* Hacer que el contenido se desplace si es necesario */
-        }
+.modal-dialog {
+    max-width: 60%;
+    /* Ancho máximo para pantallas grandes */
+    margin: 1.75rem auto;
+    /* Centrado automático */
+}
 
-        .modal-dialog {
-            max-width: 60%;
-            /* Ancho máximo para pantallas grandes */
-            margin: 1.75rem auto;
-            /* Centrado automático */
-        }
+.d-flex {
+    display: flex;
+    justify-content: flex-end;
+    /* Alinea el ícono a la derecha */
+    align-items: stretch;
+    /* Hace que el ícono ocupe toda la altura de la fila */
+}
 
-        .d-flex {
-            display: flex;
-            justify-content: flex-end;
-            /* Alinea el ícono a la derecha */
-            align-items: stretch;
-            /* Hace que el ícono ocupe toda la altura de la fila */
-        }
+.fa-user {
+    font-size: 50px;
+    /* Tamaño del ícono */
+    color: #0a1240;
+    /* Color del ícono */
+    height: 70%;
+    /* Asegura que el ícono tenga la altura completa */
+}
 
-        .fa-user {
-            font-size: 50px;
-            /* Tamaño del ícono */
-            color: #0a1240;
-            /* Color del ícono */
-            height: 70%;
-            /* Asegura que el ícono tenga la altura completa */
-        }
+/* PARA ABRIR LA CAMARA Y TOMARLE FOTO AL CLIENTE */
+/* Asegurar que el botón tenga el tamaño de los inputs */
 
-        /*PARA ABRIR LA CAMARA Y TOMARLE FOTO AL CLIENTE*/
-        /* Asegurar que el botón tenga el tamaño de los inputs */
+#openCameraButton {
+    height: 100%;
+    /* Ajusta la altura al contenedor */
+}
 
-        #openCameraButton {
-            height: 100%;
-            /* Ajusta la altura al contenedor */
-        }
+/* Asegurar que el ícono se ajuste dentro del botón */
 
-        /* Asegurar que el ícono se ajuste dentro del botón */
+#openCameraButton img {
+    object-fit: contain;
+    width: 80%;
+    /* Tamaño relativo al botón */
+    height: auto;
+}
 
-        #openCameraButton img {
-            object-fit: contain;
-            width: 80%;
-            /* Tamaño relativo al botón */
-            height: auto;
-        }
+/* Ajuste para que las columnas mantengan proporción */
 
-        /* Ajuste para que las columnas mantengan proporción */
+.modal-body {
+    display: flex;
+    gap: 1rem;
+}
 
-        .modal-body {
-            display: flex;
-            gap: 1rem;
-        }
+/* Aplica la fuente Roboto a todos los encabezados */
 
-        /* Aplica la fuente Roboto a todos los encabezados */
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
+/* Tamaños específicos para cada tipo de encabezado */
 
-        /* Tamaños específicos para cada tipo de encabezado */
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    /* Tamaño para h1 */
+}
 
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            /* Tamaño para h1 */
-        }
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
 
-        h2 {
-            font-size: 24px;
-            font-weight: bold;
-        }
+h3 {
+    font-size: 20.8px;
+    font-weight: bold;
+}
 
-        h3 {
-            font-size: 20.8px;
-            font-weight: bold;
-        }
+h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+</style>
 
-        h4 {
-            font-size: 16px;
-            font-weight: bold;
-        }
-    </style>
 </head>
 
 <body id="page-top">
@@ -384,14 +384,14 @@
                     </span>
                 </nav>
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <!-- Page Heading -->
+                 <!-- TODO BTN -->
+                <!-- <div class="container-fluid">
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Historial de clientes</h1>
                         <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
-                </div>
+                </div> -->
                 <div id="layoutSidenav_content">
                     <main>
                         <div class="container-fluid px-4">
@@ -409,6 +409,9 @@
                                     para conocer cómo se sienten respecto a tus productos o servicios.
                                 </div>
                             </div>
+
+
+                            <!-- TODO Sección de la tabla -->
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-table me-1"></i>Clientes
@@ -417,98 +420,21 @@
                                     <table id="datatablesSimple">
                                         <thead>
                                             <tr>
-                                                <th>Nombre</th>
-                                                <th>Tipo de cliente</th>
-                                                <th>Correo</th>
-                                                <th>Número de teléfono</th>
-                                                <th>Fecha de registro</th>
-                                                <th>Total de boletos comprados</th>
-                                                <th>Acciones</th>
+                                                <th class="text-center" style="width: 25%;">Nombre</th>
+                                                <th class="text-center" style="width: 10%;">Correo</th>
+                                                <th class="text-center" style="width: 15%;">Película</th>
+                                                <th class="text-center" style="width: 20%;">Dulces</th>
+                                                <th class="text-center" style="width: 25%;">Más</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Juan Pérez</td>
-                                                <td>Regular</td>
-                                                <td>juan.perez@example.com</td>
-                                                <td>555-1234-567</td>
-                                                <td>2023/05/12</td>
-                                                <td>5</td>
-                                                <td>
-                                                    <button class="btn btn-VerDetallates " data-toggle="modal"
-                                                        data-target="#detailsModal"
-                                                        onclick="showDetails('Juan Pérez', 'Regular', 'juan.perez@example.com', '555-1234-567', '2023/05/12', 5)">Ver
-                                                        Detalles</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ana López</td>
-                                                <td>VIP</td>
-                                                <td>ana.lopez@example.com</td>
-                                                <td>555-2345-678</td>
-                                                <td>2022/11/03</td>
-                                                <td>10</td>
-                                                <td>
-                                                    <button class="btn btn-VerDetallates" data-toggle="modal"
-                                                        data-target="#detailsModal"
-                                                        onclick="showDetails('Ana López', 'VIP', 'ana.lopez@example.com', '555-2345-678', '2022/11/03', 10)">Ver
-                                                        Detalles</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mario García</td>
-                                                <td>Regular</td>
-                                                <td>mario.garcia@example.com</td>
-                                                <td>555-3456-789</td>
-                                                <td>2023/01/15</td>
-                                                <td>3</td>
-                                                <td>
-                                                    <button class="btn btn-VerDetallates" data-toggle="modal"
-                                                        data-target="#detailsModal"
-                                                        onclick="showDetails('Mario García', 'Regular', 'mario.garcia@example.com', '555-3456-789', '2023/01/15', 3)">Ver
-                                                        Detalles</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Lucía Fernández</td>
-                                                <td>Estudiante</td>
-                                                <td>lucia.fernandez@example.com</td>
-                                                <td>555-4567-890</td>
-                                                <td>2023/03/20</td>
-                                                <td>8</td>
-                                                <td>
-                                                    <button class="btn btn-VerDetallates" data-toggle="modal"
-                                                        data-target="#detailsModal"
-                                                        onclick="showDetails('Lucía Fernández', 'Estudiante', 'lucia.fernandez@example.com', '555-4567-890', '2023/03/20', 8)">Ver
-                                                        Detalles</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Pedro Ramírez</td>
-                                                <td>VIP</td>
-                                                <td>pedro.ramirez@example.com</td>
-                                                <td>555-5678-901</td>
-                                                <td>2023/04/10</td>
-                                                <td>12</td>
-                                                <td>
-                                                    <button class="btn btn-VerDetallates" data-toggle="modal"
-                                                        data-target="#detailsModal"
-                                                        onclick="showDetails('Pedro Ramírez', 'VIP', 'pedro.ramirez@example.com', '555-5678-901', '2023/04/10', 12)">Ver
-                                                        Detalles</button>
-                                                </td>
-                                            </tr>
+                                        <tbody id="clientesTableBody">
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
                     </main>
-                    <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-Registar_Cliente" data-bs-toggle="modal"
-                            data-bs-target="#registerModal">
-                            Registrar Cliente
-                        </button>
-                    </div>
+                    <!-- TODO FINAL DE LA TABLA -->
                     <!-- Modal -->
                     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel"
                         aria-hidden="true">
@@ -564,13 +490,13 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Modal para detalles del cliente -->
+                    <!-- TODO- Modal para detalles del cliente -->
                     <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header"
-                                    style="background-color: #0a1240; display: flex; justify-content: center; align-items: center;">
+                                    style="background-color: #0a401c; display: flex; justify-content: center; align-items: center;">
                                     <h5 class="modal-title text-white" id="detailsModalLabel">Detalles del Cliente</h5>
                                     <!-- Botón de cierre con la clase btn-close y data-bs-dismiss -->
                                 </div>
@@ -581,28 +507,38 @@
                                             <p id="clientName"></p>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="clientType" class="form-label"><strong>Tipo de
-                                                    Cliente</strong></label>
-                                            <p id="clientType"></p>
+                                            <label for="clientCorreo" class="form-label"><strong>Correo</strong></label>
+                                            <p id="clientCorreo"></p>
+                                        </div>
+
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="clientVentaDulceria" class="form-label"><strong>Venta Dulceria</strong></label>
+                                            <p id="clientVentaDulceria"></p>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="clientEmail" class="form-label"><strong>Correo</strong></label>
-                                            <p id="clientEmail"></p>
+                                            <label for="clientVentaBoletos" class="form-label"><strong>Película vendida</strong></label>
+                                            <p id="clientVentaBoletos"></p>
+                                        </div>
+
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="clientVentaDulceria" class="form-label"><strong>Total Dulceria</strong></label>
+                                            <p id="clientTotalDulceria"></p>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="clientPhone" class="form-label"><strong>Número de
-                                                    Teléfono</strong></label>
-                                            <p id="clientPhone"></p>
+                                            <label for="clientVentaBoletos" class="form-label"><strong>Total película</strong></label>
+                                            <p id="clientTotalBoletos"></p>
+                                        </div>
+
+
+                                        <div class="col-md-6 mb-3">
+                                            <label for="clientFechaBoletos" class="form-label"><strong>Fecha de Compra Boletos</strong></label>
+                                            <p id="clientFechaBoletos"></p>
                                         </div>
                                         <div class="col-md-6 mb-3">
-                                            <label for="clientRegistrationDate" class="form-label"><strong>Fecha de
-                                                    Registro</strong></label>
-                                            <p id="clientRegistrationDate"></p>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="clientTicketsPurchased" class="form-label"><strong>Total de
-                                                    Boletos Comprados</strong></label>
-                                            <p id="clientTicketsPurchased"></p>
+                                            <label for="clientFechaDulces" class="form-label"><strong>Fecha de Compra de dulces</strong></label>
+                                            <p id="clientFechaDulces"></p>
                                         </div>
                                     </div>
                                     <!-- Nueva fila para el ícono del usuario alineado a la derecha -->
@@ -617,6 +553,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- TODO Final del modal -->
                     <!-- Modal -->
                     <footer class="sticky-footer bg-white">
                         <div class="container my-auto">
@@ -627,6 +564,10 @@
                     </footer>
                     <!-- fin del Footer -->
                 </div>
+
+
+
+
                 <!-- End of Content Wrapper -->
             </div>
             <!-- End of Page Wrapper -->
@@ -654,6 +595,183 @@
                     </div>
                 </div>
             </div>
+
+            <!-- ^ ********************* -->
+
+            <!-- TODO Mostramos los datos -->
+            <!-- <script>
+
+                async function cargarClientes() {
+                    try {
+                        const response = await fetch('http://127.0.0.1:8004/historial');
+                        const clientes = await response.json();
+                        const tbody = document.getElementById('clientesTableBody');
+                        tbody.innerHTML = '';
+
+                        clientes.forEach(cliente => {
+                            const fila = document.createElement('tr');
+                            const boletosCount = cliente.compras?.boletos?.length || 0;
+                            const dulcesCount = cliente.compras?.dulces?.length || 0;
+
+                            fila.innerHTML = `
+                        <td class="text-center">${cliente.nombre}</td>
+                        <td class="text-center">${cliente.correo}</td>
+                        <td class="text-center">${boletosCount}</td>
+                        <td class="text-center">${dulcesCount}</td>
+                        <td class="text-center">
+                            <button class="btn btn-VerDetalles" 
+                                onclick="mostrarDetalles('${cliente.nombre}', '${cliente.correo}', 
+                                    '${JSON.stringify(cliente.compras?.boletos || [])}',
+                                    '${JSON.stringify(cliente.compras?.dulces || [])}')">
+                                Ver Detalles
+                            </button>
+                        </td>
+                    `;
+                            tbody.appendChild(fila);
+                        });
+                    } catch (error) {
+                        console.error('Error al cargar los clientes:', error);
+                    }
+                }
+
+                function mostrarDetalles(nombre, correo, boletos, dulces) {
+                    const boletosData = JSON.parse(boletos);
+                    const dulcesData = JSON.parse(dulces);
+
+                    document.getElementById('modalNombre').textContent = nombre;
+                    document.getElementById('modalCorreo').textContent = correo;
+
+                    const boletosHTML = boletosData.map(boleto =>
+                        Código: ${boleto.codigoBoleto}<br>Fecha: ${new Date(boleto.fechaCompra).toLocaleDateString()}
+                    ).join('<br>');
+                    document.getElementById('modalBoletos').innerHTML = boletosHTML || 'Sin boletos';
+
+                    const dulcesHTML = dulcesData.map(dulce =>
+                        Productos: ${dulce.productos}<br>Total: $${dulce.total}
+                    ).join('<br>');
+                    document.getElementById('modalDulces').innerHTML = dulcesHTML || 'Sin compras de dulces';
+
+                    new bootstrap.Modal(document.getElementById('detailsModal')).show();
+                }
+
+                document.addEventListener('DOMContentLoaded', cargarClientes);
+            </script> -->
+
+
+
+
+            <!-- TODO Script para la tabla: -->
+            <script>
+                // Función para cargar los datos de la API y llenar la tabla
+                async function cargarBoletos() {
+                    try {
+                        // Realizar una solicitud GET a la API
+                        const response = await fetch('https://cinehistorialms-ejc4gegcd3dxaja6.mexicocentral-01.azurewebsites.net/historial');
+                        if (!response.ok) {
+                            throw new Error('HTTP error! Status: ${response.status}');
+                        }
+                        const historialCli = await response.json();
+
+                        // Seleccionar el cuerpo de la tabla
+                        const tbody = document.querySelector('#datatablesSimple tbody');
+                        tbody.innerHTML = ''; // Limpiar la tabla antes de llenarla
+
+                        // Iterar sobre los datos recibidos
+                        historialCli.forEach(cliente => {
+                            // Iterar sobre los boletos de cada cliente
+                            cliente.compras.boletos.forEach(boleto => {
+                                // Iterar sobre los dulces de cada cliente
+                                cliente.compras.dulces.forEach(dulce => {
+                                    const fila = document.createElement('tr');
+                                    fila.innerHTML = `
+                                    <td class="text-center">${cliente.nombre}</td>
+                                    <td class="text-center">${cliente.correo}</td>
+                                    <td class="text-center">${boleto.nombre_pelicula}</td>
+                                    <td class="text-center">${dulce.productos}</td>
+                                    <td class="text-center">
+                                        <button class="btn btn-VerDetalles" data-toggle="modal"
+                                        data-target="#detailsModal"
+                                        onclick="showDetails(
+                                        '${cliente.nombre}',
+                                        '${cliente.correo}',
+
+                                        '${dulce.productos}',
+                                        '${boleto.nombre_pelicula}',
+                                        
+                                        '${dulce.total}',
+                                        '${boleto.precio}',
+                                        
+                                        '${boleto.fecha_compra}',
+                                        '${boleto.fecha_compra}'
+                                        )">
+                                        Ver Detalles
+                                        </button>
+                                    </td>
+                                `;
+                                    tbody.appendChild(fila);
+                                });
+                            });
+                        });
+                    } catch (error) {
+                        console.error('Error al cargar los boletos y dulces:', error);
+                    }
+                }
+                // Llamar a la función al cargar la página
+                document.addEventListener('DOMContentLoaded', cargarBoletos);
+            </script>
+            <script>
+                // * Agregamos los datos de la API dependiendo del cliente:
+                function showDetails(
+                    name, correo, 
+                    
+                    ventaDulceria, ventaBoletos, 
+                    
+                    totalBoletos, totalDulces, 
+                    
+                    fechaBoletos, fechaDulces) {
+                    document.getElementById("clientName").innerText = name;
+                    document.getElementById("clientCorreo").innerText = correo;
+
+                    document.getElementById("clientVentaDulceria").innerText = ventaDulceria;
+                    document.getElementById("clientVentaBoletos").innerText = ventaBoletos;
+                    
+                    document.getElementById("clientTotalDulceria").innerText = totalBoletos;
+                    document.getElementById("clientTotalBoletos").innerText = totalDulces;
+                    
+                    document.getElementById("clientFechaBoletos").innerText = fechaBoletos;
+                    document.getElementById("clientFechaDulces").innerText = fechaDulces;
+                }
+            </script>
+            <!-- TODO Final de la conexión -->
+            
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- TODO Sección para cargar el JS de la funcionalidad -->
+            <!-- TODO Sección para cargar el JS De Boostrap -->
             <!-- Bootstrap core JavaScript-->
             <script src="../../vendor/jquery/jquery.min.js"></script>
             <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -670,35 +788,6 @@
             <!-- Page level custom scripts -->
             <script src="../../js/demo/chart-area-demo.js"></script>
             <script src="../..//js/demo/chart-pie-demo.js"></script>
-            <script>
-                document
-                    .getElementById("registerForm")
-                    .addEventListener("submit", function (event) {
-                        event.preventDefault();
-                        // Aquí podrías agregar lógica para procesar el registro
-                        const firstName = document.getElementById("firstName").value;
-                        const lastName = document.getElementById("lastName").value;
-                        const email = document.getElementById("email").value;
-                        const phone = document.getElementById("phone").value;
-                        // Aquí podrías enviar los datos al servidor o procesarlos de alguna forma
-                        console.log(
-                            `Nombre: ${firstName}, Apellido: ${lastName}, Correo: ${email}, Teléfono: ${phone}`
-                        );
-                        // Cerrar el modal después de registrar
-                        $("#registerModal").modal("hide");
-                    });
-            </script>
-            <script>
-                // para los datos Dummy
-                function showDetails(name, type, email, phone, registrationDate, ticketsPurchased) {
-                    document.getElementById("clientName").innerText = name;
-                    document.getElementById("clientType").innerText = type;
-                    document.getElementById("clientEmail").innerText = email;
-                    document.getElementById("clientPhone").innerText = phone;
-                    document.getElementById("clientRegistrationDate").innerText = registrationDate;
-                    document.getElementById("clientTicketsPurchased").innerText = ticketsPurchased;
-                }
-            </script>
             <script>
                 // para el funcionamiento  de la camara
                 const openCameraButton = document.getElementById('openCameraButton');
@@ -717,6 +806,24 @@
                         alert('No se pudo acceder a la cámara: ' + error.message);
                     }
                 });
+            </script>
+            <script>
+                document
+                    .getElementById("registerForm")
+                    .addEventListener("submit", function (event) {
+                        event.preventDefault();
+                        // Aquí podrías agregar lógica para procesar el registro
+                        const firstName = document.getElementById("firstName").value;
+                        const lastName = document.getElementById("lastName").value;
+                        const email = document.getElementById("email").value;
+                        const phone = document.getElementById("phone").value;
+                        // Aquí podrías enviar los datos al servidor o procesarlos de alguna forma
+                        console.log(
+                            'Nombre: ${firstName}, Apellido: ${lastName}, Correo: ${email}, Teléfono: ${phone}'
+                        );
+                        // Cerrar el modal después de registrar
+                        $("#registerModal").modal("hide");
+                    });
             </script>
 </body>
 
