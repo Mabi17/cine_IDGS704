@@ -166,9 +166,6 @@
                 </div>
             </li>
 
-
-
-
             <!-- Divisor -->
             <hr class="sidebar-divider">
 
@@ -229,15 +226,6 @@
                 </div>
             </li>
 
-
-
-
-
-
-
-
-
-
         </ul>
         <!-- Fin de la Sidebar -->
         <!-- Contenido del Dashboard -->
@@ -262,85 +250,55 @@
 
                 <!-- Contenedor dentro de la página -->
                 <!-- Begin Page Content -->
-                <div class="container-fluid" id="seleccionAsientos">
-
-                    <div class="container">
-                        <h1>Seleccione Sus Asientos</h1>
-                        <div class="screen"></div>
-                        <div class="seats">
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-                            <div class="asiento seleccionado"></div>
-                            <div class="asiento seleccionado"></div>
-                            <div class="asiento seleccionado"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento"></div>
-                            <div class="asiento ocupado"></div>
-
-
-                        </div>
-                        <div class="legend">
-                            <div class="asiento"></div><span>No Seleccionado</span>
-                            <div class="asiento seleccionado"></div><span>Seleccionado</span>
-                            <div class="asiento ocupado"></div><span>Ocupado</span>
-                        </div>
-                        <br>
-                        <br>
-                        <div class="button-container">
-                            <button class="submit-btn">Confirmar Selección</button>
-                        </div>
+                <div id="notificationBox" class="notification-box" hidden="true">
+                    <h1 style="color: black;">NOTIFICACIÓN</h1>
+                    <div class="notification-screen">
+                        Sus boletos ya fueron reservados
+                    </div>
+                </div>
+                <div class="container">
+                    <h1>Seleccione Sus Asientos</h1>
+                    <div class="screen"></div>
+                    <div class="seats" id="seats-container"></div>
+                    <br>
+                    <div class="button-container">
+                        <button id="createReser" class="submit-btn" onclick="confirmSelection()">Confirmar
+                            Selección</button>
                     </div>
                 </div>
                 <!-- /.container-fluid -->
                 <!-- Fin del contenedor -->
-
-
-
             </div>
-            <!-- Fin del contenido principal -->
+            <div id="loader" class="modal" tabindex="-1" role="dialog" style="display: none;">
+                <div role="document">
+                    <div class="modal-content">
+                        <div class="spinner-border text-danger" role="status">
+                            <span class="visually-hidden"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Fin del contenido principal -->
+            <div id="myModal" class="modal" tabindex="-1" role="dialog" style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">¿Estas seguro de tu seleccion?</h5>
+                            <button type="button" class="close" aria-label="Close" onclick="closeModal()">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id="modCreateReser" type="button" onclick="createNewReservation()"
+                                class="submit-btn">Reservar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="my-auto">
@@ -377,7 +335,160 @@
     <!-- Page level custom scripts -->
     <script src="../../js/demo/chart-area-demo.js"></script>
     <script src="../../js/demo/chart-pie-demo.js"></script>
-
+    <script src="../../js/Controladores/reservacion.js"></script>
 </body>
 
 </html>
+
+<script>
+    const seatsContainer = document.getElementById('seats-container');
+    const numberOfSeats = 100;
+
+    for (let i = 1; i <= numberOfSeats; i++) {
+        const seatDiv = document.createElement('div');
+        seatDiv.id = `sit${i < 10 ? '0' : ''}${i}`;
+        seatDiv.className = 'asiento no-seleccionado';
+        seatDiv.onclick = function () { toggleSeatSelection(this.id); };
+        seatDiv.textContent = i;
+        seatsContainer.appendChild(seatDiv);
+    }
+
+    async function loadSeats() {
+        const loader = document.getElementById("loader");
+        try {
+            loader.style.display = "flex";
+            data = await getInstanceData();
+            aux_id_funcion = data[0].funcion.idFuncion;
+            createInstance(data);
+            sits = await getFunctionsReservations();
+
+            if (!data || data.length === 0) {
+                console.error("No se obtuvieron datos de la petición.");
+                return;
+            } else {
+                const codigosBoletoEnSits = new Set(sits.map(seat => seat.codigoBoleto));
+                const newData = data.filter(boleto => !codigosBoletoEnSits.has(boleto.codigoBoleto));
+                if (newData.length == 0) {
+                    var notificationBox = document.getElementById("notificationBox");
+                    notificationBox.hidden = false;
+                    var buttonReser = document.getElementById("createReser");
+                    buttonReser.disabled = true;
+
+                    idFuncion = aux_id_funcion;
+                    maxSeats = 0;
+                    fechaCompra = null;
+                    sits = await getFunctionsReservations(aux_id_funcion);
+                }
+            }
+
+            sits.forEach(seat => {
+                const seatNumber = seat.num_asiento < 10 ? `sit0${seat.num_asiento}` : `sit${seat.num_asiento}`;
+                const seatElement = document.getElementById(seatNumber);
+                if (seatElement) {
+                    seatElement.className = "asiento ocupado";
+                }
+            });
+
+        } catch (error) {
+            console.error("Error obteniendo los asientos:", error);
+        } finally {
+            loader.style.display = "none";
+        }
+    }
+
+    async function createNewReservation() {
+        const loader = document.getElementById("loader");
+        try {
+            closeModal();
+            loader.style.display = "flex";
+            resp = await createReservation()
+        } catch (error) {
+            console.error("Error obteniendo los asientos:", error);
+        } finally {
+            // Ocultar el loader, independientemente de si hay error o no
+            loader.style.display = "none";
+            window.location.reload();
+        }
+
+
+    }
+
+    window.onload = loadSeats;
+</script>
+
+<style>
+    .modal {
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .notification-box {
+        background-color: #fff3cd;
+        /* Fondo de notificación de advertencia */
+        color: #856404;
+        /* Texto de advertencia */
+        border: 1px solid #ffeeba;
+        /* Borde suave */
+        padding: 15px;
+        /* Espacio interno */
+        border-radius: 8px;
+        /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        /* Sombra para dar efecto de elevación */
+        max-width: 60%;
+        /* Ancho máximo para controlar el tamaño */
+        margin: 20px auto;
+        /* Centrar horizontalmente */
+        font-family: Arial, sans-serif;
+        /* Fuente legible */
+        text-align: center;
+    }
+
+    .notification-box h1 {
+        font-size: 1.5em;
+        /* Ajustar tamaño de título */
+        margin: 0 0 10px 0;
+        /* Márgenes superiores e inferiores */
+    }
+
+    .notification-screen {
+        font-size: 1em;
+        /* Tamaño de fuente del texto */
+        line-height: 1.5;
+        /* Altura de línea para mejorar la legibilidad */
+    }
+
+    /* Añadir una animación sutil para dar sensación de notificación */
+    .notification-box {
+        animation: fadeIn 0.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    button:disabled {
+        background-color: #d3d3d3;
+        /* Un gris suave */
+        color: #a1a1a1;
+        /* Gris para el texto */
+        cursor: not-allowed;
+        /* Indicador visual de que está deshabilitado */
+    }
+</style>

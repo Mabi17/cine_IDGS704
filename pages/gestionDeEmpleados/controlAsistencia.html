@@ -136,12 +136,24 @@
                 <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionEmpleados.html">Gestión de
                             empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionRoles.html">Gestión de
+                            roles de
                             <br>empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistencia.html">Control de
                             asistencia<br>de empleados</a>
+                        <a class="collapse-item"
+                            href="../../pages/gestionDeEmpleados/controlAsistenciaLlegada.html">Control
+                            de
+                            asistencia Llegada<br>de empleados</a>
+                        <a class="collapse-item"
+                            href="../../pages/gestionDeEmpleados/controlAsistenciaSalida.html">Control de
+                            asistencia Salida<br>de empleados</a>
+                        <a class="collapse-item"
+                            href="../../pages/gestionDeEmpleados/horariosEmpleados.html">Horarios<br>de
+                            empleados</a>
+
                     </div>
                 </div>
             </li>
@@ -265,7 +277,7 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                            <form
+                            <form id="formAsistenciaLlegada"
                                 class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                                 <div class="input-group">
                                     <input type="text" class="form-control bg-light border-0 small"
@@ -292,239 +304,83 @@
                         <table class="table table-bordered">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>Nombre del Empleado</th>
+                                    <th>IdEmpleado</th>
                                     <th>Fecha</th>
-                                    <th>Inicio Turno</th>
-                                    <th>Fin Turno</th>
-                                    <th>Break (min)</th>
-                                    <th>Horas Trabajadas</th>
-                                    <th>Capacidad (Horas)</th>
-                                    <th>Cumplió Horas</th>
-                                    <th>Tiempo Libre</th>
+                                    <th>Turno</th>
+                                    <th>Hora Entrada</th>
+                                    <th>Hora Salida</th>
+                                    <th>Estatus Asistencia</th>
+                                    <th>Horas totales</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Juan Pérez</td>
-                                    <td>2024-11-19</td>
-                                    <td>08:00</td>
-                                    <td>16:00</td>
-                                    <td>30</td>
-                                    <td>7.5</td>
-                                    <td>8.0</td>
-                                    <td>-0.5h</td>
-                                    <td>0.5h</td>
-                                </tr>
-                                <tr>
-                                    <td>María López</td>
-                                    <td>2024-11-19</td>
-                                    <td>09:00</td>
-                                    <td>18:00</td>
-                                    <td>60</td>
-                                    <td>8.0</td>
-                                    <td>8.0</td>
-                                    <td></td>
-                                    <td>0.0h</td>
-                                </tr>
-                                <tr>
-                                    <td>Carlos Gómez</td>
-                                    <td>2024-11-19</td>
-                                    <td>07:30</td>
-                                    <td>16:30</td>
-                                    <td>30</td>
-                                    <td>8.5</td>
-                                    <td>8.0</td>
-                                    <td>+0.5h</td>
-                                    <td>0.0h</td>
-                                </tr>
-                                <tr>
-                                    <td>Ana Martínez</td>
-                                    <td>2024-11-19</td>
-                                    <td>08:00</td>
-                                    <td>15:30</td>
-                                    <td>45</td>
-                                    <td>7.25</td>
-                                    <td>8.0</td>
-                                    <td>-0.75h</td>
-                                    <td>0.75h</td>
-                                </tr>
-                                <tr>
-                                    <td>José Ramírez</td>
-                                    <td>2024-11-19</td>
-                                    <td>10:00</td>
-                                    <td>18:00</td>
-                                    <td>30</td>
-                                    <td>7.5</td>
-                                    <td>8.0</td>
-                                    <td>-0.5h</td>
-                                    <td>0.5h</td>
-                                </tr>
-                                <tr>
-                                    <td>Lucía Torres</td>
-                                    <td>2024-11-19</td>
-                                    <td>06:00</td>
-                                    <td>14:00</td>
-                                    <td>15</td>
-                                    <td>7.75</td>
-                                    <td>8.0</td>
-                                    <td>-0.25h</td>
-                                    <td>0.25h</td>
-                                </tr>
-                                <tr>
-                                    <td>Javier Mendoza</td>
-                                    <td>2024-11-19</td>
-                                    <td>07:00</td>
-                                    <td>15:00</td>
-                                    <td>30</td>
-                                    <td>7.5</td>
-                                    <td>8.0</td>
-                                    <td>-0.5h</td>
-                                    <td>0.5h</td>
-                                </tr>
-                                <tr>
-                                    <td>Rosa Delgado</td>
-                                    <td>2024-11-19</td>
-                                    <td>08:30</td>
-                                    <td>17:30</td>
-                                    <td>60</td>
-                                    <td>8.0</td>
-                                    <td>8.0</td>
-                                    <td></td>
-                                    <td>0.0h</td>
-                                </tr>
-                                <tr>
-                                    <td>Fernando Ortiz</td>
-                                    <td>2024-11-19</td>
-                                    <td>09:00</td>
-                                    <td>17:00</td>
-                                    <td>45</td>
-                                    <td>7.25</td>
-                                    <td>8.0</td>
-                                    <td>-0.75h</td>
-                                    <td>0.75h</td>
-                                </tr>
-                                <tr>
-                                    <td>Clara Ruiz</td>
-                                    <td>2024-11-19</td>
-                                    <td>10:30</td>
-                                    <td>19:00</td>
-                                    <td>30</td>
-                                    <td>8.0</td>
-                                    <td>8.0</td>
-                                    <td></td>
-                                    <td>0.0h</td>
-                                </tr>
-                                <tr>
-                                    <td>Héctor Silva</td>
-                                    <td>2024-11-19</td>
-                                    <td>08:00</td>
-                                    <td>16:15</td>
-                                    <td>30</td>
-                                    <td>7.75</td>
-                                    <td>8.0</td>
-                                    <td>-0.25h</td>
-                                    <td>0.25h</td>
-                                </tr>
-                                <tr>
-                                    <td>Sofía González</td>
-                                    <td>2024-11-19</td>
-                                    <td>09:00</td>
-                                    <td>17:45</td>
-                                    <td>15</td>
-                                    <td>7.75</td>
-                                    <td>8.0</td>
-                                    <td>-0.25h</td>
-                                    <td>0.25h</td>
-                                </tr>
-                                <tr>
-                                    <td>Pedro Vega</td>
-                                    <td>2024-11-19</td>
-                                    <td>07:30</td>
-                                    <td>16:00</td>
-                                    <td>60</td>
-                                    <td>7.5</td>
-                                    <td>8.0</td>
-                                    <td>-0.5h</td>
-                                    <td>0.5h</td>
-                                </tr>
-                                <tr>
-                                    <td>Elena Navarro</td>
-                                    <td>2024-11-19</td>
-                                    <td>06:30</td>
-                                    <td>15:30</td>
-                                    <td>30</td>
-                                    <td>8.0</td>
-                                    <td>8.0</td>
-                                    <td></td>
-                                    <td>0.0h</td>
-                                </tr>
+                            <tbody id="turnos-table-body">
+
                             </tbody>
                         </table>
                     </div>
 
+                    <!-- Fin del contenido principal -->
+
+
+                    <!-- Footer -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright &copy; CinemaPremier 2024</span>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- fin del Footer -->
 
                 </div>
-                <!-- Fin del contenido principal -->
+                <!-- End of Content Wrapper -->
 
+            </div>
+            <!-- End of Page Wrapper -->
 
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; CinemaPremier 2024</span>
+            <!-- Scroll to Top Button-->
+            <a class="scroll-to-top rounded" href="#page-top">
+                <i class="fas fa-angle-up"></i>
+            </a>
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Select "Logout" below if you are ready to end your current session.
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="../../index.html">Logout</a>
                         </div>
                     </div>
-                </footer>
-                <!-- fin del Footer -->
-
-            </div>
-            <!-- End of Content Wrapper -->
-
-        </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="../../index.html">Logout</a>
-                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="../../vendor/jquery/jquery.min.js"></script>
-        <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Bootstrap core JavaScript-->
+            <script src="../../vendor/jquery/jquery.min.js"></script>
+            <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Core plugin JavaScript-->
+            <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="../../js/sb-admin-2.min.js"></script>
+            <!-- Custom scripts for all pages-->
+            <script src="../../js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="../../vendor/chart.js/Chart.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="../../vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="../../js/demo/chart-area-demo.js"></script>
-        <script src="../../js/demo/chart-pie-demo.js"></script>
-
+            <!-- Page level custom scripts -->
+            <script src="../../js/demo/chart-area-demo.js"></script>
+            <script src="../../js/demo/chart-pie-demo.js"></script>
+            <script src="../js/gestionEmpleadosJs/tablaControlAsistencia.js"></script>
 </body>
 
 </html>

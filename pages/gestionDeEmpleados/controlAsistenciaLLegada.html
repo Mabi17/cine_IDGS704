@@ -29,8 +29,6 @@
     <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
     <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
     <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/dulceriaCss/modificarPreciosDulceria.css">
-
 
 
 
@@ -138,12 +136,20 @@
                 <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionEmpleados.html">Gestión de
                             empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionRoles.html">Gestión de roles de
                             <br>empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistencia.html">Control de
                             asistencia<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistenciaLlegada.html">Control
+                            de
+                            asistencia Llegada<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistenciaSalida.html">Control de
+                            asistencia Salida<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/horariosEmpleados.html">Horarios<br>de
+                            empleados</a>
+
                     </div>
                 </div>
             </li>
@@ -193,8 +199,6 @@
                         <a class="collapse-item" href="../dulceria/preciosDulceria.html">Gestión de precios</br> de
                             dulcería</a>
                         <a class="collapse-item" href="../dulceria/ventasDulceria.html">Ventas de dulcería</a>
-                        <a class="collapse-item" href="../dulceria/historicoDulceria.html">Historico de dulcería</a>
-
                     </div>
                 </div>
             </li>
@@ -236,15 +240,8 @@
 
 
 
-
-
-
-
-
-
         </ul>
         <!-- Fin de la Sidebar -->
-
         <!-- Contenido del Dashboard -->
         <div id="content-wrapper" class="d-flex flex-column">
 
@@ -265,128 +262,92 @@
 
 
 
-
-                <!-- Contenedor dentro de la página -->
-                <!-- DataTales Example -->
-                <link rel="stylesheet" href="css/InventarioDulceria/InventarioDulceria.css">
-
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3 text-center">
-                        <h2 class="m-0 font-weight-bold text-title">Precios dulcería</h2>
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table " id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Producto</th>
-                                    <th>Precio</th>
-                                    <th>Stock Actual</th>
-                                    <th>Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody id="table-body">
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- End of Main Content -->
-
-
-    </div>
-    <!-- End of Content Wrapper -->
-    <!-- Fin del contenedor -->
-
-
-
-    </div>
-    <!-- Fin del contenido principal -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-        <div class="my-auto">
-            <div class="copyright text-center my-auto">
-                <span>Copyright &copy; CinemaPremier 2024</span>
-            </div>
-        </div>
-    </footer>
-    <!-- Fin del Footer -->
-
-    </div>
-    <!-- Fin del contenido -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-
-
-    <!-- Modal de edición -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modificar Producto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="formModificarProducto">
-                        <input type="hidden" id="productoId">
-                        <div class="mb-3">
-                            <label for="productoNombre" class="form-label">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="productoNombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoPrecio" class="form-label">Precio</label>
-                            <input type="number" class="form-control" id="productoPrecio" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="productoStock" class="form-label">Stock</label>
-                            <input type="number" class="form-control" id="productoStock" required>
-                        </div>
+                <div class="container-fluid mt-5">
+                    <form class="row g-4">
+                        <h3 class="mb-3 text-primary text-center">Control de Asistencia de Empleados</h3>
                     </form>
+                    <div class="container mt-4">
+                        <h3 class="text-primary text-center mb-4"><i class="bi bi-person-vcard"></i> Registro de
+                            Asistencia <i class="bi bi-person-vcard"></i></h3>
+                        <form id="formAsistenciaLlegada">
+                            <div class="form-group">
+                                <label for="idEmpleado"><i class="bi bi-person-vcard"></i> ID de Empleado:</label>
+                                <input type="text" id="idEmpleado" class="form-control"
+                                    placeholder="Ingrese el ID de empleado" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha"><i class="bi bi-calendar-date"></i> Fecha:</label>
+                                <input type="date" id="fecha" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="horaEntrada"><i class="bi bi-clock"></i> Hora de Llegada:</label>
+                                <input type="time" id="horaEntrada" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Registrar Asistencia</button>
+                        </form>
+                    </div>
+
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" id="guardarCambios">Guardar Cambios</button>
+
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; CinemaPremier 2024</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- fin del Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="../../index.html">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
+        <!-- Bootstrap core JavaScript-->
+        <script src="../../vendor/jquery/jquery.min.js"></script>
+        <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="../../vendor/jquery/jquery.min.js"></script>
-    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="../../js/sb-admin-2.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="../../js/sb-admin-2.min.js"></script>
+        <!-- Page level plugins -->
+        <script src="../../vendor/chart.js/Chart.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="../../vendor/chart.js/Chart.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="../../js/demo/chart-area-demo.js"></script>
-    <script src="../../js/demo/chart-pie-demo.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/dulceriaJs/modificarPreciosDulceria.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast/dist/css/iziToast.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/izitoast/dist/js/iziToast.min.js"></script>
-
+        <!-- Page level custom scripts -->
+        <script src="../../js/demo/chart-area-demo.js"></script>
+        <script src="../../js/demo/chart-pie-demo.js"></script>
+        <script src="../js/gestionEmpleadosJs/controlAsistenciaEmpleadoLlegada.js"></script>
 
 </body>
 
