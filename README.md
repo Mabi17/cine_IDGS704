@@ -1,5 +1,5 @@
-
 # cine_IDGS704
+
 Repositorio para proyecto grupal de la materia Arquitectura de software
 
 # [Start Bootstrap - SB Admin 2](https://startbootstrap.com/theme/sb-admin-2/)
