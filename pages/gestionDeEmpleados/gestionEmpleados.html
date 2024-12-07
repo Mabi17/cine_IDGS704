@@ -516,6 +516,18 @@
             const editEmployeeBtn = document.getElementById('editarEmpleado');
             let selectedEmployeeId = null;
 
+            // Validar que el campo de teléfono solo acepte números
+            const telefonoInput = document.getElementById('inputtelefono');
+            telefonoInput.addEventListener('input', () => {
+                telefonoInput.value = telefonoInput.value.replace(/\D/g, ''); // Elimina cualquier carácter que no sea un número
+            });
+
+            // Convertir el RFC a mayúsculas automáticamente
+            const rfcInput = document.getElementById('inputrfc');
+            rfcInput.addEventListener('input', () => {
+                rfcInput.value = rfcInput.value.toUpperCase(); // Convierte el valor a mayúsculas
+            });
+
             const showLoading = () => console.log('Cargando...');
             const hideLoading = () => console.log('Carga finalizada.');
 
@@ -575,11 +587,37 @@
                     });
 
                     row.querySelector('.delete-btn').addEventListener('click', async () => {
-                        if (confirm('¿Estás seguro de eliminar este empleado?')) {
-                            await EmployeeService.deleteEmployee(emp.idEmpleado);
-                            row.remove();
+                        try {
+                            // Cargar datos del empleado al formulario
+                            const employee = await EmployeeService.getEmployeeById(emp.idEmpleado);
+                            selectedEmployeeId = emp.idEmpleado;
+                    
+                            const [apellidoPaterno, ...resto] = (employee.apellido || '').split(' ');
+                            const apellidoMaterno = resto.join(' ');
+                    
+                            document.getElementById('employeeName').value = employee.nombre || '';
+                            document.getElementById('employeeNamelastnameFa').value = apellidoPaterno || '';
+                            document.getElementById('employeelastnameMo').value = apellidoMaterno || '';
+                            document.getElementById('inputcorreo').value = employee.correo || '';
+                            document.getElementById('inputtelefono').value = employee.telefono || '';
+                            document.getElementById('inputrfc').value = employee.rfc || '';
+                            rolesDropdown.value = employee.rol?.id || '';
+                    
+                            // Mostrar el botón de "Guardar Cambios"
+                            editEmployeeBtn.style.display = 'inline-block';
+                    
+                            // Confirmar eliminación
+                            if (confirm('¿Estás seguro de eliminar este empleado?')) {
+                                await EmployeeService.deleteEmployee(emp.idEmpleado);
+                                row.remove();
+                                alert('Empleado eliminado exitosamente.');
+                            }
+                        } catch (error) {
+                            console.error('Error al eliminar empleado:', error);
+                            alert('Ocurrió un error al eliminar el empleado.');
                         }
                     });
+                    
                 });
                 hideLoading();
             } catch (error) {
