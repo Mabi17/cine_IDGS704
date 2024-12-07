@@ -2,7 +2,7 @@ let funcionesCanceladas = [];
 let pelis = [];
 
 function cargarDatosFuncionesCanceladas() {
-  const url = "http://localhost:8080/cine_IDGS704/api/funciones/funcionesCanceladas";
+  const url = "http://10.16.21.165:8080/cine_IDGS704/api/funciones/funcionesCanceladas";
 
   fetch(url)
     .then(response => response.json())
@@ -17,7 +17,7 @@ function cargarDatosFuncionesCanceladas() {
           const pelicula = funcionCancelada.peliculas;
           const motivo = funcionCancelada.motivoCancelacion;
           const detalle = funcionCancelada.detalleFuncionCancelada;
-          const empleado = funcionCancelada.empleado.nombreEmpleado;
+          //const empleado = funcionCancelada.empleado.nombre;
           const fechaPresentacion = funcionCancelada.programacionFunciones.fechaPelicula;
           const fechaCancelacion = funcionCancelada.fechaCancelacion;
           const foto = pelicula.foto;
@@ -32,7 +32,7 @@ function cargarDatosFuncionesCanceladas() {
                                 <h5>${pelicula.nombrePelicula}</h5>
                                 <p>Motivo: ${motivo}</p>
                                 <p>Detalle de Cancelación: ${detalle}</p>
-                                <p>Empleado que canceló la función: ${empleado}</p>
+                                
                                 <p>Fecha de presentación: ${fechaPresentacion}</p>
                                 <p>Fecha de cancelación: ${fechaCancelacion}</p>
                             </div>
@@ -72,7 +72,7 @@ function SeleccionarFuncion(i) {
   document.getElementById("detalleSala").value = funcion.salaCancelada;
   document.getElementById("detCancelacion").value = funcion.detalleFuncionCancelada;
   document.getElementById("datalleIdioma").value = funcion.programacionFunciones.idioma;
-  document.getElementById("empleadoCancelado").value = funcion.empleado.nombreEmpleado;
+  //document.getElementById("empleadoCancelado").value = funcion.empleado.nombreEmpleado;
   document.getElementById("detalleTipo").value = funcion.programacionFunciones.tipoPelicula;
 
 }
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let programacionFuncionesData = [];
 
 function cargarPelisSelect() {
-  fetch("http://localhost:8080/cine_IDGS704/api/funciones/obtener")
+  fetch("http://10.16.21.165:8080/cine_IDGS704/api/funciones/obtener")
     .then(response => {
       if (!response.ok) {
         throw new Error("Error al obtener los datos");
@@ -200,7 +200,7 @@ function limpiar() {
 }
 
 function cargarEmpleadosSelect() {
-  fetch("http://localhost:8080/cine_IDGS704/api/funciones/empleados")
+  fetch("https://crud-empleado-cine.azurewebsites.net/api/empleados")
     .then(response => {
       if (!response.ok) {
         throw new Error("Error al obtener los empleados");
@@ -210,7 +210,7 @@ function cargarEmpleadosSelect() {
     .then(empleados => {
       let opciones = "<option value='' disabled selected>Seleccione un empleado</option>";
       empleados.forEach(empleado => {
-        opciones += `<option value="${empleado.idEmpleado}">${empleado.nombreEmpleado}</option>`;
+        opciones += `<option value="${empleado.id_empleado}">${empleado.empleado}</option>`;
       });
 
       document.getElementById("selectEmpleado").innerHTML = opciones;
@@ -267,7 +267,7 @@ function insertarFuncionCancelada() {
     detalleCancelacion: datos.detalleCancelacion
   });
 
-  const ruta = "http://localhost:8080/cine_IDGS704/api/funciones/agregarFuncionCancelada";
+  const ruta = "http://10.16.21.165:8080/cine_IDGS704/api/funciones/agregarFuncionCancelada";
   fetch(ruta,
     {
       method: "POST",
