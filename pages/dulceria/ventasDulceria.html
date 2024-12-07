@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Dashborad - CinemaPremier</title>
+
+    <!-- Fuentes para la plantilla-->
+
+    <!-- Fuentes para la plantilla-->
+    <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Estilos personalizados -->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/Dashboard/navbar-styles.css" rel="stylesheet">
+    <link href="../css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
+    <link href="../css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
+    <link href="../css/Dashboard/reservaAsientos.css" rel="stylesheet">
+
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Protector de la pagina -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Logo de la Sidebar-->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../index.html">
+                <div class="sidebar-brand-icon rotate-n-0">
+                    <img src="../../img/logo-cinema.png" alt="Logo" style="width: 60px; height: 60px;">
+                </div>
+            </a>
+
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.html">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span></a>
+            </li>
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider">
+
+            <!-- Encabezado -->
+            <div class="sidebar-heading">
+                Gestiones
+            </div>
+
+            <!-- Nav Item - Contraer menú de Gestion de boletos-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBoletos"
+                    aria-expanded="true" aria-controls="collapseBoletos">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de boletos</span>
+                </a>
+                <div id="collapseBoletos" class="collapse" aria-labelledby="headingBoletos"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeBoletos/ventaBoletos.html">Venta de boletos</a>
+                        <a class="collapse-item" href="../gestionDeBoletos/reservacionBoletos.html">Reservación de
+                            boletos</a>
+                        <a class="collapse-item" href="../gestionDeBoletos/validacionBoletos.html">Validación de
+                            boletos</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de salas-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSalas"
+                    aria-expanded="true" aria-controls="collapseSalas">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de salas</span>
+                </a>
+                <div id="collapseSalas" class="collapse" aria-labelledby="headingSalas" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeSalas/gestionSalas.html">Gestión</a>
+                        <a class="collapse-item" href="../gestionDeSalas/configuracionProyeccin.html">Configuración
+                            de <br>proyección</a>
+                        <a class="collapse-item" href="../gestionDeSalas/mantenimientoSalas.html">Mantenimiento de
+                            salas</a>
+                        <a class="collapse-item" href="../gestionDeSalas/HorariosSalas.html">Horario de Salas</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de Funciones-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFunciones"
+                    aria-expanded="true" aria-controls="collapseFunciones">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de funciones</span>
+                </a>
+                <div id="collapseFunciones" class="collapse" aria-labelledby="headingFunciones"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeFunciones/programacionDeFunciones.html">Programación
+                            de funciones</a>
+                        <a class="collapse-item" href="../gestionDeFunciones/gestionFuncionesEspeciales.html">Gestión
+                            de funciones <br>especiales y estrenos</a>
+                        <a class="collapse-item" href="../gestionDeFunciones/gestionDeFuncionesCanceladas.html">Gestión
+                            de funciones
+                            <br>canceladas</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú Gestion de empleados-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmpleados"
+                    aria-expanded="true" aria-controls="collapseEmpleados">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de empleados</span>
+                </a>
+                <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                            empleados</a>
+                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                            <br>empleados</a>
+                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                            asistencia<br>de empleados</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de clientes-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes"
+                    aria-expanded="true" aria-controls="collapseClientes">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de clientes</span>
+                </a>
+                <div id="collapseClientes" class="collapse" aria-labelledby="headingClientes"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeClientes/gestionClientes.html">Gestión</a>
+                        <a class="collapse-item" href="../gestionDeClientes/registroDeClientes.html">Registro de
+                            clientes</a>
+                        <a class="collapse-item" href="../gestionDeClientes/historialDeComprasDeClientes.html">Historial
+                            de compras<br>de
+                            clientes</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider">
+
+            <!-- Encabezado -->
+            <div class="sidebar-heading">
+                Modulos
+            </div>
+
+            <!-- Nav Item - Contraer menú de Dulcería -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDulceria"
+                    aria-expanded="true" aria-controls="collapseDulceria">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Dulcería</span>
+                </a>
+                <div id="collapseDulceria" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../dulceria/inventariDulceria.html">Inventario de dulcería</a>
+                        <a class="collapse-item" href="../dulceria/preciosDulceria.html">Gestión de precios</br> de
+                            dulcería</a>
+                        <a class="collapse-item" href="../dulceria/ventasDulceria.html">Ventas de dulcería</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Contraer menú de Peliculas -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeliculas"
+                    aria-expanded="true" aria-controls="collapsePeliculas">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Peliculas</span>
+                </a>
+                <div id="collapsePeliculas" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../../index.html">Login</a>
+                        <a class="collapse-item" href="../../index.html">Register</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Contraer menú de Reportes -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes"
+                    aria-expanded="true" aria-controls="collapseReportes">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Reportes</span>
+                </a>
+                <div id="collapseReportes" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de ventas</a>
+                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de algo</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+
+
+
+
+
+
+        </ul>
+        <!-- Fin de la Sidebar -->
+        <!-- Contenido del Dashboard -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Contenido principal -->
+            <div id="content">
+
+                <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Texto dentro de la barra -->
+                    <span class="navbar-title">
+                        Cinema Premier
+                    </span>
+                </nav>
+
+
+
+                <!-- Contenedor dentro de la página -->
+                <div class="container-fluid">
+                    <div class="form-neon">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-12 col-lg-9">
+
+                                    <div class="container-fluid">
+                                        <form class="row align-items-center" id="sale-barcode-form" autocomplete="off">
+                                            <div class="col-12 col-md-3">
+                                                <button type="button" class="btn btn-primary"
+                                                    id="btn_modal_buscar_codigo"><i class="fas fa-search"></i> &nbsp;
+                                                    Buscar producto<div class="ripple-container"></div></button>
+                                            </div>
+                                            <div class="col-12 col-md-6">
+                                                <div class="form-group bmd-form-group">
+                                                    <label for="barcode-input" class="bmd-label-static">Código de
+                                                        producto</label>
+                                                    <input type="text" pattern="[a-zA-Z0-9- ]{1,70}"
+                                                        class="form-control sale-input-barcode" id="sale-barcode-input"
+                                                        maxlength="70">
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-3">
+                                                <button type="button" class="btn btn-primary"
+                                                    onclick="agregar_producto()"><i class="far fa-check-circle"></i>
+                                                    &nbsp; Agregar producto</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-bordered table-sm">
+                                            <thead class="bg-info">
+                                                <tr class="text-center">
+                                                    <th scope="col">#</th>
+                                                    <th scope="col">Código de barra</th>
+                                                    <th scope="col">Producto</th>
+                                                    <th scope="col">Cant.</th>
+                                                    <th scope="col">Precio</th>
+                                                    <th scope="col">Subtotal</th>
+                                                    <th scope="col">Actualizar</th>
+                                                    <th scope="col">Remover</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="text-center">
+                                                    <th colspan="9">No hay productos agregados</th>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-3">
+                                    <h3 class="text-center text-uppercase">Datos de la venta</h3>
+                                    <hr>
+
+                                    <div class="form-group bmd-form-group is-filled">
+                                        <label for="venta_fecha" class="bmd-label-static">Fecha</label>
+                                        <input type="date" class="form-control" name="venta_fecha_reg" id="venta_fecha"
+                                            value="2024-11-19" readonly="">
+                                    </div>
+
+                                    <div class="form-group bmd-form-group is-filled">
+                                        <label for="venta_caja" class="bmd-label-static">Caja</label>
+                                        <input type="text" class="form-control" id="venta_caja"
+                                            value="Caja #4 - prueba3" readonly="">
+                                    </div>
+
+                                    <div class="form-group bmd-form-group is-filled">
+                                        <label for="venta_cliente" class="bmd-label-static">Cliente</label>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-10 text-center">
+                                                    <input type="text" class="form-control" id="venta_cliente"
+                                                        value="Publico General" readonly="">
+                                                </div>
+                                                <div class="col-2 text-center">
+                                                    <button type="button" class="btn btn-info" data-toggle="popover"
+                                                        data-trigger="hover" id="btn_modal_cliente" data-placement="top"
+                                                        data-content="Agregar cliente" data-original-title="" title="">
+                                                        <i class="fas fa-user-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <form name="formsale">
+
+                                        <label>Tipo de pago</label>
+                                        <div class="form-group text-center">
+                                            <div class="form-check form-check-inline"
+                                                onclick="resetear_total('Contado')">
+                                                <input class="form-check-input" type="radio" name="venta_tipo_venta_reg"
+                                                    value="Contado" id="venta_radio_contado" checked="">
+                                                <label class="form-check-label text-secondary"
+                                                    for="venta_radio_contado"><i class="fas fa-money-bill-alt"></i>
+                                                    &nbsp; Contado</label>
+                                            </div>
+                                            &nbsp; &nbsp;
+                                            <div class="form-check form-check-inline"
+                                                onclick="resetear_total('Credito')">
+                                                <input class="form-check-input" type="radio" name="venta_tipo_venta_reg"
+                                                    value="Credito" id="venta_radio_credito">
+                                                <label class="form-check-label text-secondary"
+                                                    for="venta_radio_credito"><i class="fab fa-cc-visa"></i> &nbsp;
+                                                    Credito</label>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group bmd-form-group is-filled">
+                                            <label for="venta_descuento" class="bmd-label-static">Descuento de venta
+                                                (%)</label>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-10 text-center">
+                                                        <input type="text" class="form-control" id="venta_descuento"
+                                                            value="0" pattern="[0-9]{1,2}" maxlength="2">
+                                                    </div>
+                                                    <div class="col-2 text-center">
+                                                        <button type="button" class="btn btn-info" data-toggle="popover"
+                                                            data-trigger="hover" data-placement="top"
+                                                            data-content="Aplicar Descuento" id="btn_modal_descuento"
+                                                            onclick="aplicar_descuento()" data-original-title=""
+                                                            title="">
+                                                            <i class="fas fa-money-bill-wave"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group bmd-form-group is-filled">
+                                            <label for="venta_abono" class="bmd-label-floating">Total pagado por cliente
+                                                &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+                                            <input type="text" class="form-control" name="venta_abono_reg"
+                                                id="venta_abono" value="0.00" pattern="[0-9.]{1,25}" maxlength="25">
+                                        </div>
+
+                                        <div class="form-group bmd-form-group is-filled">
+                                            <label for="venta_cambio" class="bmd-label-floating">Cambio devuelto a
+                                                cliente</label>
+                                            <input type="text" class="form-control" id="venta_cambio" value="0.00"
+                                                readonly="">
+                                        </div>
+
+                                        <ul class="list-group list-unstyled">
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                Subtotal
+                                                <span class="badge badge-pill"> + $0.00 Mx</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                IVA (18%)
+                                                <span class="badge badge-pill"> + $0.00 Mx</span>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center">
+                                                Descuento
+                                                <span class="badge badge-pill"> - $0.00 Mx</span>
+                                            </li>
+                                            <li>
+                                                <hr>
+                                            </li>
+                                            <li
+                                                class="list-group-item d-flex justify-content-between align-items-center font-weight-bold">
+                                                Total
+                                                <span class="badge badge-pill"> $0.00 Mx</span>
+                                            </li>
+                                        </ul>
+                                        <p class="text-center">
+                                            <small>Los campos marcados con &nbsp; <i
+                                                    class="fab fa-font-awesome-alt"></i> &nbsp; son obligatorios</small>
+                                        </p>
+                                        <input type="hidden" value="0.00" id="venta_total_descuento">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin del contenedor -->
+
+
+
+            </div>
+            <!-- Fin del contenido principal -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; CinemaPremier 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- Fin del Footer -->
+
+        </div>
+        <!-- Fin del contenido -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+
+
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+    <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="../../js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="../../vendor/chart.js/Chart.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="../../js/demo/chart-area-demo.js"></script>
+    <script src="../../js/demo/chart-pie-demo.js"></script>
+
+</body>
+
+</html>
