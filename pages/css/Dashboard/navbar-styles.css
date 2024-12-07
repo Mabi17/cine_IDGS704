@@ -1,0 +1,31 @@
+.bg-red {
+    background-color: #EE4946; /* Color rojo */
+}
+
+/* Estilos para el texto de la barra de navegación */
+.navbar-title {
+    font-size: 1.5rem; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    color: #ffffff; /* Color blanco */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra del texto */
+    text-align: center;
+}
+
+/* Estilo para centrar el texto de la barra de navegacion */
+.navbar {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+
+/*Estilos barra lateral*/
+
+.bg-gradient-primary {
+    background: linear-gradient(180deg, #0A1240 10%, #0A1240 100%);
+}
+
+
+

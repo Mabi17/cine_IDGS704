@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Registro Clientes - CinemaPremier</title>
+
+    <!-- Fuentes para la plantilla-->
+    <link rel="stylesheet" href="../../vendor/butterup-main/butterup.min.css" />
+    <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+
+    <!-- Estilos personalizados -->
+    <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../../pages/css/Dashboard/navbar-styles.css" rel="stylesheet">
+    <link href="../../pages/css/InventarioDulceria/InventarioDulceria.css" rel="stylesheet">
+    <link href="../../pages/css/ventaDulceria/ventaDulceria.css" rel="stylesheet">
+    <link href="../../pages/css/Dashboard/reservaAsientos.css" rel="stylesheet">
+
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Protector de la pagina -->
+    <div id="wrapper">
+        
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Logo de la Sidebar-->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../../index.html">
+                <div class="sidebar-brand-icon rotate-n-0">
+                    <img src="../../img/logo-cinema.png" alt="Logo" style="width: 60px; height: 60px;">
+                </div>
+            </a>
+
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="../../index.html">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span></a>
+            </li>
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider">
+
+            <!-- Encabezado -->
+            <div class="sidebar-heading">
+                Gestiones
+            </div>
+
+            <!-- Nav Item - Contraer menú de Gestion de boletos-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBoletos"
+                    aria-expanded="true" aria-controls="collapseBoletos">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de boletos</span>
+                </a>
+                <div id="collapseBoletos" class="collapse" aria-labelledby="headingBoletos"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeBoletos/ventaBoletos.html">Venta de boletos</a>
+                        <a class="collapse-item" href="../gestionDeBoletos/reservacionBoletos.html">Reservación de
+                            boletos</a>
+                        <a class="collapse-item" href="../gestionDeBoletos/validacionBoletos.html">Validación de
+                            boletos</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de salas-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSalas"
+                    aria-expanded="true" aria-controls="collapseSalas">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de salas</span>
+                </a>
+                <div id="collapseSalas" class="collapse" aria-labelledby="headingSalas" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeSalas/gestionSalas.html">Gestión</a>
+                        <a class="collapse-item" href="../gestionDeSalas/configuracionProyeccin.html">Configuración
+                            de <br>proyección</a>
+                        <a class="collapse-item" href="../gestionDeSalas/mantenimientoSalas.html">Mantenimiento de
+                            salas</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de Funciones-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFunciones"
+                    aria-expanded="true" aria-controls="collapseFunciones">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de funciones</span>
+                </a>
+                <div id="collapseFunciones" class="collapse" aria-labelledby="headingFunciones"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeFunciones/programacionDeFunciones.html">Programación
+                            de funciones</a>
+                        <a class="collapse-item" href="../gestionDeFunciones/gestionFuncionesEspeciales.html">Gestión
+                            de funciones <br>especiales y estrenos</a>
+                        <a class="collapse-item" href="../gestionDeFunciones/gestionDeFuncionesCanceladas.html">Gestión
+                            de funciones
+                            <br>canceladas</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú Gestion de empleados-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmpleados"
+                    aria-expanded="true" aria-controls="collapseEmpleados">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de empleados</span>
+                </a>
+                <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                            empleados</a>
+                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                            <br>empleados</a>
+                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                            asistencia<br>de empleados</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Contraer menú de Gestion de clientes-->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClientes"
+                    aria-expanded="true" aria-controls="collapseClientes">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Gestión de clientes</span>
+                </a>
+                <div id="collapseClientes" class="collapse" aria-labelledby="headingClientes"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../gestionDeClientes/gestionClientes.html">Gestión</a>
+                        <a class="collapse-item" href="../gestionDeClientes/registroDeClientes.html">Registro de
+                            clientes</a>
+                        <a class="collapse-item" href="../gestionDeClientes/historialDeComprasDeClientes.html">Historial
+                            de compras<br>de
+                            clientes</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+            <!-- Divisor -->
+            <hr class="sidebar-divider">
+
+            <!-- Encabezado -->
+            <div class="sidebar-heading">
+                Modulos
+            </div>
+
+            <!-- Nav Item - Contraer menú de Dulcería -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDulceria"
+                    aria-expanded="true" aria-controls="collapseDulceria">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Dulcería</span>
+                </a>
+                <div id="collapseDulceria" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../dulceria/inventariDulceria.html">Inventario de dulcería</a>
+                        <a class="collapse-item" href="../dulceria/preciosDulceria.html">Gestión de precios</br> de
+                            dulcería</a>
+                        <a class="collapse-item" href="../dulceria/ventasDulceria.html">Ventas de dulcería</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Contraer menú de Peliculas -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePeliculas"
+                    aria-expanded="true" aria-controls="collapsePeliculas">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Peliculas</span>
+                </a>
+                <div id="collapsePeliculas" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../../index.html">Login</a>
+                        <a class="collapse-item" href="../../index.html">Register</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Nav Item - Contraer menú de Reportes -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReportes"
+                    aria-expanded="true" aria-controls="collapseReportes">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Reportes</span>
+                </a>
+                <div id="collapseReportes" class="collapse" aria-labelledby="headingPages"
+                    data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de ventas</a>
+                        <a class="collapse-item" href="../reportes/reportesDeVentas.html">Reportes de algo</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+
+
+
+
+
+
+        </ul>
+        <!-- Fin de la Sidebar -->
+
+
+        <!-- Contenido del Dashboard -->
+      
+        
+            <div class="container-fluid mt-5" style="max-width:1900px; width: 100%;">
+                <nav class="navbar navbar-expand navbar-light bg-red topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+        
+                    <!-- Texto dentro de la barra -->
+                    <span class="navbar-title">
+                        Cinema Premier
+                    </span>
+                </nav>
+                    <h3 class="mb-3 text-primary text-center">Gestión de Clientes</h3>
+        
+                    <!-- Primera Fila -->
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="clientName" class="form-label">Nombre</label>
+                            <input type="text" class="form-control shadow-sm" id="clientName" placeholder="Nombre">
+                        </div>
+        
+                        <div class="col-md-4">
+                            <label for="clientNamelastnameFa" class="form-label">Apellido Paterno</label>
+                            <input type="text" class="form-control shadow-sm" id="clientNamelastnameFa" placeholder="Apellido Paterno">
+                        </div>
+        
+                        <div class="col-md-4">
+                            <label for="clientelastnameMo" class="form-label">Apellido Materno</label>
+                            <input type="text" class="form-control shadow-sm" id="clientelastnameMo" placeholder="Apellido Materno">
+                        </div>
+                    </div>
+        
+                    <br>
+        
+                    <!-- Segunda Fila -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="exampleInputEmail1" class="form-label">Correo</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" required title="Por favor, ingrese un correo válido con '@'."
+                                placeholder="example@example.com">
+                            <span id="emailError" class="text-danger" style="display: none;">Por favor, ingrese un correo válido que contenga '@'.</span>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control shadow-sm" id="inputPassword" placeholder="Contraseña">
+                        </div>
+                    </div>
+        
+                    <br>
+        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="inputAddress" class="form-label">Calle</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress" placeholder="San pedritro #1083">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="inputAddress2" class="form-label">Colonia</label>
+                            <input type="text" class="form-control shadow-sm" id="inputAddress2" placeholder="Colonia">
+                        </div>
+                    </div>
+        
+                    <br>
+                    <div class="col-12 text-center">
+                        <button type="button" class="btn btn-primary px-4 py-2 shadow-sm" id="registrarCliente">Registrar Cliente</button>
+                    </div>
+                    <div style="background-color: transparent;" id="messageContainer" class=" mt-3"></div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                          <h6 class="m-0 font-weight-bold text-primary">Gestión de cliente</h6>
+                        </div>
+                        <div class="card-body">
+                          <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTableClient" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>Nombre</th>
+                                  <th>Correo</th>
+                                  <th>Calle</th>
+                                  <th>Colonia</th>
+                                </tr>
+                              </thead>
+                              <tbody id="tableData"></tbody> </table>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+            
+            <script src="../../vendor/jquery/jquery.min.js"></script>
+            <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- Core plugin JavaScript -->
+            <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
+            <!-- Custom scripts for all pages -->
+            <script src="js/sb-admin-2.min.js"></script>
+            <!-- Page level plugins -->
+            <script src="../../vendor/chart.js/Chart.min.js"></script>
+            <script src="../../vendor/datatables/jquery.dataTables.min.js"></script>
+            <script src="../../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+            <!-- Page level custom scripts -->
+            <script src="../../js/demo/chart-area-demo.js"></script>
+            <script src="../../js/demo/chart-pie-demo.js"></script>
+            <script src="../../js/demo/datatables-demo.js"></script>
+            <!-- Additional external scripts -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
+            <script src="../../js/scripts.js"></script>
+            <script src="../js/gestionClientesJs/JSGestion_clientes.js"></script>
+            <script src="../../js/demo/datatables-demo.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        
+
+</body>
+
+</html>
+<script>
+document.querySelector("#exampleInputEmail1").addEventListener("input", function () {
+    const emailInput = document.querySelector("#exampleInputEmail1");
+    const emailError = document.querySelector("#emailError");
+
+    // Verificar si el correo es válido
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (emailInput.value === "" || !emailPattern.test(emailInput.value)) {
+        emailError.style.display = "block"; // Mostrar el mensaje de error
+    } else {
+        emailError.style.display = "none"; // Ocultar el mensaje de error
+    }
+});
+
+document.getElementById("registrarCliente").addEventListener("click", function(event) {
+    event.preventDefault(); 
+
+        // Obtener los valores de los campos
+        const nombre = document.getElementById('clientName').value;
+        const apPaterno = document.getElementById('clientNamelastnameFa').value;
+        const apMaterno = document.getElementById('clientelastnameMo').value;
+        const correo = document.getElementById('exampleInputEmail1').value;
+        const contrasena = document.getElementById('inputPassword').value;
+        const calle = document.getElementById('inputAddress').value;
+        const colonia = document.getElementById('inputAddress2').value;
+
+        
+        // Crear el objeto con los datos
+        const clienteData = {
+            nombre,
+            ap_paterno: apPaterno,
+            ap_materno: apMaterno,
+            correo,
+            contrasena,
+            calle,
+            colonia
+        };
+
+        // Validación de campos vacíos
+        let errorMessage = "";
+
+    // Revisamos si algún campo está vacío y asignamos el mensaje de error correspondiente
+    for (let key in clienteData) {
+        if (clienteData[key] === "") {
+            errorMessage = "Todos los campos son obligatorios.";
+            break; // Si se encuentra un campo vacío, salimos del ciclo
+        }
+    }
+
+// Si hay un error, mostramos el mensaje de error
+if (errorMessage !== "") {
+    const messageContainer = document.getElementById("messageContainer");
+    messageContainer.innerHTML = `
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            ${errorMessage}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `;
+    return; // Si hay un error, detenemos la ejecución y no enviamos el formulario
+}
+
+        // Hacer la solicitud a la API registro
+        fetch('http://162.214.153.239:5010/api/clientes/save_clients', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(clienteData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            const messageContainer = document.getElementById("messageContainer");
+        
+            if (data.message) {
+                // Mostrar mensaje de éxito
+                messageContainer.innerHTML = `
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        Cliente registrado exitosamente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+                setTimeout(function() {
+                    location.reload(); // Recarga la página
+                }, 3000);
+            }
+        })
+        .catch(error => {
+            const messageContainer = document.getElementById("messageContainer");
+        
+                // Mostrar mensaje de error
+                messageContainer.innerHTML = `
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        Ocurrió un error al registrar el cliente.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+            console.error('Error al registrar cliente:', error);
+        });
+    });
+
+    async function cargarDatos() {
+        try {
+            const response = await fetch('http://162.214.153.239:5010/api/clientes/get_clients');
+            const data = await response.json();
+
+            // Obtener una referencia a la tabla (asegúrate de que el ID sea correcto)
+            const tabla = document.getElementById('dataTableClient');
+            const tbody = tabla.querySelector('tbody');
+
+            // Limpiar la tabla si tiene datos anteriores
+            tbody.innerHTML = '';
+
+            // Crear filas y celdas
+            data.forEach(cliente => {
+            const fila = document.createElement('tr');
+            const celdaNombre = document.createElement('td');
+            const celdaCorreo = document.createElement('td');
+            const celdaCalle = document.createElement('td');
+            const celdaColonia = document.createElement('td');
+            
+
+            celdaNombre.textContent = cliente.nombre;
+            celdaCorreo.textContent = cliente.correo;
+            celdaCalle.textContent = cliente.calle;
+            celdaColonia.textContent = cliente.colonia;
+            // ...
+
+            fila.appendChild(celdaNombre);
+            fila.appendChild(celdaCorreo);
+            fila.appendChild(celdaCalle);
+            fila.appendChild(celdaColonia);
+            // ...
+
+            tbody.appendChild(fila);
+            });
+        } catch (error) {
+            console.log('Error al cargar los datos:', error);
+        }
+    }
+
+    // Llamar a la función cuando la página se haya cargado completamente
+    window.onload = cargarDatos;
+   
+    
+</script>
