@@ -522,7 +522,7 @@
 
             const generarTablaConfiguradas = function (data) {
 
-                
+
 
                 const funcionesFiltradas = funciones.filter(funcion => 
                     funcion.status === 1 // Filtrar solo las funciones con status 1
@@ -559,7 +559,7 @@
                                 <td>${funcion.horaInicio}</td>
                                 <td>${funcion.horaFin}</td>
                                 <td>${sala.name}</td> <!-- Mostrar el nombre de la sala -->
-                                <td><button type="button" class="btn btn-primary" onclick="setearFuncion(${funcion.id})">Configurar Funcion</button></td>
+                            
                             </tr>`;
                 });
 
