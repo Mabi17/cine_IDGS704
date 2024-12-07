@@ -136,12 +136,20 @@
                 <div id="collapseEmpleados" class="collapse" aria-labelledby="headingEmpleados"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionEmpleados.html">Gestión de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionEmpleados.html">Gestión de
                             empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/gestionRoles.html">Gestión de roles de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/gestionRoles.html">Gestión de roles de
                             <br>empleados</a>
-                        <a class="collapse-item" href="../gestionDeEmpleados/controlAsistencia.html">Control de
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistencia.html">Control de
                             asistencia<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistenciaLlegada.html">Control
+                            de
+                            asistencia Llegada<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/controlAsistenciaSalida.html">Control de
+                            asistencia Salida<br>de empleados</a>
+                        <a class="collapse-item" href="../../pages/gestionDeEmpleados/horariosEmpleados.html">Horarios<br>de
+                            empleados</a>
+
                     </div>
                 </div>
             </li>
@@ -232,12 +240,6 @@
 
 
 
-
-
-
-
-
-
         </ul>
         <!-- Fin de la Sidebar -->
         <!-- Contenido del Dashboard -->
@@ -260,36 +262,33 @@
 
 
 
-
-                <!-- Contenedor dentro de la página -->
-                <!-- Begin Page Content -->
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-
-                    <!-- Page Heading -->
-
-                    <div class="container">
-                        <h1>Validación de Boletos</h1>
-                        <form id="validacion-form">
+                <div class="container-fluid mt-5">
+                    <form class="row g-4">
+                        <h3 class="mb-3 text-primary text-center">Control de Asistencia de Empleados</h3>
+                    </form>
+                    <div class="container mt-4">
+                        <h3 class="text-primary text-center mb-4"><i class="bi bi-person-vcard"></i> Registro de
+                            Asistencia <i class="bi bi-person-vcard"></i></h3>
+                        <form id="formAsistenciaLlegada">
                             <div class="form-group">
-                                <label for="codigo-boleto">Código del Boleto</label>
-                                <input type="text" id="codigo-boleto" name="codigo-boleto"
-                                    placeholder="Ingrese el código del boleto">
+                                <label for="idEmpleado"><i class="bi bi-person-vcard"></i> ID de Empleado:</label>
+                                <input type="text" id="idEmpleado" class="form-control"
+                                    placeholder="Ingrese el ID de empleado" required>
                             </div>
-                            <br>
-
-                            <button type="button" class="submit-btn">Validar Boleto</button>
+                            <div class="form-group">
+                                <label for="fecha"><i class="bi bi-calendar-date"></i> Fecha:</label>
+                                <input type="date" id="fecha" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="horaEntrada"><i class="bi bi-clock"></i> Hora de Llegada:</label>
+                                <input type="time" id="horaEntrada" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">Registrar Asistencia</button>
                         </form>
-                        <div id="message" class="message"></div>
                     </div>
 
-                    <!-- /.container-fluid -->
-                    <!-- Fin del contenedor -->
-
-
-
                 </div>
-                <!-- Fin del contenido principal -->
+
 
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
@@ -299,17 +298,38 @@
                         </div>
                     </div>
                 </footer>
-                <!-- Fin del Footer -->
+                <!-- fin del Footer -->
 
             </div>
-            <!-- Fin del contenido -->
+            <!-- End of Content Wrapper -->
 
         </div>
         <!-- End of Page Wrapper -->
 
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-
-
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="../../index.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Bootstrap core JavaScript-->
         <script src="../../vendor/jquery/jquery.min.js"></script>
@@ -327,7 +347,7 @@
         <!-- Page level custom scripts -->
         <script src="../../js/demo/chart-area-demo.js"></script>
         <script src="../../js/demo/chart-pie-demo.js"></script>
-        <script src="../../js/Controladores/validarBoletos.js"></script>
+        <script src="../js/gestionEmpleadosJs/controlAsistenciaEmpleadoLlegada.js"></script>
 
 </body>
 

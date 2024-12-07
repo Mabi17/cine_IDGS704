@@ -271,121 +271,180 @@
                     </span>
                 </nav>
 
-
-
-                <!-- Gestión de Empleados -->
+                <!-- Horarios de Empleados -->
                 <!-- Begin Page Content -->
                 <div class="container-fluid mt-5">
-                    <form class="row g-4">
-                        <h3 class="mb-3 text-primary text-center">Gestión de Empleados</h3>
-                    </form>
+                    <!-- campo para el id del encabezado -->
+                    <input hidden="number" id="id_horario_encb" />
 
-                    <!-- Primera Fila -->
+                    <!-- Vista para listar horarios -->
+                    <div id="vista_horarios">
+                        <form class="row g-4">
+                            <h3 class="mb-3 text-primary text-center">Listado de horarios de empleados</h3>
+                        </form>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label for="employeeName" class="form-label">Nombre</label>
-                            <input type="text" class="form-control shadow-sm" id="employeeName" placeholder="Nombre ">
+                        <br>
+
+                        <!-- Tabla de listado de horarios -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Listado de horarios de empleados</h6>
+                            </div>
+                            <div class="card-body">
+                                <!-- Botón agregar nuevos horarios -->
+                                <div class="col-12">
+                                    <button id="btnAgregarHorario" class="btn btn-primary px-4 py-2 shadow-sm">Registrar
+                                        horario</button>
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="tabla_horarios" width="100%"
+                                        cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Clave horario</th>
+                                                <th>Fecha de inicio</th>
+                                                <th>Fecha de fin</th>
+                                                <th>Acciones</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="col-md-4">
-                            <label for="employeeName" class="form-label">Apellido Paterno</label>
-                            <input type="text" class="form-control shadow-sm" id="employeeNamelastnameFa"
-                                placeholder="Apellido Paterno">
-                        </div>
-
-                        <div class="col-md-4">
-                            <label for="employeeName" class="form-label">Apellido Materno</label>
-                            <input type="text" class="form-control shadow-sm" id="employeelastnameMo"
-                                placeholder="Apellido Materno">
-                        </div>
-
                     </div>
 
-                    <br>
+                    <!-- Vista para crear nuevo horarios -->
+                    <div id="vista_nuevo_horario" style="display: none;">
 
-                    <!-- Segunda Fila -->
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Nuevo horario</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <label for="fecha_inicio" class="form-label">Fecha de inicio</label>
+                                            <input type="date" class="form-control shadow-sm" id="fecha_inicio"
+                                                placeholder="Fecha de inicio">
+                                        </div>
 
-                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <label for="fecha_fin" class="form-label">Fecha de fin</label>
+                                            <input type="date" disabled class="form-control shadow-sm" id="fecha_fin"
+                                                placeholder="Fecha de fin">
+                                        </div>
 
-                        <div class="col-md-6">
-                            <label for="inputAddress" class="form-label">Correo</label>
-                            <input type="text" class="form-control shadow-sm" id="inputcorreo"
-                                placeholder="example@gmail.com">
+                                        <!-- Botón agregar nuevos horarios -->
+                                        <div class="col-lg-2">
+                                            <button onclick="agregarHorario()" class="btn btn-success mt-4"
+                                                id="btn_agregar_nuevo_horario">Guardar</button>
+                                        </div>
+
+                                        <!-- Botón cancelar -->
+                                        <div class="col-lg-2">
+                                            <button id="btnCancelarAgregarHorario"
+                                                class="btn mt-4 btn-secondary">Cancelar</button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="tabla_horarios_agregar" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Rol</th>
+                                                    <th>Empleado</th>
+                                                    <th>Turno viernes</th>
+                                                    <th>Turno sábado</th>
+                                                    <th>Turno domingo</th>
+                                                    <th>Turno lunes</th>
+                                                    <th>Turno martes</th>
+                                                    <th>Turno miércoles</th>
+                                                    <th>Turno jueves</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="inputAddress2" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control shadow-sm" id="inputtelefono" maxlength="10"
-                                placeholder="4771234546">
-                            <br>
+                    </div>
+
+                    <!-- Vista para modificar horarios -->
+                    <div id="vista_modificar_horario" style="display: none;">
+                        <!-- Tabla para modificar/eliminar horarios -->
+                        <div>
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Modificar horario</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-lg-4 col-md-6">
+                                            <label for="fecha_inicio_actualizar" class="form-label">Fecha de
+                                                inicio</label>
+                                            <input type="date" class="form-control shadow-sm"
+                                                id="fecha_inicio_actualizar" placeholder="Fecha de inicio">
+                                        </div>
+
+                                        <div class=" col-lg-4 col-md-6">
+                                            <label for="fecha_fin_actualizar" class="form-label">Fecha de fin</label>
+                                            <input type="date" disabled class="form-control shadow-sm"
+                                                id="fecha_fin_actualizar" placeholder="Fecha de fin">
+                                        </div>
+
+                                        <!-- Botón agregar nuevos horarios -->
+                                        <div class="col-lg-2">
+                                            <button onclick="actualizarHorario()" class="btn btn-success mt-4"
+                                                id="btn_actualizar_horario">Guardar</button>
+                                        </div>
+
+                                        <!-- Botón cancelar -->
+                                        <div class="col-lg-2">
+                                            <button id="btnCancelarActualizarHorario"
+                                                class="btn mt-4 btn-secondary">Cancelar</button>
+                                        </div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="tabla_horarios_actualizar" width="100%"
+                                            cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Rol</th>
+                                                    <th>Empleado</th>
+                                                    <th>Turno viernes</th>
+                                                    <th>Turno sábado</th>
+                                                    <th>Turno domingo</th>
+                                                    <th>Turno lunes</th>
+                                                    <th>Turno martes</th>
+                                                    <th>Turno miércoles</th>
+                                                    <th>Turno jueves</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <label for="inputAddress2" class="form-label">RFC</label>
-                            <input type="text" class="form-control shadow-sm" id="inputrfc" maxlength="12"
-                                placeholder="ZARC031218IM5">
-                        </div>
-
                     </div>
-                    <br>
-                    <!-- Dropdown de roles -->
-                    <!-- Dropdown actualizado para roles -->
-                    <div class="form-group">
-                        <label for="rolesDropdown" class="form-label">Rol</label>
-                        <select class="form-control shadow-sm" id="rolesDropdown">
-                            <option value="">Seleccionar Rol</option>
-                        </select>
-                    </div>
-
-
-
-                    <br>
-                    <div class="col-12 text-center">
-                        <button type="button" class="btn btn-warning px-4 py-2 shadow-sm" id="editarEmpleado"
-                            style="display: none;">Guardar Cambios</button>
-                    </div>
-                    <br>
-                    <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary px-4 py-2 shadow-sm"
-                            id="registrarEmpleado">Registrar Empleado</button>
-                    </div>
-
-
-
                     </form>
                 </div>
-                <div class="col-md-4">
-                </div>
+
 
                 <!-- Fin del contenedor -->
                 <br>
-                <!-- Gestión de Empleados -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Gestión de Empleados</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nombre</th>
-                                        <th>Rol</th>
-                                        <th>RFC</th>
-                                        <th>Estado</th>
-                                        <th>Fecha de Inicio</th>
-                                        <th>Acciones</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-
             </div>
             <!-- Fin del contenido principal -->
 
@@ -432,248 +491,17 @@
         </div>
     </div>
 
-    <script>
-        const BASE_URL = 'https://crud-empleado-cine.azurewebsites.net/api';
-
-        const EmployeeService = {
-            async getRoles() {
-                try {
-                    const response = await fetch(`${BASE_URL}/roles`);
-                    if (!response.ok) throw new Error('Error al obtener roles del servidor.');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error al obtener roles:', error);
-                    alert('No se pudieron cargar los roles. Verifica tu conexión.');
-                    throw error;
-                }
-            },
-            async getAllEmployees() {
-                try {
-                    const response = await fetch(`${BASE_URL}/empleados/completo`);
-                    if (!response.ok) throw new Error('Error al obtener empleados.');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error al obtener empleados:', error);
-                    throw error;
-                }
-            },
-            async getEmployeeById(employeeId) {
-                try {
-                    const response = await fetch(`${BASE_URL}/empleados/${employeeId}`);
-                    if (!response.ok) throw new Error('Error al obtener detalles del empleado.');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error al obtener detalles del empleado:', error);
-                    throw error;
-                }
-            },
-            async createEmployee(employeeData) {
-                try {
-                    const response = await fetch(`${BASE_URL}/empleados`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(employeeData),
-                    });
-                    if (!response.ok) throw new Error('Error al registrar empleado.');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error al registrar empleado:', error);
-                    throw error;
-                }
-            },
-            async updateEmployee(employeeId, employeeData) {
-                try {
-                    const response = await fetch(`${BASE_URL}/empleados/${employeeId}`, {
-                        method: 'PUT',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(employeeData),
-                    });
-                    if (!response.ok) throw new Error('Error al actualizar empleado.');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error al actualizar empleado:', error);
-                    throw error;
-                }
-            },
-            async deleteEmployee(employeeId) {
-                try {
-                    const response = await fetch(`${BASE_URL}/empleados/${employeeId}`, {
-                        method: 'DELETE',
-                    });
-                    if (!response.ok) throw new Error('Error al eliminar empleado.');
-                    return await response.json();
-                } catch (error) {
-                    console.error('Error al eliminar empleado:', error);
-                    throw error;
-                }
-            },
-        };
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            const rolesDropdown = document.getElementById('rolesDropdown');
-            const tableBody = document.querySelector('#dataTable tbody');
-            const registerEmployeeBtn = document.getElementById('registrarEmpleado');
-            const editEmployeeBtn = document.getElementById('editarEmpleado');
-            let selectedEmployeeId = null;
-
-            const showLoading = () => console.log('Cargando...');
-            const hideLoading = () => console.log('Carga finalizada.');
-
-            try {
-                showLoading();
-                const roles = await EmployeeService.getRoles();
-                rolesDropdown.innerHTML = '<option value="">Seleccionar Rol</option>';
-                roles.forEach((role) => {
-                    const option = document.createElement('option');
-                    option.value = role.id;
-                    option.textContent = role.nombreRol;
-                    rolesDropdown.appendChild(option);
-                });
-                hideLoading();
-            } catch (error) {
-                console.error('Error al cargar roles:', error);
-                alert('No se pudieron cargar los roles.');
-                hideLoading();
-            }
-
-            try {
-                showLoading();
-                const employees = await EmployeeService.getAllEmployees();
-                tableBody.innerHTML = '';
-                employees.forEach((emp) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${emp.idEmpleado}</td>
-                        <td>${emp.nombre} ${emp.apellido}</td>
-                        <td>${emp.rol.nombreRol}</td>
-                        <td>${emp.rfc}</td>
-                        <td>${emp.activo ? 'Activo' : 'Inactivo'}</td>
-                        <td>${emp.fechaInicio}</td>
-                        <td>
-                            <button class="btn btn-sm btn-info edit-btn" data-id="${emp.idEmpleado}">Editar</button>
-                            <button class="btn btn-sm btn-danger delete-btn" data-id="${emp.idEmpleado}">Eliminar</button>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
-
-                    row.querySelector('.edit-btn').addEventListener('click', async () => {
-                        const employee = await EmployeeService.getEmployeeById(emp.idEmpleado);
-                        selectedEmployeeId = emp.idEmpleado;
-
-                        const [apellidoPaterno, ...resto] = (employee.apellido || '').split(' ');
-                        const apellidoMaterno = resto.join(' ');
-
-                        document.getElementById('employeeName').value = employee.nombre || '';
-                        document.getElementById('employeeNamelastnameFa').value = apellidoPaterno || '';
-                        document.getElementById('employeelastnameMo').value = apellidoMaterno || '';
-                        document.getElementById('inputcorreo').value = employee.correo || '';
-                        document.getElementById('inputtelefono').value = employee.telefono || '';
-                        document.getElementById('inputrfc').value = employee.rfc || '';
-                        rolesDropdown.value = employee.rol?.id || '';
-
-                        editEmployeeBtn.style.display = 'inline-block';
-                    });
-
-                    row.querySelector('.delete-btn').addEventListener('click', async () => {
-                        if (confirm('¿Estás seguro de eliminar este empleado?')) {
-                            await EmployeeService.deleteEmployee(emp.idEmpleado);
-                            row.remove();
-                        }
-                    });
-                });
-                hideLoading();
-            } catch (error) {
-                console.error('Error al cargar empleados:', error);
-                hideLoading();
-            }
-
-            registerEmployeeBtn.addEventListener('click', async (e) => {
-                e.preventDefault();
-                const nombre = document.getElementById('employeeName').value;
-                const apellidoPaterno = document.getElementById('employeeNamelastnameFa').value;
-                const apellidoMaterno = document.getElementById('employeelastnameMo').value;
-                const correo = document.getElementById('inputcorreo').value;
-                const telefono = document.getElementById('inputtelefono').value;
-                const rfc = document.getElementById('inputrfc').value;
-                const rolId = rolesDropdown.value;
-
-                if (!nombre || !apellidoPaterno || !correo || !telefono || !rolId || !rfc) {
-                    alert('Por favor, completa todos los campos.');
-                    return;
-                }
-
-                const newEmployee = {
-                    nombre,
-                    apellido: apellidoPaterno,
-                    correo,
-                    telefono,
-                    rfc,
-                    rol: { id: parseInt(rolId) },
-                };
-
-                try {
-                    const response = await EmployeeService.createEmployee(newEmployee);
-                    console.log('Respuesta de la API:', response);
-
-                    if (response && response.error) {
-                        alert(`Error al registrar empleado: ${response.error}`);
-                    } else {
-                        alert('Empleado registrado exitosamente.');
-                        location.reload();
-                    }
-                } catch (error) {
-                    console.error('Error al registrar empleado:', error);
-                    alert('Ocurrió un error al registrar el empleado. Por favor, inténtalo nuevamente.');
-                }
-            });
-
-            editEmployeeBtn.addEventListener('click', async () => {
-                if (!selectedEmployeeId) return;
-
-                const nombre = document.getElementById('employeeName').value;
-                const apellidoPaterno = document.getElementById('employeeNamelastnameFa').value;
-                const apellidoMaterno = document.getElementById('employeelastnameMo').value;
-                const correo = document.getElementById('inputcorreo').value;
-                const telefono = document.getElementById('inputtelefono').value;
-                const rfc = document.getElementById('inputrfc').value;
-                const rolId = rolesDropdown.value;
-
-                if (!nombre || !apellidoPaterno || !correo || !telefono || !rolId || !rfc) {
-                    alert('Por favor, completa todos los campos.');
-                    return;
-                }
-
-                try {
-                    const updatedEmployee = {
-                        nombre,
-                        apellido: `${apellidoPaterno} ${apellidoMaterno}`,
-                        correo,
-                        telefono,
-                        rfc,
-                        rol: { id: parseInt(rolId) },
-                    };
-
-                    await EmployeeService.updateEmployee(selectedEmployeeId, updatedEmployee);
-                    alert('Empleado actualizado exitosamente.');
-                    location.reload();
-                } catch (error) {
-                    console.error('Error al actualizar empleado:', error);
-                    alert('Ocurrió un error al actualizar el empleado.');
-                }
-            });
-        });
-    </script>
-
-
     <!-- Bootstrap core JavaScript-->
     <script src="../../vendor/jquery/jquery.min.js"></script>
     <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Core plugin JavaScript-->
     <script src="../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="../../js/sb-admin-2.min.js"></script>
+    <script src="../js/gestionEmpleadosJs/horariosEmpleados.js"></script>
 
     <!-- Page level plugins -->
     <script src="../../vendor/chart.js/Chart.min.js"></script>
